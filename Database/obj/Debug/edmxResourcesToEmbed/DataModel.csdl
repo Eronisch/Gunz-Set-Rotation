@@ -1,0 +1,3080 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GunzDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AbuseList">
+    <Key>
+      <PropertyRef Name="Word" />
+    </Key>
+    <Property Name="Word" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="AID" />
+    </Key>
+    <Property Name="AID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UGradeID" Type="Int32" Nullable="false" />
+    <Property Name="PGradeID" Type="Int32" Nullable="false" />
+    <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RegNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Age" Type="Int16" />
+    <Property Name="Sex" Type="Byte" />
+    <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastCID" Type="Int32" />
+    <Property Name="Cert" Type="Byte" />
+    <Property Name="Question" Type="Int16" />
+    <Property Name="Answer" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="EndblockDate" Type="DateTime" Precision="0" />
+    <Property Name="LastLoginTime" Type="DateTime" Precision="0" />
+    <Property Name="LastLogoutTime" Type="DateTime" Precision="0" />
+    <Property Name="ServerID" Type="Int32" />
+    <Property Name="BlockType" Type="Byte" />
+    <Property Name="HackingType" Type="Byte" />
+    <Property Name="HackingRegTime" Type="DateTime" Precision="0" />
+    <Property Name="EndHackingBlockTime" Type="DateTime" Precision="0" />
+    <Property Name="IsPowerLevelingHacker" Type="Byte" />
+    <Property Name="PowerLevelingRegDate" Type="DateTime" Precision="3" />
+    <Property Name="DonationCoins" Type="Int32" Nullable="false" />
+    <Property Name="EventCoins" Type="Int32" Nullable="false" />
+    <Property Name="AvatarUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PasswordResetCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PasswordResetDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="BringAccountItemLogs" Relationship="Self.Account_BringAccountItemLog_FK1" FromRole="Account" ToRole="BringAccountItemLog" />
+    <NavigationProperty Name="CashItemPresentLogs" Relationship="Self.Account_CashItemPresentLog_FK1" FromRole="Account" ToRole="CashItemPresentLog" />
+    <NavigationProperty Name="Characters" Relationship="Self.Account_Character_FK1" FromRole="Account" ToRole="Character" />
+    <NavigationProperty Name="ItemPurchaseLogByCashes" Relationship="Self.Account_PurchaseLogByCash_FK1" FromRole="Account" ToRole="ItemPurchaseLogByCash" />
+    <NavigationProperty Name="SetItemPurchaseLogByCashes" Relationship="Self.Account_SetItemPurchaseLogByCash_FK1" FromRole="Account" ToRole="SetItemPurchaseLogByCash" />
+    <NavigationProperty Name="AccountItems" Relationship="Self.Account_Table1_FK1" FromRole="Account" ToRole="AccountItem" />
+    <NavigationProperty Name="AccountPenaltyGMLogs" Relationship="Self.AccountPenaltyGMLog_Account_FK" FromRole="Account" ToRole="AccountPenaltyGMLog" />
+    <NavigationProperty Name="AccountPenaltyLogs" Relationship="Self.AccountPenaltyLog_Account_FK" FromRole="Account" ToRole="AccountPenaltyLog" />
+    <NavigationProperty Name="AccountPenaltyPeriods" Relationship="Self.AccountPenaltyPeriod_Account_FK1" FromRole="Account" ToRole="AccountPenaltyPeriod" />
+    <NavigationProperty Name="AccountMobileLoginTokens" Relationship="Self.FK_AccountMobileLoginToken_Account" FromRole="Account" ToRole="AccountMobileLoginToken" />
+    <NavigationProperty Name="CharacterComments" Relationship="Self.FK_CharacterComment_Account" FromRole="Account" ToRole="CharacterComment" />
+    <NavigationProperty Name="ClanComments" Relationship="Self.FK_ClanComment_Account" FromRole="Account" ToRole="ClanComment" />
+    <NavigationProperty Name="DonateShopLogs" Relationship="Self.FK_DonateShopLog_Account" FromRole="Account" ToRole="DonateShopLog" />
+    <NavigationProperty Name="EventAccount" Relationship="Self.FK_EventAccount_AID" FromRole="Account" ToRole="EventAccount" />
+    <NavigationProperty Name="MobileChatContacts" Relationship="Self.FK_MobileChatContact_Account" FromRole="Account" ToRole="MobileChatContact" />
+    <NavigationProperty Name="PremiumGrade" Relationship="Self.PremiumGrade_Account_FK1" FromRole="Account" ToRole="PremiumGrade" />
+    <NavigationProperty Name="UserGrade" Relationship="Self.UserGrade_Account_FK1" FromRole="Account" ToRole="UserGrade" />
+  </EntityType>
+  <EntityType Name="AccountItem">
+    <Key>
+      <PropertyRef Name="AIID" />
+    </Key>
+    <Property Name="AIID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AID" Type="Int32" Nullable="false" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="RentDate" Type="DateTime" Precision="3" />
+    <Property Name="RentHourPeriod" Type="Int16" />
+    <Property Name="Cnt" Type="Int16" />
+    <NavigationProperty Name="Account" Relationship="Self.Account_Table1_FK1" FromRole="AccountItem" ToRole="Account" />
+  </EntityType>
+  <EntityType Name="AccountMobileLoginToken">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Aid" Type="Int32" Nullable="false" />
+    <Property Name="Selector" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Token" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ExpireDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Account" Relationship="Self.FK_AccountMobileLoginToken_Account" FromRole="AccountMobileLoginToken" ToRole="Account" />
+  </EntityType>
+  <EntityType Name="AccountPenaltyCode">
+    <Key>
+      <PropertyRef Name="PCode" />
+    </Key>
+    <Property Name="PCode" Type="Byte" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AccountPenaltyGMLog">
+    <Key>
+      <PropertyRef Name="AID" />
+      <PropertyRef Name="PEndDate" />
+      <PropertyRef Name="PCode" />
+      <PropertyRef Name="PLogID" />
+    </Key>
+    <Property Name="AID" Type="Int32" Nullable="false" />
+    <Property Name="PEndDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PCode" Type="Int32" Nullable="false" />
+    <Property Name="PLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Set_GM_TypeID" Type="Byte" Nullable="false" />
+    <Property Name="Set_GM_ID" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Set_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Reset_GM_TypeID" Type="Byte" />
+    <Property Name="Reset_GM_ID" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="Reset_Date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Account" Relationship="Self.AccountPenaltyGMLog_Account_FK" FromRole="AccountPenaltyGMLog" ToRole="Account" />
+    <NavigationProperty Name="AccountPenaltyGMType" Relationship="Self.AccountPenaltyGMLog_AccountPenaltyGMType_FK" FromRole="AccountPenaltyGMLog" ToRole="AccountPenaltyGMType" />
+    <NavigationProperty Name="AccountPenaltyGMType1" Relationship="Self.AccountPenaltyGMLog_AccountPenaltyGMType_FK2" FromRole="AccountPenaltyGMLog" ToRole="AccountPenaltyGMType" />
+  </EntityType>
+  <EntityType Name="AccountPenaltyGMType">
+    <Key>
+      <PropertyRef Name="GM_TypeID" />
+    </Key>
+    <Property Name="GM_TypeID" Type="Byte" Nullable="false" />
+    <Property Name="GM_TypeName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="AccountPenaltyGMLogs" Relationship="Self.AccountPenaltyGMLog_AccountPenaltyGMType_FK" FromRole="AccountPenaltyGMType" ToRole="AccountPenaltyGMLog" />
+    <NavigationProperty Name="AccountPenaltyGMLogs1" Relationship="Self.AccountPenaltyGMLog_AccountPenaltyGMType_FK2" FromRole="AccountPenaltyGMType" ToRole="AccountPenaltyGMLog" />
+  </EntityType>
+  <EntityType Name="AccountPenaltyLog">
+    <Key>
+      <PropertyRef Name="PenaltyLogID" />
+    </Key>
+    <Property Name="PenaltyLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AID" Type="Int32" />
+    <Property Name="UGradeID" Type="Int32" />
+    <Property Name="DayLeft" Type="Int32" />
+    <Property Name="RegDate" Type="DateTime" Precision="0" />
+    <Property Name="GMID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Account" Relationship="Self.AccountPenaltyLog_Account_FK" FromRole="AccountPenaltyLog" ToRole="Account" />
+  </EntityType>
+  <EntityType Name="AccountPenaltyPeriod">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AID" Type="Int32" Nullable="false" />
+    <Property Name="DayLeft" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Account" Relationship="Self.AccountPenaltyPeriod_Account_FK1" FromRole="AccountPenaltyPeriod" ToRole="Account" />
+  </EntityType>
+  <EntityType Name="BattleTimeRewardDescription">
+    <Key>
+      <PropertyRef Name="BRID" />
+    </Key>
+    <Property Name="BRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StartHour" Type="Byte" />
+    <Property Name="EndHour" Type="Byte" />
+    <Property Name="RewardMinutePeriod" Type="Int32" Nullable="false" />
+    <Property Name="RewardCount" Type="Byte" Nullable="false" />
+    <Property Name="RewardKillCount" Type="Byte" Nullable="false" />
+    <Property Name="ResetCode" Type="String" MaxLength="7" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ResetDesc" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="IsOpen" Type="Byte" />
+    <NavigationProperty Name="BattleTimeRewardItemLists" Relationship="Self.FK_BattleTimeRewardItemList_BRID" FromRole="BattleTimeRewardDescription" ToRole="BattleTimeRewardItemList" />
+    <NavigationProperty Name="BattleTimeRewardTerms" Relationship="Self.FK_BattleTimeRewardTerm_BRID" FromRole="BattleTimeRewardDescription" ToRole="BattleTimeRewardTerm" />
+    <NavigationProperty Name="CharacterBattleTimeRewardInfoes" Relationship="Self.FK_CharacterBattleTimeRewardInfo_BRID" FromRole="BattleTimeRewardDescription" ToRole="CharacterBattleTimeRewardInfo" />
+  </EntityType>
+  <EntityType Name="BattleTimeRewardItemList">
+    <Key>
+      <PropertyRef Name="BRIID" />
+    </Key>
+    <Property Name="BRIID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BRID" Type="Int32" Nullable="false" />
+    <Property Name="ItemIDMale" Type="Int32" Nullable="false" />
+    <Property Name="ItemIDFemale" Type="Int32" Nullable="false" />
+    <Property Name="RentHourPeriod" Type="Int32" />
+    <Property Name="ItemCnt" Type="Int32" />
+    <Property Name="RatePerThousand" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="BattleTimeRewardDescription" Relationship="Self.FK_BattleTimeRewardItemList_BRID" FromRole="BattleTimeRewardItemList" ToRole="BattleTimeRewardDescription" />
+  </EntityType>
+  <EntityType Name="BattleTimeRewardTerm">
+    <Key>
+      <PropertyRef Name="BRID" />
+      <PropertyRef Name="BRTID" />
+    </Key>
+    <Property Name="BRID" Type="Int32" Nullable="false" />
+    <Property Name="BRTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LastResetDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ClosedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="BattleTimeRewardDescription" Relationship="Self.FK_BattleTimeRewardTerm_BRID" FromRole="BattleTimeRewardTerm" ToRole="BattleTimeRewardDescription" />
+  </EntityType>
+  <EntityType Name="BillingMethod">
+    <Key>
+      <PropertyRef Name="BillingMethodID" />
+    </Key>
+    <Property Name="BillingMethodID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BlockCountryCode">
+    <Key>
+      <PropertyRef Name="CountryCode3" />
+    </Key>
+    <Property Name="CountryCode3" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="RoutingURL" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="IsBlock" Type="Byte" />
+  </EntityType>
+  <EntityType Name="BringAccountItemLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AID" Type="Int32" />
+    <Property Name="CID" Type="Int32" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Account" Relationship="Self.Account_BringAccountItemLog_FK1" FromRole="BringAccountItemLog" ToRole="Account" />
+    <NavigationProperty Name="Character" Relationship="Self.Character_BringAccountItemLog_FK1" FromRole="BringAccountItemLog" ToRole="Character" />
+  </EntityType>
+  <EntityType Name="CashItemPresentLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SenderUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ReceiverAID" Type="Int32" Nullable="false" />
+    <Property Name="CSID" Type="Int32" />
+    <Property Name="CSSID" Type="Int32" />
+    <Property Name="Cash" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RentHourPeriod" Type="Int32" />
+    <Property Name="MobileCode" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Account" Relationship="Self.Account_CashItemPresentLog_FK1" FromRole="CashItemPresentLog" ToRole="Account" />
+  </EntityType>
+  <EntityType Name="CashSetItem">
+    <Key>
+      <PropertyRef Name="CSIID" />
+    </Key>
+    <Property Name="CSIID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CSSID" Type="Int32" Nullable="false" />
+    <Property Name="CSID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CashSetShop" Relationship="Self.CashSetShop_CashSetItem_FK1" FromRole="CashSetItem" ToRole="CashSetShop" />
+    <NavigationProperty Name="CashShop" Relationship="Self.Item_CashSetItem_FK1" FromRole="CashSetItem" ToRole="CashShop" />
+  </EntityType>
+  <EntityType Name="CashSetShop">
+    <Key>
+      <PropertyRef Name="CSSID" />
+    </Key>
+    <Property Name="CSSID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="CashPrice" Type="Int32" Nullable="false" />
+    <Property Name="WebImgName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="NewItemOrder" Type="Byte" />
+    <Property Name="ResSex" Type="Byte" />
+    <Property Name="ResLevel" Type="Int32" />
+    <Property Name="Weight" Type="Int32" />
+    <Property Name="Opened" Type="Byte" />
+    <Property Name="RegDate" Type="DateTime" Precision="3" />
+    <Property Name="RentType" Type="Byte" />
+    <NavigationProperty Name="CashSetItems" Relationship="Self.CashSetShop_CashSetItem_FK1" FromRole="CashSetShop" ToRole="CashSetItem" />
+    <NavigationProperty Name="SetItemPurchaseLogByCashes" Relationship="Self.CashSetShop_SetItemPurchaseLogByCash_FK1" FromRole="CashSetShop" ToRole="SetItemPurchaseLogByCash" />
+    <NavigationProperty Name="RentCashSetShopPrices" Relationship="Self.FK__RentCashS__CSSID__47DBAE45" FromRole="CashSetShop" ToRole="RentCashSetShopPrice" />
+  </EntityType>
+  <EntityType Name="CashShop">
+    <Key>
+      <PropertyRef Name="CSID" />
+    </Key>
+    <Property Name="CSID" Type="Int32" Nullable="false" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="NewItemOrder" Type="Byte" />
+    <Property Name="CashPrice" Type="Int32" Nullable="false" />
+    <Property Name="WebImgName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Opened" Type="Byte" />
+    <Property Name="RegDate" Type="DateTime" Precision="3" />
+    <Property Name="RentType" Type="Byte" />
+    <NavigationProperty Name="CashSetItems" Relationship="Self.Item_CashSetItem_FK1" FromRole="CashShop" ToRole="CashSetItem" />
+    <NavigationProperty Name="RentCashShopPrices" Relationship="Self.FK__RentCashSh__CSID__4AB81AF0" FromRole="CashShop" ToRole="RentCashShopPrice" />
+  </EntityType>
+  <EntityType Name="CashShopNewItemCategory">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CashShopRank">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rank" Type="Int32" Nullable="false" />
+    <Property Name="Category" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+    <Property Name="CSID" Type="Int32" />
+    <Property Name="CSSID" Type="Int32" />
+    <Property Name="Slot" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ResSex" Type="Int32" Nullable="false" />
+    <Property Name="ResLevel" Type="Int32" Nullable="false" />
+    <Property Name="CashPrice" Type="Int32" Nullable="false" />
+    <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="CB_EventItem">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsUsed" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CB_EventItem_X">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsUsed" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Character">
+    <Key>
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="CID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Level" Type="Int16" Nullable="false" />
+    <Property Name="Sex" Type="Byte" Nullable="false" />
+    <Property Name="CharNum" Type="Int16" Nullable="false" />
+    <Property Name="Hair" Type="Byte" />
+    <Property Name="Face" Type="Byte" />
+    <Property Name="XP" Type="Int32" Nullable="false" />
+    <Property Name="BP" Type="Int32" Nullable="false" />
+    <Property Name="HP" Type="Int16" />
+    <Property Name="AP" Type="Int16" />
+    <Property Name="FR" Type="Int32" />
+    <Property Name="CR" Type="Int32" />
+    <Property Name="ER" Type="Int32" />
+    <Property Name="WR" Type="Int32" />
+    <Property Name="head_slot" Type="Int32" />
+    <Property Name="chest_slot" Type="Int32" />
+    <Property Name="hands_slot" Type="Int32" />
+    <Property Name="legs_slot" Type="Int32" />
+    <Property Name="feet_slot" Type="Int32" />
+    <Property Name="fingerl_slot" Type="Int32" />
+    <Property Name="fingerr_slot" Type="Int32" />
+    <Property Name="melee_slot" Type="Int32" />
+    <Property Name="primary_slot" Type="Int32" />
+    <Property Name="secondary_slot" Type="Int32" />
+    <Property Name="custom1_slot" Type="Int32" />
+    <Property Name="custom2_slot" Type="Int32" />
+    <Property Name="RegDate" Type="DateTime" Precision="3" />
+    <Property Name="LastTime" Type="DateTime" Precision="3" />
+    <Property Name="PlayTime" Type="Int32" />
+    <Property Name="GameCount" Type="Int32" />
+    <Property Name="KillCount" Type="Int32" />
+    <Property Name="DeathCount" Type="Int32" />
+    <Property Name="DeleteFlag" Type="Byte" />
+    <Property Name="DeleteName" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="head_itemid" Type="Int32" />
+    <Property Name="chest_itemid" Type="Int32" />
+    <Property Name="hands_itemid" Type="Int32" />
+    <Property Name="legs_itemid" Type="Int32" />
+    <Property Name="feet_itemid" Type="Int32" />
+    <Property Name="fingerl_itemid" Type="Int32" />
+    <Property Name="fingerr_itemid" Type="Int32" />
+    <Property Name="melee_itemid" Type="Int32" />
+    <Property Name="primary_itemid" Type="Int32" />
+    <Property Name="secondary_itemid" Type="Int32" />
+    <Property Name="custom1_itemid" Type="Int32" />
+    <Property Name="custom2_itemid" Type="Int32" />
+    <Property Name="QuestItemInfo" Type="Binary" MaxLength="292" FixedLength="true" />
+    <Property Name="nRedColor" Type="Int32" />
+    <Property Name="nGreenColor" Type="Int32" />
+    <Property Name="nBlueColor" Type="Int32" />
+    <Property Name="BPPlus" Type="Int32" />
+    <Property Name="HeaderUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AvatarUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="About" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Account" Relationship="Self.Account_Character_FK1" FromRole="Character" ToRole="Account" />
+    <NavigationProperty Name="BringAccountItemLogs" Relationship="Self.Character_BringAccountItemLog_FK1" FromRole="Character" ToRole="BringAccountItemLog" />
+    <NavigationProperty Name="CharacterItems" Relationship="Self.Character_CharacterItem_FK1" FromRole="Character" ToRole="CharacterItem" />
+    <NavigationProperty Name="Friends" Relationship="Self.Character_Friend_FK1" FromRole="Character" ToRole="Friend" />
+    <NavigationProperty Name="Friends1" Relationship="Self.Character_Friend_FK2" FromRole="Character" ToRole="Friend" />
+    <NavigationProperty Name="ItemPurchaseLogByBounties" Relationship="Self.Character_PurchaseItemByBountyHistory_FK20050314" FromRole="Character" ToRole="ItemPurchaseLogByBounty" />
+    <NavigationProperty Name="Clans" Relationship="Self.Clan_Character_FK1" FromRole="Character" ToRole="Clan" />
+    <NavigationProperty Name="ClanMembers" Relationship="Self.ClanMember_Clan_FK2" FromRole="Character" ToRole="ClanMember" />
+    <NavigationProperty Name="CharacterMgrLogByGMs" Relationship="Self.FK__CharacterMg__CID__5EAA0504" FromRole="Character" ToRole="CharacterMgrLogByGM" />
+    <NavigationProperty Name="CharacterComments" Relationship="Self.FK_CharacterComment_Character" FromRole="Character" ToRole="CharacterComment" />
+    <NavigationProperty Name="CharacterSkills" Relationship="Self.FK_CharacterSkill_Character" FromRole="Character" ToRole="CharacterSkill" />
+    <NavigationProperty Name="Event_Coliseum_Character_NHN" Relationship="Self.FK_Event_Coliseum_Character_NHN_Character" FromRole="Character" ToRole="Event_Coliseum_Character_NHN" />
+    <NavigationProperty Name="EventCharacters" Relationship="Self.FK_EventCharacter_CID" FromRole="Character" ToRole="EventCharacter" />
+  </EntityType>
+  <EntityType Name="CharacterBattleTimeRewardInfo">
+    <Key>
+      <PropertyRef Name="CID" />
+      <PropertyRef Name="BRID" />
+    </Key>
+    <Property Name="CID" Type="Int32" Nullable="false" />
+    <Property Name="BRID" Type="Int32" Nullable="false" />
+    <Property Name="BRTID" Type="Int32" Nullable="false" />
+    <Property Name="BattleTime" Type="Int32" />
+    <Property Name="RewardCount" Type="Int32" />
+    <Property Name="KillCount" Type="Int32" />
+    <Property Name="LastUpdatedTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="BattleTimeRewardDescription" Relationship="Self.FK_CharacterBattleTimeRewardInfo_BRID" FromRole="CharacterBattleTimeRewardInfo" ToRole="BattleTimeRewardDescription" />
+  </EntityType>
+  <EntityType Name="CharacterComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cid" Type="Int32" Nullable="false" />
+    <Property Name="AccountId" Type="Int32" Nullable="false" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Account" Relationship="Self.FK_CharacterComment_Account" FromRole="CharacterComment" ToRole="Account" />
+    <NavigationProperty Name="Character" Relationship="Self.FK_CharacterComment_Character" FromRole="CharacterComment" ToRole="Character" />
+  </EntityType>
+  <EntityType Name="CharacterEquipmentSlot">
+    <Key>
+      <PropertyRef Name="CID" />
+      <PropertyRef Name="SlotID" />
+    </Key>
+    <Property Name="CID" Type="Int32" Nullable="false" />
+    <Property Name="SlotID" Type="Int32" Nullable="false" />
+    <Property Name="CIID" Type="Int32" />
+    <Property Name="ItemID" Type="Int32" />
+    <NavigationProperty Name="CharacterEquipmentSlotCode" Relationship="Self.FK_CharacterEquipmentSlotCode_CharacterEquipmentSlot" FromRole="CharacterEquipmentSlot" ToRole="CharacterEquipmentSlotCode" />
+  </EntityType>
+  <EntityType Name="CharacterEquipmentSlotCode">
+    <Key>
+      <PropertyRef Name="SlotID" />
+    </Key>
+    <Property Name="SlotID" Type="Int32" Nullable="false" />
+    <Property Name="SlotType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CharacterEquipmentSlots" Relationship="Self.FK_CharacterEquipmentSlotCode_CharacterEquipmentSlot" FromRole="CharacterEquipmentSlotCode" ToRole="CharacterEquipmentSlot" />
+  </EntityType>
+  <EntityType Name="CharacterItem">
+    <Key>
+      <PropertyRef Name="CIID" />
+    </Key>
+    <Property Name="CIID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CID" Type="Int32" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="RegDate" Type="DateTime" Precision="3" />
+    <Property Name="RentDate" Type="DateTime" Precision="3" />
+    <Property Name="RentHourPeriod" Type="Int16" />
+    <Property Name="Cnt" Type="Int16" />
+    <NavigationProperty Name="Character" Relationship="Self.Character_CharacterItem_FK1" FromRole="CharacterItem" ToRole="Character" />
+  </EntityType>
+  <EntityType Name="CharacterMgrLogByGM">
+    <Key>
+      <PropertyRef Name="CharMgrLogID" />
+    </Key>
+    <Property Name="CharMgrLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CID" Type="Int32" />
+    <Property Name="CharName" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CharMgrTypeID" Type="Byte" />
+    <Property Name="GMID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NewName" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="OrgValue" Type="Int32" />
+    <Property Name="NewValue" Type="Int32" />
+    <Property Name="RegDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Character" Relationship="Self.FK__CharacterMg__CID__5EAA0504" FromRole="CharacterMgrLogByGM" ToRole="Character" />
+    <NavigationProperty Name="CharacterMgrType" Relationship="Self.FK__Character__CharM__5DB5E0CB" FromRole="CharacterMgrLogByGM" ToRole="CharacterMgrType" />
+  </EntityType>
+  <EntityType Name="CharacterMgrType">
+    <Key>
+      <PropertyRef Name="CharMgrTypeID" />
+    </Key>
+    <Property Name="CharMgrTypeID" Type="Byte" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CharacterMgrLogByGMs" Relationship="Self.FK__Character__CharM__5DB5E0CB" FromRole="CharacterMgrType" ToRole="CharacterMgrLogByGM" />
+  </EntityType>
+  <EntityType Name="CharacterSkill">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cid" Type="Int32" Nullable="false" />
+    <Property Name="Skill" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Character" Relationship="Self.FK_CharacterSkill_Character" FromRole="CharacterSkill" ToRole="Character" />
+  </EntityType>
+  <EntityType Name="Clan">
+    <Key>
+      <PropertyRef Name="CLID" />
+    </Key>
+    <Property Name="CLID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="Exp" Type="Int32" Nullable="false" />
+    <Property Name="Level" Type="Byte" Nullable="false" />
+    <Property Name="Point" Type="Int32" Nullable="false" />
+    <Property Name="MasterCID" Type="Int32" />
+    <Property Name="Wins" Type="Int32" Nullable="false" />
+    <Property Name="MarkWebImg" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
+    <Property Name="Introduction" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DeleteFlag" Type="Byte" />
+    <Property Name="DeleteName" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="Homepage" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Losses" Type="Int32" Nullable="false" />
+    <Property Name="Draws" Type="Int32" Nullable="false" />
+    <Property Name="Ranking" Type="Int32" Nullable="false" />
+    <Property Name="TotalPoint" Type="Int32" Nullable="false" />
+    <Property Name="Cafe_Url" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="EmblemUrl" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="RankIncrease" Type="Int32" Nullable="false" />
+    <Property Name="EmblemChecksum" Type="Int32" Nullable="false" />
+    <Property Name="LastDayRanking" Type="Int32" Nullable="false" />
+    <Property Name="LastMonthRanking" Type="Int32" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="HeaderUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FaceBookUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GooglePlusUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TwitterUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Character" Relationship="Self.Clan_Character_FK1" FromRole="Clan" ToRole="Character" />
+    <NavigationProperty Name="ClanGameLogs" Relationship="Self.ClanGameLog_LoserCLID_FK1" FromRole="Clan" ToRole="ClanGameLog" />
+    <NavigationProperty Name="ClanGameLogs1" Relationship="Self.ClanGameLog_WinnerCLID_FK1" FromRole="Clan" ToRole="ClanGameLog" />
+    <NavigationProperty Name="ClanHonorRankings" Relationship="Self.ClanHonorRanking_CLID_FK1" FromRole="Clan" ToRole="ClanHonorRanking" />
+    <NavigationProperty Name="ClanMembers" Relationship="Self.ClanMember_Clan_FK1" FromRole="Clan" ToRole="ClanMember" />
+    <NavigationProperty Name="ClanComments" Relationship="Self.FK_ClanComment_Clan" FromRole="Clan" ToRole="ClanComment" />
+  </EntityType>
+  <EntityType Name="ClanAdsBoard">
+    <Key>
+      <PropertyRef Name="Seq" />
+    </Key>
+    <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ReadCount" Type="Int32" Nullable="false" />
+    <Property Name="Recommend" Type="Int32" />
+    <Property Name="Content" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FileName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Link" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HTML" Type="Int16" Nullable="false" />
+    <Property Name="CommentCount" Type="Int32" Nullable="false" />
+    <Property Name="GR_ID" Type="Int32" Nullable="false" />
+    <Property Name="GR_Depth" Type="Int32" Nullable="false" />
+    <Property Name="GR_Pos" Type="Int32" Nullable="false" />
+    <Property Name="Thread" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClanComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClanId" Type="Int32" Nullable="false" />
+    <Property Name="AccountId" Type="Int32" Nullable="false" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Account" Relationship="Self.FK_ClanComment_Account" FromRole="ClanComment" ToRole="Account" />
+    <NavigationProperty Name="Clan" Relationship="Self.FK_ClanComment_Clan" FromRole="ClanComment" ToRole="Clan" />
+  </EntityType>
+  <EntityType Name="ClanGameLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WinnerCLID" Type="Int32" Nullable="false" />
+    <Property Name="LoserCLID" Type="Int32" Nullable="false" />
+    <Property Name="WinnerClanName" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="LoserClanName" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="WinnerMembers" Type="String" MaxLength="110" FixedLength="false" Unicode="false" />
+    <Property Name="LoserMembers" Type="String" MaxLength="110" FixedLength="false" Unicode="false" />
+    <Property Name="RoundWins" Type="Byte" Nullable="false" />
+    <Property Name="RoundLosses" Type="Byte" Nullable="false" />
+    <Property Name="MapID" Type="Byte" Nullable="false" />
+    <Property Name="GameType" Type="Byte" Nullable="false" />
+    <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="WinnerPoint" Type="Int32" />
+    <Property Name="LoserPoint" Type="Int32" />
+    <NavigationProperty Name="Clan" Relationship="Self.ClanGameLog_LoserCLID_FK1" FromRole="ClanGameLog" ToRole="Clan" />
+    <NavigationProperty Name="Clan1" Relationship="Self.ClanGameLog_WinnerCLID_FK1" FromRole="ClanGameLog" ToRole="Clan" />
+  </EntityType>
+  <EntityType Name="ClanHonorRanking">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CLID" Type="Int32" />
+    <Property Name="ClanName" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Point" Type="Int32" />
+    <Property Name="Wins" Type="Int32" />
+    <Property Name="Losses" Type="Int32" />
+    <Property Name="Ranking" Type="Int32" />
+    <Property Name="Year" Type="Int16" />
+    <Property Name="Month" Type="Byte" />
+    <Property Name="RankIncrease" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Clan" Relationship="Self.ClanHonorRanking_CLID_FK1" FromRole="ClanHonorRanking" ToRole="Clan" />
+  </EntityType>
+  <EntityType Name="ClanMember">
+    <Key>
+      <PropertyRef Name="CMID" />
+    </Key>
+    <Property Name="CMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CLID" Type="Int32" />
+    <Property Name="CID" Type="Int32" />
+    <Property Name="Grade" Type="Byte" Nullable="false" />
+    <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ContPoint" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Character" Relationship="Self.ClanMember_Clan_FK2" FromRole="ClanMember" ToRole="Character" />
+    <NavigationProperty Name="Clan" Relationship="Self.ClanMember_Clan_FK1" FromRole="ClanMember" ToRole="Clan" />
+  </EntityType>
+  <EntityType Name="ClanMemberGrade">
+    <Key>
+      <PropertyRef Name="GradeID" />
+    </Key>
+    <Property Name="GradeID" Type="Int32" Nullable="false" />
+    <Property Name="Grade" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CountryCode">
+    <Key>
+      <PropertyRef Name="CountryCode3" />
+    </Key>
+    <Property Name="CountryCode3" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DayRanking">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Level" Type="Int16" Nullable="false" />
+    <Property Name="Point" Type="Int32" />
+    <Property Name="Rank" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DonateShopLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccountId" Type="Int32" Nullable="false" />
+    <Property Name="ShopItemId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Account" Relationship="Self.FK_DonateShopLog_Account" FromRole="DonateShopLog" ToRole="Account" />
+  </EntityType>
+  <EntityType Name="DonatorDailyItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ItemId" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Damage" Type="Int32" Nullable="false" />
+    <Property Name="Delay" Type="Int32" Nullable="false" />
+    <Property Name="Magazine" Type="Int32" Nullable="false" />
+    <Property Name="MaxBullet" Type="Int32" Nullable="false" />
+    <Property Name="MaxWeight" Type="Int32" Nullable="false" />
+    <Property Name="ReloadTime" Type="Int32" Nullable="false" />
+    <Property Name="Hp" Type="Int32" Nullable="false" />
+    <Property Name="Ap" Type="Int32" Nullable="false" />
+    <Property Name="Sex" Type="Int32" />
+    <Property Name="Weight" Type="Int32" Nullable="false" />
+    <Property Name="DailyPrice" Type="Int32" Nullable="false" />
+    <Property Name="ForeverPrice" Type="Int32" Nullable="false" />
+    <Property Name="LimitAmount" Type="Int32" />
+    <Property Name="PurchasedAmount" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="DonatorDailyItemLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccountId" Type="Int32" Nullable="false" />
+    <Property Name="DailyItemId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="DonatorShopCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="DonatorShopItems" Relationship="Self.FK_DonatorShopItem_DonatorShopCategory1" FromRole="DonatorShopCategory" ToRole="DonatorShopItem" />
+  </EntityType>
+  <EntityType Name="DonatorShopItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Image" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ItemId" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Damage" Type="Int32" Nullable="false" />
+    <Property Name="Delay" Type="Int32" Nullable="false" />
+    <Property Name="Magazine" Type="Int32" Nullable="false" />
+    <Property Name="MaxBullet" Type="Int32" Nullable="false" />
+    <Property Name="MaxWeight" Type="Int32" Nullable="false" />
+    <Property Name="ReloadTime" Type="Int32" Nullable="false" />
+    <Property Name="Hp" Type="Int32" Nullable="false" />
+    <Property Name="Ap" Type="Int32" Nullable="false" />
+    <Property Name="Sex" Type="Int32" />
+    <Property Name="Weight" Type="Int32" Nullable="false" />
+    <Property Name="DailyPrice" Type="Int32" Nullable="false" />
+    <Property Name="NewDailyPrice" Type="Int32" />
+    <Property Name="ForeverPrice" Type="Int32" />
+    <Property Name="NewForeverPrice" Type="Int32" />
+    <NavigationProperty Name="DonatorShopCategory" Relationship="Self.FK_DonatorShopItem_DonatorShopCategory1" FromRole="DonatorShopItem" ToRole="DonatorShopCategory" />
+    <NavigationProperty Name="DonatorShopSetItems" Relationship="Self.FK_DonatorShopSetItem_DonatorShopItem" FromRole="DonatorShopItem" ToRole="DonatorShopSetItem" />
+    <NavigationProperty Name="DonatorShopSetItems1" Relationship="Self.FK_DonatorShopSetItem_DonatorShopItem1" FromRole="DonatorShopItem" ToRole="DonatorShopSetItem" />
+  </EntityType>
+  <EntityType Name="DonatorShopSetItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DonatorShopSetId" Type="Int32" Nullable="false" />
+    <Property Name="DonatorShopItemId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DonatorShopItem" Relationship="Self.FK_DonatorShopSetItem_DonatorShopItem" FromRole="DonatorShopSetItem" ToRole="DonatorShopItem" />
+    <NavigationProperty Name="DonatorShopItem1" Relationship="Self.FK_DonatorShopSetItem_DonatorShopItem1" FromRole="DonatorShopSetItem" ToRole="DonatorShopItem" />
+  </EntityType>
+  <EntityType Name="DTCharacterInfo">
+    <Key>
+      <PropertyRef Name="DTCIID" />
+      <PropertyRef Name="TimeStamp" />
+    </Key>
+    <Property Name="DTCIID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TimeStamp" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="CID" Type="Int32" Nullable="false" />
+    <Property Name="TP" Type="Int32" Nullable="false" />
+    <Property Name="Wins" Type="Int32" Nullable="false" />
+    <Property Name="Loses" Type="Int32" Nullable="false" />
+    <Property Name="Ranking" Type="Int32" Nullable="false" />
+    <Property Name="RankingIncrease" Type="Int32" Nullable="false" />
+    <Property Name="FinalGames" Type="Int32" Nullable="false" />
+    <Property Name="FinalWins" Type="Int32" Nullable="false" />
+    <Property Name="SFinalGames" Type="Int32" Nullable="false" />
+    <Property Name="SFinalWins" Type="Int32" Nullable="false" />
+    <Property Name="QFinalGames" Type="Int32" Nullable="false" />
+    <Property Name="QFinalWins" Type="Int32" Nullable="false" />
+    <Property Name="LeaveCount" Type="Int32" Nullable="false" />
+    <Property Name="PreGrade" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DTCharacterRanking">
+    <Key>
+      <PropertyRef Name="TimeStamp" />
+      <PropertyRef Name="Rank" />
+    </Key>
+    <Property Name="TimeStamp" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Rank" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CID" Type="Int32" Nullable="false" />
+    <Property Name="TP" Type="Int32" Nullable="false" />
+    <Property Name="FinalWins" Type="Int32" Nullable="false" />
+    <Property Name="Wins" Type="Int32" Nullable="false" />
+    <Property Name="Loses" Type="Int32" Nullable="false" />
+    <Property Name="RankingIncrease" Type="Int32" />
+    <Property Name="PreGrade" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DTCharacterRankingHistory">
+    <Key>
+      <PropertyRef Name="TimeStamp" />
+      <PropertyRef Name="Rank" />
+    </Key>
+    <Property Name="TimeStamp" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Rank" Type="Int32" Nullable="false" />
+    <Property Name="CID" Type="Int32" Nullable="false" />
+    <Property Name="TP" Type="Int32" Nullable="false" />
+    <Property Name="FinalWins" Type="Int32" Nullable="false" />
+    <Property Name="Wins" Type="Int32" Nullable="false" />
+    <Property Name="Loses" Type="Int32" Nullable="false" />
+    <Property Name="Grade" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DTGameLog">
+    <Key>
+      <PropertyRef Name="TimeStamp" />
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="TimeStamp" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TournamentType" Type="Byte" Nullable="false" />
+    <Property Name="ChampCID" Type="Int32" />
+    <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="MatchFactor" Type="Byte" />
+    <Property Name="Player1CID" Type="Int32" />
+    <Property Name="Player2CID" Type="Int32" />
+    <Property Name="Player3CID" Type="Int32" />
+    <Property Name="Player4CID" Type="Int32" />
+    <Property Name="Player5CID" Type="Int32" />
+    <Property Name="Player6CID" Type="Int32" />
+    <Property Name="Player7CID" Type="Int32" />
+    <Property Name="Player8CID" Type="Int32" />
+    <NavigationProperty Name="DTGameLogDetails" Relationship="Self.DTGameLog_DTGameLogDetail_FK1" FromRole="DTGameLog" ToRole="DTGameLogDetail" />
+    <NavigationProperty Name="DTTimeStamp" Relationship="Self.DTTimeStamp_DTGameLog_FK1" FromRole="DTGameLog" ToRole="DTTimeStamp" />
+  </EntityType>
+  <EntityType Name="DTGameLogDetail">
+    <Key>
+      <PropertyRef Name="TimeStamp" />
+      <PropertyRef Name="LogID" />
+      <PropertyRef Name="StartTime" />
+    </Key>
+    <Property Name="TimeStamp" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="LogID" Type="Int32" Nullable="false" />
+    <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PlayTime" Type="Int32" Nullable="false" />
+    <Property Name="MatchType" Type="Byte" Nullable="false" />
+    <Property Name="WinnerCID" Type="Int32" Nullable="false" />
+    <Property Name="LoserCID" Type="Int32" Nullable="false" />
+    <Property Name="GainTP" Type="Int32" Nullable="false" />
+    <Property Name="LoseTP" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DTGameLog" Relationship="Self.DTGameLog_DTGameLogDetail_FK1" FromRole="DTGameLogDetail" ToRole="DTGameLog" />
+  </EntityType>
+  <EntityType Name="dtproperty">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="property" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="objectid" Type="Int32" />
+    <Property Name="property" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="value" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="uvalue" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="lvalue" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="version" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DTTimeStamp">
+    <Key>
+      <PropertyRef Name="TimeStamp" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="TimeStamp" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Closed" Type="Byte" Nullable="false" />
+    <Property Name="TotalUser" Type="Int32" />
+    <NavigationProperty Name="DTGameLogs" Relationship="Self.DTTimeStamp_DTGameLog_FK1" FromRole="DTTimeStamp" ToRole="DTGameLog" />
+  </EntityType>
+  <EntityType Name="Effect">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Area" Type="Int32" />
+    <Property Name="Time" Type="Int32" />
+    <Property Name="ModHP" Type="Int32" />
+    <Property Name="ModAP" Type="Int32" />
+    <Property Name="ModMaxWT" Type="Int32" />
+    <Property Name="ModSF" Type="Int32" />
+    <Property Name="ModFR" Type="Int32" />
+    <Property Name="ModCR" Type="Int32" />
+    <Property Name="ModPR" Type="Int32" />
+    <Property Name="ModLR" Type="Int32" />
+    <Property Name="ResAP" Type="Int32" />
+    <Property Name="ResFR" Type="Int32" />
+    <Property Name="ResCR" Type="Int32" />
+    <Property Name="ResPR" Type="Int32" />
+    <Property Name="ResLR" Type="Int32" />
+    <Property Name="Stun" Type="Int32" />
+    <Property Name="KnockBack" Type="Int32" />
+    <Property Name="Smoke" Type="Int32" />
+    <Property Name="Flash" Type="Int32" />
+    <Property Name="Tear" Type="Int32" />
+    <Property Name="Flame" Type="Int32" />
+  </EntityType>
+  <EntityType Name="EmailTemplate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Event_Coliseum_Character_NHN">
+    <Key>
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="CID" Type="Int32" Nullable="false" />
+    <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Character" Relationship="Self.FK_Event_Coliseum_Character_NHN_Character" FromRole="Event_Coliseum_Character_NHN" ToRole="Character" />
+    <NavigationProperty Name="Event_Coliseum_PlayData_NHN" Relationship="Self.FK_Event_Coliseum_PlayData_NHN_Event_Coliseum_Character_NHN" FromRole="Event_Coliseum_Character_NHN" ToRole="Event_Coliseum_PlayData_NHN" />
+  </EntityType>
+  <EntityType Name="Event_Coliseum_DeathsRanking_NHN">
+    <Key>
+      <PropertyRef Name="DateTag" />
+      <PropertyRef Name="Rank" />
+    </Key>
+    <Property Name="DateTag" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Rank" Type="Int32" Nullable="false" />
+    <Property Name="CID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Event_Coliseum_KillsRanking_NHN">
+    <Key>
+      <PropertyRef Name="DateTag" />
+      <PropertyRef Name="Rank" />
+    </Key>
+    <Property Name="DateTag" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Rank" Type="Int32" Nullable="false" />
+    <Property Name="CID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Event_Coliseum_PlayData_NHN">
+    <Key>
+      <PropertyRef Name="DateTag" />
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="DateTag" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="CID" Type="Int32" Nullable="false" />
+    <Property Name="PlayTime" Type="Int32" Nullable="false" />
+    <Property Name="Kills" Type="Int32" Nullable="false" />
+    <Property Name="Deaths" Type="Int32" Nullable="false" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PlayTimeRank" Type="Int32" />
+    <Property Name="KillRank" Type="Int32" />
+    <Property Name="DeathRank" Type="Int32" />
+    <NavigationProperty Name="Event_Coliseum_Character_NHN" Relationship="Self.FK_Event_Coliseum_PlayData_NHN_Event_Coliseum_Character_NHN" FromRole="Event_Coliseum_PlayData_NHN" ToRole="Event_Coliseum_Character_NHN" />
+  </EntityType>
+  <EntityType Name="Event_Coliseum_PlayTimeRanking_NHN">
+    <Key>
+      <PropertyRef Name="DateTag" />
+      <PropertyRef Name="Rank" />
+    </Key>
+    <Property Name="DateTag" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Rank" Type="Int32" Nullable="false" />
+    <Property Name="CID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="event_easter2011">
+    <Key>
+      <PropertyRef Name="userid" />
+      <PropertyRef Name="regdate" />
+    </Key>
+    <Property Name="userid" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="regdate" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="playtime" Type="Int16" />
+  </EntityType>
+  <EntityType Name="Event_MDTCharacter">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Event_MDTCharacterRankingHistory">
+    <Key>
+      <PropertyRef Name="TimeStamp" />
+      <PropertyRef Name="Rank" />
+    </Key>
+    <Property Name="TimeStamp" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Rank" Type="Int32" Nullable="false" />
+    <Property Name="CID" Type="Int32" Nullable="false" />
+    <Property Name="TP" Type="Int32" Nullable="false" />
+    <Property Name="FinalWins" Type="Int32" Nullable="false" />
+    <Property Name="Wins" Type="Int32" Nullable="false" />
+    <Property Name="Loses" Type="Int32" Nullable="false" />
+    <Property Name="Grade" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Event_Word_NHN">
+    <Key>
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="CID" Type="Int32" Nullable="false" />
+    <Property Name="Have_A" Type="Int16" />
+    <Property Name="Happy" Type="Int16" />
+    <Property Name="Halloween" Type="Int16" />
+    <Property Name="From" Type="Int16" />
+    <Property Name="IJJI" Type="Int16" />
+    <Property Name="AND" Type="Int16" />
+    <Property Name="MAIET_" Type="Int16" />
+    <Property Name="Pumpkin" Type="Int16" />
+    <Property Name="Ghost" Type="Int16" />
+    <Property Name="Trick_Or" Type="Int16" />
+    <Property Name="Treat__" Type="Int16" />
+  </EntityType>
+  <EntityType Name="EventAccount">
+    <Key>
+      <PropertyRef Name="AID" />
+    </Key>
+    <Property Name="AID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="XPOrder" Type="Int32" />
+    <Property Name="LevelOrder" Type="Int32" />
+    <Property Name="PlayTimeOrder" Type="Int32" />
+    <Property Name="GainXP" Type="Int32" Nullable="false" />
+    <Property Name="GainLevel" Type="Int32" Nullable="false" />
+    <Property Name="GainPlayTime" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Account" Relationship="Self.FK_EventAccount_AID" FromRole="EventAccount" ToRole="Account" />
+    <NavigationProperty Name="EventCharacters" Relationship="Self.FK_EventCharacter_AID" FromRole="EventAccount" ToRole="EventCharacter" />
+  </EntityType>
+  <EntityType Name="EventCharacter">
+    <Key>
+      <PropertyRef Name="AID" />
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="AID" Type="Int32" Nullable="false" />
+    <Property Name="CID" Type="Int32" Nullable="false" />
+    <Property Name="DeleteFlag" Type="Boolean" Nullable="false" />
+    <Property Name="StartXP" Type="Int32" Nullable="false" />
+    <Property Name="StartLevel" Type="Int32" Nullable="false" />
+    <Property Name="PlayTime" Type="Int32" />
+    <Property Name="LastXP" Type="Int32" Nullable="false" />
+    <Property Name="LastLevel" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Character" Relationship="Self.FK_EventCharacter_CID" FromRole="EventCharacter" ToRole="Character" />
+    <NavigationProperty Name="EventAccount" Relationship="Self.FK_EventCharacter_AID" FromRole="EventCharacter" ToRole="EventAccount" />
+  </EntityType>
+  <EntityType Name="Friend">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CID" Type="Int32" Nullable="false" />
+    <Property Name="FriendCID" Type="Int32" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="Favorite" Type="Byte" />
+    <Property Name="DeleteFlag" Type="Byte" />
+    <NavigationProperty Name="Character" Relationship="Self.Character_Friend_FK1" FromRole="Friend" ToRole="Character" />
+    <NavigationProperty Name="Character1" Relationship="Self.Character_Friend_FK2" FromRole="Friend" ToRole="Character" />
+  </EntityType>
+  <EntityType Name="GambleItem">
+    <Key>
+      <PropertyRef Name="GIID" />
+    </Key>
+    <Property Name="GIID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LifeTimeHour" Type="Int16" Nullable="false" />
+    <Property Name="IsCash" Type="Byte" Nullable="false" />
+    <Property Name="Opened" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="GambleRewardItems" Relationship="Self.FK__GambleRewa__GIID__72B0FDB1" FromRole="GambleItem" ToRole="GambleRewardItem" />
+  </EntityType>
+  <EntityType Name="GambleRewardItem">
+    <Key>
+      <PropertyRef Name="GRIID" />
+    </Key>
+    <Property Name="GRIID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GIID" Type="Int32" Nullable="false" />
+    <Property Name="ItemIDMale" Type="Int32" Nullable="false" />
+    <Property Name="ItemIDFemale" Type="Int32" Nullable="false" />
+    <Property Name="RentHourPeriod" Type="Int32" Nullable="false" />
+    <Property Name="RatePerThousand" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="GambleItem" Relationship="Self.FK__GambleRewa__GIID__72B0FDB1" FromRole="GambleRewardItem" ToRole="GambleItem" />
+  </EntityType>
+  <EntityType Name="GameType">
+    <Key>
+      <PropertyRef Name="GameTypeID" />
+    </Key>
+    <Property Name="GameTypeID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Ignore">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CID" Type="Int32" Nullable="false" />
+    <Property Name="IgnoreCID" Type="Int32" Nullable="false" />
+    <Property Name="TYPE" Type="Int32" Nullable="false" />
+    <Property Name="Favorite" Type="Byte" />
+    <Property Name="DeleteFlag" Type="Byte" />
+  </EntityType>
+  <EntityType Name="IPtoCountry">
+    <Key>
+      <PropertyRef Name="IPFrom" />
+      <PropertyRef Name="IPTo" />
+    </Key>
+    <Property Name="IPFrom" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IPTo" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CountryCode2" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="CountryCode3" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IPtoCountry_temp">
+    <Key>
+      <PropertyRef Name="IPFrom" />
+      <PropertyRef Name="IPTo" />
+    </Key>
+    <Property Name="IPFrom" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IPTo" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CountryCode2" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="CountryCode3" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ItemChangeLog_AccountItem">
+    <Key>
+      <PropertyRef Name="ChangeDate" />
+      <PropertyRef Name="ChangeType" />
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="ChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ChangeType" Type="Int16" Nullable="false" />
+    <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AID" Type="Int32" Nullable="false" />
+    <Property Name="AIID" Type="Int32" Nullable="false" />
+    <Property Name="CID" Type="Int32" />
+    <Property Name="CIID" Type="Int32" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ItemChangeType" Relationship="Self.FK_ItemChangeLog_AccountItem_ItemChangeType" FromRole="ItemChangeLog_AccountItem" ToRole="ItemChangeType" />
+  </EntityType>
+  <EntityType Name="ItemChangeType">
+    <Key>
+      <PropertyRef Name="ChangeType" />
+    </Key>
+    <Property Name="ChangeType" Type="Int16" Nullable="false" />
+    <Property Name="DESC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ItemChangeLog_AccountItem" Relationship="Self.FK_ItemChangeLog_AccountItem_ItemChangeType" FromRole="ItemChangeType" ToRole="ItemChangeLog_AccountItem" />
+  </EntityType>
+  <EntityType Name="ItemSlotType">
+    <Key>
+      <PropertyRef Name="SlotType" />
+    </Key>
+    <Property Name="SlotType" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="KillLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AttackerCID" Type="Int32" />
+    <Property Name="VictimCID" Type="Int32" />
+    <Property Name="Time" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Level">
+    <Key>
+      <PropertyRef Name="Level1" />
+    </Key>
+    <Property Name="Level1" Type="Int16" Nullable="false" />
+    <Property Name="MinXP" Type="Int32" />
+  </EntityType>
+  <EntityType Name="LevelUpLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CID" Type="Int32" />
+    <Property Name="Level" Type="Int16" />
+    <Property Name="BP" Type="Int32" />
+    <Property Name="KillCount" Type="Int32" />
+    <Property Name="DeathCount" Type="Int32" />
+    <Property Name="PlayTime" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="LocatorStatu">
+    <Key>
+      <PropertyRef Name="LocatorID" />
+    </Key>
+    <Property Name="LocatorID" Type="Int32" Nullable="false" />
+    <Property Name="IP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Port" Type="Int32" Nullable="false" />
+    <Property Name="RecvCount" Type="Int32" />
+    <Property Name="SendCount" Type="Int32" />
+    <Property Name="BlockCount" Type="Int32" />
+    <Property Name="DuplicatedCount" Type="Int32" />
+    <Property Name="UpdateElapsedTime" Type="Int32" Nullable="false" />
+    <Property Name="LastUpdatedTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AID" Type="Int32" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LastConnDate" Type="DateTime" Precision="3" />
+    <Property Name="LastIP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EncryptedPassword" Type="String" MaxLength="72" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Map">
+    <Key>
+      <PropertyRef Name="MapID" />
+    </Key>
+    <Property Name="MapID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaxPlayer" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MobileChat">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OwnerId" Type="Int32" />
+    <Property Name="IsGroup" Type="Boolean" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MobileChatContacts" Relationship="Self.FK_MobileChatContact_MobileChat" FromRole="MobileChat" ToRole="MobileChatContact" />
+  </EntityType>
+  <EntityType Name="MobileChatContact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChatId" Type="Int32" Nullable="false" />
+    <Property Name="AccountId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Account" Relationship="Self.FK_MobileChatContact_Account" FromRole="MobileChatContact" ToRole="Account" />
+    <NavigationProperty Name="MobileChat" Relationship="Self.FK_MobileChatContact_MobileChat" FromRole="MobileChatContact" ToRole="MobileChat" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="News1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Number" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NHNClanMark">
+    <Key>
+      <PropertyRef Name="CLMARKID" />
+    </Key>
+    <Property Name="CLMARKID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CLID" Type="Int32" Nullable="false" />
+    <Property Name="EmblemUrl" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Approved" Type="Byte" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastCount" Type="Int32" />
+    <Property Name="LastCreated" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="NHNItemOfTheDay">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="itemids" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="isset" Type="Byte" Nullable="false" />
+    <Property Name="originalprice" Type="Int32" Nullable="false" />
+    <Property Name="originalperiod" Type="Int32" />
+    <Property Name="reslevel" Type="Int32" />
+    <Property Name="price" Type="Int32" Nullable="false" />
+    <Property Name="period" Type="Int32" />
+    <Property Name="remaining" Type="Int32" Nullable="false" />
+    <Property Name="imgurl" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="startdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="regdate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="NHNItemOfTheDayLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RentHourPeriod" Type="Int32" />
+    <Property Name="Cash" Type="Int32" Nullable="false" />
+    <Property Name="SenderUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="NHNPurchaseLog">
+    <Key>
+      <PropertyRef Name="PID" />
+    </Key>
+    <Property Name="PID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PurchasedMonth" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PurchasedId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="gift" Type="Byte" />
+    <Property Name="Regdate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="NHNRareItemShop">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Month" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="itemids" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="isset" Type="Byte" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ResSex" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ResLevel" Type="Int32" />
+    <Property Name="price" Type="Int32" Nullable="false" />
+    <Property Name="period" Type="Int32" Nullable="false" />
+    <Property Name="imgurl" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="regdate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="NHNRareItemShopLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RentHourPeriod" Type="Int32" />
+    <Property Name="Cash" Type="Int32" Nullable="false" />
+    <Property Name="SenderUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Paypal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccountId" Type="Int32" Nullable="false" />
+    <Property Name="InvoiceId" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PayerId" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="PaymentId" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Token" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="PaymentOptionId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateCompleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="PaypalPaymentOption">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Coins" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Double" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PenaltyLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AID" Type="Int32" Nullable="false" />
+    <Property Name="UGradeID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="PremiumGrade">
+    <Key>
+      <PropertyRef Name="PGradeID" />
+    </Key>
+    <Property Name="PGradeID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Accounts" Relationship="Self.PremiumGrade_Account_FK1" FromRole="PremiumGrade" ToRole="Account" />
+  </EntityType>
+  <EntityType Name="PurchaseMethod">
+    <Key>
+      <PropertyRef Name="PurchaseMethodID" />
+    </Key>
+    <Property Name="PurchaseMethodID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="QuestGameLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GameName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Master" Type="Int32" Nullable="false" />
+    <Property Name="Player1" Type="Int32" />
+    <Property Name="Player2" Type="Int32" />
+    <Property Name="Player3" Type="Int32" />
+    <Property Name="TotalQItemCount" Type="Byte" />
+    <Property Name="ScenarioID" Type="Int16" Nullable="false" />
+    <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="QuestItem">
+    <Key>
+      <PropertyRef Name="QIID" />
+    </Key>
+    <Property Name="QIID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="Level" Type="Byte" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="UniqueItem" Type="Boolean" Nullable="false" />
+    <Property Name="Sacrifice" Type="Boolean" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Param" Type="Int32" />
+  </EntityType>
+  <EntityType Name="QUniqueItemLog">
+    <Key>
+      <PropertyRef Name="QUILID" />
+    </Key>
+    <Property Name="QUILID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QGLID" Type="Int32" />
+    <Property Name="CID" Type="Int32" Nullable="false" />
+    <Property Name="QIID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RentCashSetShopPrice">
+    <Key>
+      <PropertyRef Name="RCSSPID" />
+    </Key>
+    <Property Name="RCSSPID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CSSID" Type="Int32" />
+    <Property Name="RentHourPeriod" Type="Int16" />
+    <Property Name="CashPrice" Type="Int32" />
+    <NavigationProperty Name="CashSetShop" Relationship="Self.FK__RentCashS__CSSID__47DBAE45" FromRole="RentCashSetShopPrice" ToRole="CashSetShop" />
+  </EntityType>
+  <EntityType Name="RentCashShopPrice">
+    <Key>
+      <PropertyRef Name="RCSPID" />
+    </Key>
+    <Property Name="RCSPID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CSID" Type="Int32" />
+    <Property Name="RentHourPeriod" Type="Int16" />
+    <Property Name="CashPrice" Type="Int32" />
+    <NavigationProperty Name="CashShop" Relationship="Self.FK__RentCashSh__CSID__4AB81AF0" FromRole="RentCashShopPrice" ToRole="CashShop" />
+  </EntityType>
+  <EntityType Name="RentPeriodDay">
+    <Key>
+      <PropertyRef Name="Day" />
+    </Key>
+    <Property Name="Day" Type="Int32" Nullable="false" />
+    <Property Name="Hour" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RentType">
+    <Key>
+      <PropertyRef Name="TypeID" />
+    </Key>
+    <Property Name="TypeID" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ServerLogStorage">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServerID" Type="Int16" Nullable="false" />
+    <Property Name="PlayerCount" Type="Int32" Nullable="false" />
+    <Property Name="GameCount" Type="Int32" Nullable="false" />
+    <Property Name="BlockCount" Type="Int32" Nullable="false" />
+    <Property Name="NonBlockCount" Type="Int32" Nullable="false" />
+    <Property Name="Time" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="ServerStatu">
+    <Key>
+      <PropertyRef Name="ServerID" />
+    </Key>
+    <Property Name="ServerID" Type="Int32" Nullable="false" />
+    <Property Name="CurrPlayer" Type="Int16" />
+    <Property Name="MaxPlayer" Type="Int16" />
+    <Property Name="Time" Type="DateTime" Precision="3" />
+    <Property Name="IP" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="Port" Type="Int32" />
+    <Property Name="ServerName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Opened" Type="Byte" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="AgentIP" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ServerType">
+    <Key>
+      <PropertyRef Name="TypeID" />
+    </Key>
+    <Property Name="TypeID" Type="Int32" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SleepAccountNHN">
+    <Key>
+      <PropertyRef Name="AID" />
+    </Key>
+    <Property Name="AID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RegDt" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="SleepAccountRestoredLogNHN">
+    <Key>
+      <PropertyRef Name="AID" />
+      <PropertyRef Name="RegDt" />
+    </Key>
+    <Property Name="AID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RegDt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RestoredDt" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="SleepCharacterNHN">
+    <Key>
+      <PropertyRef Name="AID" />
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="AID" Type="Int32" Nullable="false" />
+    <Property Name="CID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RegDt" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="SleepCharacterRestoredLogNHN">
+    <Key>
+      <PropertyRef Name="CID" />
+      <PropertyRef Name="RegDt" />
+    </Key>
+    <Property Name="CID" Type="Int32" Nullable="false" />
+    <Property Name="OrginName" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RestoreName" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RegDt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RestoredDt" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="SurvivalCharacterInfo">
+    <Key>
+      <PropertyRef Name="SID" />
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="SID" Type="Byte" Nullable="false" />
+    <Property Name="CID" Type="Int32" Nullable="false" />
+    <Property Name="RP" Type="Int32" Nullable="false" />
+    <Property Name="RP_LatestTime" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="tmpRP" Type="Int32" />
+    <Property Name="RankRP" Type="Int32" />
+    <NavigationProperty Name="SurvivalScenarioID" Relationship="Self.FK_SurvivalCharacterInfo_SurvivalScenarioID" FromRole="SurvivalCharacterInfo" ToRole="SurvivalScenarioID" />
+  </EntityType>
+  <EntityType Name="SurvivalCharacterInfoWeb">
+    <Key>
+      <PropertyRef Name="RowNum" />
+      <PropertyRef Name="SID" />
+    </Key>
+    <Property Name="RowNum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SID" Type="Byte" Nullable="false" />
+    <Property Name="CID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SurvivalGameLog">
+    <Key>
+      <PropertyRef Name="StartTime" />
+      <PropertyRef Name="Master_Player" />
+    </Key>
+    <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FinishTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Master_Player" Type="Int32" Nullable="false" />
+    <Property Name="GainRP1" Type="Int32" Nullable="false" />
+    <Property Name="Player2" Type="Int32" />
+    <Property Name="GainRP2" Type="Int32" />
+    <Property Name="Player3" Type="Int32" />
+    <Property Name="GainRP3" Type="Int32" />
+    <Property Name="Player4" Type="Int32" />
+    <Property Name="GainRP4" Type="Int32" />
+    <Property Name="GameName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SID" Type="Byte" Nullable="false" />
+    <Property Name="TotalRound" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="SurvivalScenarioID" Relationship="Self.FK_SurvivalGameLog_SurvivalScenarioID" FromRole="SurvivalGameLog" ToRole="SurvivalScenarioID" />
+  </EntityType>
+  <EntityType Name="SurvivalRanking">
+    <Key>
+      <PropertyRef Name="SID" />
+      <PropertyRef Name="RP" />
+    </Key>
+    <Property Name="SID" Type="Int32" Nullable="false" />
+    <Property Name="RP" Type="Int32" Nullable="false" />
+    <Property Name="Ranking" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SurvivalScenarioID">
+    <Key>
+      <PropertyRef Name="SID" />
+    </Key>
+    <Property Name="SID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="SurvivalCharacterInfoes" Relationship="Self.FK_SurvivalCharacterInfo_SurvivalScenarioID" FromRole="SurvivalScenarioID" ToRole="SurvivalCharacterInfo" />
+    <NavigationProperty Name="SurvivalGameLogs" Relationship="Self.FK_SurvivalGameLog_SurvivalScenarioID" FromRole="SurvivalScenarioID" ToRole="SurvivalGameLog" />
+  </EntityType>
+  <EntityType Name="tmp_summerwave_newreg_event">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="regdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="jobdate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tmp_summerwave_raffle_event">
+    <Key>
+      <PropertyRef Name="sdate" />
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="sdate" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="userid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="playtime" Type="Int32" Nullable="false" />
+    <Property Name="gifttype" Type="Int32" Nullable="false" />
+    <Property Name="giftdate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="TotalRanking">
+    <Key>
+      <PropertyRef Name="Rank" />
+    </Key>
+    <Property Name="Rank" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Level" Type="Int16" Nullable="false" />
+    <Property Name="XP" Type="Int32" />
+    <Property Name="KillCount" Type="Int32" />
+    <Property Name="DeathCount" Type="Int32" />
+  </EntityType>
+  <EntityType Name="UserGrade">
+    <Key>
+      <PropertyRef Name="UGradeID" />
+    </Key>
+    <Property Name="UGradeID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Accounts" Relationship="Self.UserGrade_Account_FK1" FromRole="UserGrade" ToRole="Account" />
+  </EntityType>
+  <EntityType Name="UV">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CashSetItemDetail">
+    <Key>
+      <PropertyRef Name="CSSID" />
+    </Key>
+    <Property Name="CSSID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Lang" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CashShopNewItem">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Category" />
+      <PropertyRef Name="NewOrder" />
+      <PropertyRef Name="IsSetItem" />
+      <PropertyRef Name="Slot" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="ResSex" />
+      <PropertyRef Name="ResLevel" />
+      <PropertyRef Name="CashPrice" />
+      <PropertyRef Name="RegDate" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Category" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NewOrder" Type="Int32" Nullable="false" />
+    <Property Name="IsSetItem" Type="Int32" Nullable="false" />
+    <Property Name="CSID" Type="Int32" />
+    <Property Name="CSSID" Type="Int32" />
+    <Property Name="Slot" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ResSex" Type="Int32" Nullable="false" />
+    <Property Name="ResLevel" Type="Int32" Nullable="false" />
+    <Property Name="CashPrice" Type="Int32" Nullable="false" />
+    <Property Name="WebImgName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="CharacterBattleTimeRewardLog">
+    <Key>
+      <PropertyRef Name="CID" />
+      <PropertyRef Name="BRID" />
+      <PropertyRef Name="BRTID" />
+      <PropertyRef Name="BattleTime" />
+      <PropertyRef Name="KillCount" />
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="ItemCnt" />
+      <PropertyRef Name="RentHourPeriod" />
+    </Key>
+    <Property Name="CID" Type="Int32" Nullable="false" />
+    <Property Name="BRID" Type="Int32" Nullable="false" />
+    <Property Name="BRTID" Type="Int32" Nullable="false" />
+    <Property Name="RegDate" Type="DateTime" Precision="3" />
+    <Property Name="BattleTime" Type="Int32" Nullable="false" />
+    <Property Name="KillCount" Type="Int32" Nullable="false" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="ItemCnt" Type="Int32" Nullable="false" />
+    <Property Name="RentHourPeriod" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CharacterMakingLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AID" Type="Int32" />
+    <Property Name="CharName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="CustomIP">
+    <Key>
+      <PropertyRef Name="IPFrom" />
+      <PropertyRef Name="IPTo" />
+      <PropertyRef Name="IsBlock" />
+      <PropertyRef Name="CountryCode3" />
+    </Key>
+    <Property Name="IPFrom" Type="Int64" Nullable="false" />
+    <Property Name="IPTo" Type="Int64" Nullable="false" />
+    <Property Name="IsBlock" Type="Byte" Nullable="false" />
+    <Property Name="CountryCode3" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Comment" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="RegDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="AID" />
+      <PropertyRef Name="CID" />
+      <PropertyRef Name="RegDate" />
+    </Key>
+    <Property Name="AID" Type="Int32" Nullable="false" />
+    <Property Name="CID" Type="Int32" Nullable="false" />
+    <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Checked" Type="Boolean" />
+    <Property Name="EventName" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="SubDescription" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Event_CharacterItem_Halloween">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="UpdatedDate" />
+    </Key>
+    <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Trick" Type="Int32" />
+    <Property Name="Treat" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Event_ClanPointRanking">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Rank" />
+      <PropertyRef Name="CLID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Count" />
+      <PropertyRef Name="Point" />
+      <PropertyRef Name="RegDate" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rank" Type="Int32" Nullable="false" />
+    <Property Name="CLID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+    <Property Name="Point" Type="Int32" Nullable="false" />
+    <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="GameLog">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="StartTime" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GameName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="MasterCID" Type="Int32" />
+    <Property Name="Map" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="GameType" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="Round" Type="Int32" />
+    <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PlayerCount" Type="Byte" />
+    <Property Name="Players" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ipto_back">
+    <Key>
+      <PropertyRef Name="IPFrom" />
+      <PropertyRef Name="IPTo" />
+      <PropertyRef Name="CountryCode2" />
+      <PropertyRef Name="CountryCode3" />
+      <PropertyRef Name="CountryName" />
+    </Key>
+    <Property Name="IPFrom" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IPTo" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CountryCode2" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="CountryCode3" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TotalPoint" Type="Int32" />
+    <Property Name="ResSex" Type="Byte" />
+    <Property Name="ResRace" Type="Byte" />
+    <Property Name="ResLevel" Type="Int32" />
+    <Property Name="Slot" Type="Byte" />
+    <Property Name="Weight" Type="Int32" />
+    <Property Name="BountyPrice" Type="Int32" />
+    <Property Name="Damage" Type="Int32" />
+    <Property Name="Delay" Type="Int32" />
+    <Property Name="EffectID" Type="Int32" />
+    <Property Name="Controllability" Type="Int32" />
+    <Property Name="Magazine" Type="Int32" />
+    <Property Name="ReloadTime" Type="Int32" />
+    <Property Name="SlugOutput" Type="Byte" />
+    <Property Name="Gadget" Type="Int32" />
+    <Property Name="HP" Type="Int32" />
+    <Property Name="AP" Type="Int32" />
+    <Property Name="MAXWT" Type="Int32" />
+    <Property Name="SF" Type="Int32" />
+    <Property Name="FR" Type="Int32" />
+    <Property Name="CR" Type="Int32" />
+    <Property Name="PR" Type="Int32" />
+    <Property Name="LR" Type="Int32" />
+    <Property Name="BlendColor" Type="Int32" />
+    <Property Name="ModelName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="MaxBullet" Type="Int32" />
+    <Property Name="LimitSpeed" Type="Byte" />
+    <Property Name="IsCashItem" Type="Byte" />
+    <Property Name="IsSpendableItem" Type="Byte" />
+  </EntityType>
+  <EntityType Name="ItemChangeLog_CharacterItem">
+    <Key>
+      <PropertyRef Name="ChangeDate" />
+      <PropertyRef Name="ChangeType" />
+      <PropertyRef Name="LogID" />
+      <PropertyRef Name="CID" />
+      <PropertyRef Name="CIID" />
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="Count" />
+    </Key>
+    <Property Name="ChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ChangeType" Type="Int16" Nullable="false" />
+    <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CID" Type="Int32" Nullable="false" />
+    <Property Name="CIID" Type="Int32" Nullable="false" />
+    <Property Name="AID" Type="Int32" />
+    <Property Name="AIID" Type="Int32" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ItemDetail">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="Lang" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ItemPurchaseLogByBounty">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="CID" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Bounty" Type="Int32" />
+    <Property Name="CharBounty" Type="Int32" />
+    <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Character" Relationship="Self.Character_PurchaseItemByBountyHistory_FK20050314" FromRole="ItemPurchaseLogByBounty" ToRole="Character" />
+  </EntityType>
+  <EntityType Name="ItemPurchaseLogByCash">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="Date" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AID" Type="Int32" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Cash" Type="Int32" />
+    <Property Name="RentHourPeriod" Type="Int32" />
+    <Property Name="MobileCode" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Account" Relationship="Self.Account_PurchaseLogByCash_FK1" FromRole="ItemPurchaseLogByCash" ToRole="Account" />
+  </EntityType>
+  <EntityType Name="NHNLuckyBoxCoupon">
+    <Key>
+      <PropertyRef Name="BoxCID" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="BoxCategory" />
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="Regdate" />
+    </Key>
+    <Property Name="BoxCID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BoxCategory" Type="Byte" Nullable="false" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <Property Name="BoxID" Type="Int32" />
+    <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Regdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Opendate" Type="DateTime" Precision="3" />
+    <Property Name="Expiredate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="NHNLuckyBoxInventory">
+    <Key>
+      <PropertyRef Name="BoxIID" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="BoxID" />
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="Regdate" />
+    </Key>
+    <Property Name="BoxIID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BoxID" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <Property Name="BoxRID" Type="Int32" />
+    <Property Name="RefundPrice" Type="Int32" />
+    <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Sender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Regdate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="NHNLuckyBoxItem">
+    <Key>
+      <PropertyRef Name="BoxID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Description" />
+      <PropertyRef Name="Category" />
+      <PropertyRef Name="webimgname" />
+      <PropertyRef Name="Price" />
+      <PropertyRef Name="RefundPrice" />
+      <PropertyRef Name="ResSex" />
+      <PropertyRef Name="ResLevel" />
+      <PropertyRef Name="Opened" />
+      <PropertyRef Name="displayorder" />
+      <PropertyRef Name="Regdate" />
+    </Key>
+    <Property Name="BoxID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Category" Type="Byte" Nullable="false" />
+    <Property Name="webimgname" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="RefundPrice" Type="Int32" Nullable="false" />
+    <Property Name="ResSex" Type="Byte" Nullable="false" />
+    <Property Name="ResLevel" Type="Int16" Nullable="false" />
+    <Property Name="Opened" Type="Byte" Nullable="false" />
+    <Property Name="displayorder" Type="Int32" Nullable="false" />
+    <Property Name="Regdate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="NHNLuckyBoxRewardItem">
+    <Key>
+      <PropertyRef Name="BoxRID" />
+      <PropertyRef Name="BoxID" />
+      <PropertyRef Name="ItemIDs" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Category" />
+      <PropertyRef Name="RentHourPeriod" />
+      <PropertyRef Name="RatePerThousand" />
+    </Key>
+    <Property Name="BoxRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BoxID" Type="Int32" Nullable="false" />
+    <Property Name="ItemIDs" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Category" Type="Byte" Nullable="false" />
+    <Property Name="RentHourPeriod" Type="Int32" Nullable="false" />
+    <Property Name="RatePerThousand" Type="Int16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PlayerLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CID" Type="Int32" />
+    <Property Name="DisTime" Type="DateTime" Precision="3" />
+    <Property Name="PlayTime" Type="Int32" />
+    <Property Name="Kills" Type="Int32" />
+    <Property Name="Deaths" Type="Int32" />
+    <Property Name="XP" Type="Int32" />
+    <Property Name="TotalXP" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ServerLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServerID" Type="Int16" />
+    <Property Name="PlayerCount" Type="Int16" />
+    <Property Name="GameCount" Type="Int16" />
+    <Property Name="Time" Type="DateTime" Precision="0" />
+    <Property Name="BlockCount" Type="Int32" />
+    <Property Name="NonBlockCount" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SetItemPurchaseLogByCash">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Date" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AID" Type="Int32" />
+    <Property Name="CSSID" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Cash" Type="Int32" />
+    <Property Name="RentHourPeriod" Type="Int32" />
+    <Property Name="MobileCode" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="sid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Account" Relationship="Self.Account_SetItemPurchaseLogByCash_FK1" FromRole="SetItemPurchaseLogByCash" ToRole="Account" />
+    <NavigationProperty Name="CashSetShop" Relationship="Self.CashSetShop_SetItemPurchaseLogByCash_FK1" FromRole="SetItemPurchaseLogByCash" ToRole="CashSetShop" />
+  </EntityType>
+  <EntityType Name="tmp_stampevent">
+    <Key>
+      <PropertyRef Name="sdate" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="PlayTime" />
+    </Key>
+    <Property Name="sdate" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PlayTime" Type="Int32" Nullable="false" />
+    <Property Name="GiftDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <Association Name="Account_BringAccountItemLog_FK1">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="BringAccountItemLog" Type="Self.BringAccountItemLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="BringAccountItemLog">
+        <PropertyRef Name="AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Account_CashItemPresentLog_FK1">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="CashItemPresentLog" Type="Self.CashItemPresentLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="CashItemPresentLog">
+        <PropertyRef Name="ReceiverAID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Account_Character_FK1">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="Character" Type="Self.Character" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="Character">
+        <PropertyRef Name="AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Account_PurchaseLogByCash_FK1">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="ItemPurchaseLogByCash" Type="Self.ItemPurchaseLogByCash" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="ItemPurchaseLogByCash">
+        <PropertyRef Name="AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Account_SetItemPurchaseLogByCash_FK1">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="SetItemPurchaseLogByCash" Type="Self.SetItemPurchaseLogByCash" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="SetItemPurchaseLogByCash">
+        <PropertyRef Name="AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Account_Table1_FK1">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="AccountItem" Type="Self.AccountItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="AccountItem">
+        <PropertyRef Name="AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AccountPenaltyGMLog_Account_FK">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="AccountPenaltyGMLog" Type="Self.AccountPenaltyGMLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="AccountPenaltyGMLog">
+        <PropertyRef Name="AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AccountPenaltyLog_Account_FK">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="AccountPenaltyLog" Type="Self.AccountPenaltyLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="AccountPenaltyLog">
+        <PropertyRef Name="AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AccountPenaltyPeriod_Account_FK1">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="AccountPenaltyPeriod" Type="Self.AccountPenaltyPeriod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="AccountPenaltyPeriod">
+        <PropertyRef Name="AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AccountMobileLoginToken_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AccountMobileLoginToken" Type="Self.AccountMobileLoginToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="AccountMobileLoginToken">
+        <PropertyRef Name="Aid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CharacterComment_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CharacterComment" Type="Self.CharacterComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="CharacterComment">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClanComment_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ClanComment" Type="Self.ClanComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="ClanComment">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DonateShopLog_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DonateShopLog" Type="Self.DonateShopLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="DonateShopLog">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventAccount_AID">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="EventAccount" Type="Self.EventAccount" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="EventAccount">
+        <PropertyRef Name="AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MobileChatContact_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MobileChatContact" Type="Self.MobileChatContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="MobileChatContact">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PremiumGrade_Account_FK1">
+    <End Role="PremiumGrade" Type="Self.PremiumGrade" Multiplicity="1" />
+    <End Role="Account" Type="Self.Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PremiumGrade">
+        <PropertyRef Name="PGradeID" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="PGradeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserGrade_Account_FK1">
+    <End Role="UserGrade" Type="Self.UserGrade" Multiplicity="1" />
+    <End Role="Account" Type="Self.Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserGrade">
+        <PropertyRef Name="UGradeID" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="UGradeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AccountPenaltyGMLog_AccountPenaltyGMType_FK">
+    <End Role="AccountPenaltyGMType" Type="Self.AccountPenaltyGMType" Multiplicity="1" />
+    <End Role="AccountPenaltyGMLog" Type="Self.AccountPenaltyGMLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccountPenaltyGMType">
+        <PropertyRef Name="GM_TypeID" />
+      </Principal>
+      <Dependent Role="AccountPenaltyGMLog">
+        <PropertyRef Name="Set_GM_TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AccountPenaltyGMLog_AccountPenaltyGMType_FK2">
+    <End Role="AccountPenaltyGMType" Type="Self.AccountPenaltyGMType" Multiplicity="0..1" />
+    <End Role="AccountPenaltyGMLog" Type="Self.AccountPenaltyGMLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccountPenaltyGMType">
+        <PropertyRef Name="GM_TypeID" />
+      </Principal>
+      <Dependent Role="AccountPenaltyGMLog">
+        <PropertyRef Name="Reset_GM_TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BattleTimeRewardItemList_BRID">
+    <End Role="BattleTimeRewardDescription" Type="Self.BattleTimeRewardDescription" Multiplicity="1" />
+    <End Role="BattleTimeRewardItemList" Type="Self.BattleTimeRewardItemList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BattleTimeRewardDescription">
+        <PropertyRef Name="BRID" />
+      </Principal>
+      <Dependent Role="BattleTimeRewardItemList">
+        <PropertyRef Name="BRID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BattleTimeRewardTerm_BRID">
+    <End Role="BattleTimeRewardDescription" Type="Self.BattleTimeRewardDescription" Multiplicity="1" />
+    <End Role="BattleTimeRewardTerm" Type="Self.BattleTimeRewardTerm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BattleTimeRewardDescription">
+        <PropertyRef Name="BRID" />
+      </Principal>
+      <Dependent Role="BattleTimeRewardTerm">
+        <PropertyRef Name="BRID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CharacterBattleTimeRewardInfo_BRID">
+    <End Role="BattleTimeRewardDescription" Type="Self.BattleTimeRewardDescription" Multiplicity="1" />
+    <End Role="CharacterBattleTimeRewardInfo" Type="Self.CharacterBattleTimeRewardInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BattleTimeRewardDescription">
+        <PropertyRef Name="BRID" />
+      </Principal>
+      <Dependent Role="CharacterBattleTimeRewardInfo">
+        <PropertyRef Name="BRID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Character_BringAccountItemLog_FK1">
+    <End Role="Character" Type="Self.Character" Multiplicity="0..1" />
+    <End Role="BringAccountItemLog" Type="Self.BringAccountItemLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="BringAccountItemLog">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CashSetShop_CashSetItem_FK1">
+    <End Role="CashSetShop" Type="Self.CashSetShop" Multiplicity="1" />
+    <End Role="CashSetItem" Type="Self.CashSetItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CashSetShop">
+        <PropertyRef Name="CSSID" />
+      </Principal>
+      <Dependent Role="CashSetItem">
+        <PropertyRef Name="CSSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Item_CashSetItem_FK1">
+    <End Role="CashShop" Type="Self.CashShop" Multiplicity="1" />
+    <End Role="CashSetItem" Type="Self.CashSetItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CashShop">
+        <PropertyRef Name="CSID" />
+      </Principal>
+      <Dependent Role="CashSetItem">
+        <PropertyRef Name="CSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CashSetShop_SetItemPurchaseLogByCash_FK1">
+    <End Role="CashSetShop" Type="Self.CashSetShop" Multiplicity="0..1" />
+    <End Role="SetItemPurchaseLogByCash" Type="Self.SetItemPurchaseLogByCash" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CashSetShop">
+        <PropertyRef Name="CSSID" />
+      </Principal>
+      <Dependent Role="SetItemPurchaseLogByCash">
+        <PropertyRef Name="CSSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RentCashS__CSSID__47DBAE45">
+    <End Role="CashSetShop" Type="Self.CashSetShop" Multiplicity="0..1" />
+    <End Role="RentCashSetShopPrice" Type="Self.RentCashSetShopPrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CashSetShop">
+        <PropertyRef Name="CSSID" />
+      </Principal>
+      <Dependent Role="RentCashSetShopPrice">
+        <PropertyRef Name="CSSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RentCashSh__CSID__4AB81AF0">
+    <End Role="CashShop" Type="Self.CashShop" Multiplicity="0..1" />
+    <End Role="RentCashShopPrice" Type="Self.RentCashShopPrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CashShop">
+        <PropertyRef Name="CSID" />
+      </Principal>
+      <Dependent Role="RentCashShopPrice">
+        <PropertyRef Name="CSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Character_CharacterItem_FK1">
+    <End Role="Character" Type="Self.Character" Multiplicity="0..1" />
+    <End Role="CharacterItem" Type="Self.CharacterItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="CharacterItem">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Character_Friend_FK1">
+    <End Role="Character" Type="Self.Character" Multiplicity="1" />
+    <End Role="Friend" Type="Self.Friend" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="Friend">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Character_Friend_FK2">
+    <End Role="Character" Type="Self.Character" Multiplicity="1" />
+    <End Role="Friend" Type="Self.Friend" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="Friend">
+        <PropertyRef Name="FriendCID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Character_PurchaseItemByBountyHistory_FK20050314">
+    <End Role="Character" Type="Self.Character" Multiplicity="0..1" />
+    <End Role="ItemPurchaseLogByBounty" Type="Self.ItemPurchaseLogByBounty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="ItemPurchaseLogByBounty">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Clan_Character_FK1">
+    <End Role="Character" Type="Self.Character" Multiplicity="0..1" />
+    <End Role="Clan" Type="Self.Clan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="Clan">
+        <PropertyRef Name="MasterCID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClanMember_Clan_FK2">
+    <End Role="Character" Type="Self.Character" Multiplicity="0..1" />
+    <End Role="ClanMember" Type="Self.ClanMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="ClanMember">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CharacterMg__CID__5EAA0504">
+    <End Role="Character" Type="Self.Character" Multiplicity="0..1" />
+    <End Role="CharacterMgrLogByGM" Type="Self.CharacterMgrLogByGM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="CharacterMgrLogByGM">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CharacterComment_Character">
+    <End Role="Character" Type="Self.Character" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CharacterComment" Type="Self.CharacterComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="CharacterComment">
+        <PropertyRef Name="Cid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CharacterSkill_Character">
+    <End Role="Character" Type="Self.Character" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CharacterSkill" Type="Self.CharacterSkill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="CharacterSkill">
+        <PropertyRef Name="Cid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Event_Coliseum_Character_NHN_Character">
+    <End Role="Character" Type="Self.Character" Multiplicity="1" />
+    <End Role="Event_Coliseum_Character_NHN" Type="Self.Event_Coliseum_Character_NHN" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="Event_Coliseum_Character_NHN">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventCharacter_CID">
+    <End Role="Character" Type="Self.Character" Multiplicity="1" />
+    <End Role="EventCharacter" Type="Self.EventCharacter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="EventCharacter">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CharacterEquipmentSlotCode_CharacterEquipmentSlot">
+    <End Role="CharacterEquipmentSlotCode" Type="Self.CharacterEquipmentSlotCode" Multiplicity="1" />
+    <End Role="CharacterEquipmentSlot" Type="Self.CharacterEquipmentSlot" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CharacterEquipmentSlotCode">
+        <PropertyRef Name="SlotID" />
+      </Principal>
+      <Dependent Role="CharacterEquipmentSlot">
+        <PropertyRef Name="SlotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Character__CharM__5DB5E0CB">
+    <End Role="CharacterMgrType" Type="Self.CharacterMgrType" Multiplicity="0..1" />
+    <End Role="CharacterMgrLogByGM" Type="Self.CharacterMgrLogByGM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CharacterMgrType">
+        <PropertyRef Name="CharMgrTypeID" />
+      </Principal>
+      <Dependent Role="CharacterMgrLogByGM">
+        <PropertyRef Name="CharMgrTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClanGameLog_LoserCLID_FK1">
+    <End Role="Clan" Type="Self.Clan" Multiplicity="1" />
+    <End Role="ClanGameLog" Type="Self.ClanGameLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clan">
+        <PropertyRef Name="CLID" />
+      </Principal>
+      <Dependent Role="ClanGameLog">
+        <PropertyRef Name="LoserCLID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClanGameLog_WinnerCLID_FK1">
+    <End Role="Clan" Type="Self.Clan" Multiplicity="1" />
+    <End Role="ClanGameLog" Type="Self.ClanGameLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clan">
+        <PropertyRef Name="CLID" />
+      </Principal>
+      <Dependent Role="ClanGameLog">
+        <PropertyRef Name="WinnerCLID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClanHonorRanking_CLID_FK1">
+    <End Role="Clan" Type="Self.Clan" Multiplicity="0..1" />
+    <End Role="ClanHonorRanking" Type="Self.ClanHonorRanking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clan">
+        <PropertyRef Name="CLID" />
+      </Principal>
+      <Dependent Role="ClanHonorRanking">
+        <PropertyRef Name="CLID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClanMember_Clan_FK1">
+    <End Role="Clan" Type="Self.Clan" Multiplicity="0..1" />
+    <End Role="ClanMember" Type="Self.ClanMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clan">
+        <PropertyRef Name="CLID" />
+      </Principal>
+      <Dependent Role="ClanMember">
+        <PropertyRef Name="CLID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClanComment_Clan">
+    <End Role="Clan" Type="Self.Clan" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ClanComment" Type="Self.ClanComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clan">
+        <PropertyRef Name="CLID" />
+      </Principal>
+      <Dependent Role="ClanComment">
+        <PropertyRef Name="ClanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DonatorShopItem_DonatorShopCategory1">
+    <End Role="DonatorShopCategory" Type="Self.DonatorShopCategory" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DonatorShopItem" Type="Self.DonatorShopItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonatorShopCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DonatorShopItem">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DonatorShopSetItem_DonatorShopItem">
+    <End Role="DonatorShopItem" Type="Self.DonatorShopItem" Multiplicity="1" />
+    <End Role="DonatorShopSetItem" Type="Self.DonatorShopSetItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonatorShopItem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DonatorShopSetItem">
+        <PropertyRef Name="DonatorShopItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DonatorShopSetItem_DonatorShopItem1">
+    <End Role="DonatorShopItem" Type="Self.DonatorShopItem" Multiplicity="1" />
+    <End Role="DonatorShopSetItem" Type="Self.DonatorShopSetItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonatorShopItem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DonatorShopSetItem">
+        <PropertyRef Name="DonatorShopSetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DTGameLog_DTGameLogDetail_FK1">
+    <End Role="DTGameLog" Type="Self.DTGameLog" Multiplicity="1" />
+    <End Role="DTGameLogDetail" Type="Self.DTGameLogDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DTGameLog">
+        <PropertyRef Name="TimeStamp" />
+        <PropertyRef Name="LogID" />
+      </Principal>
+      <Dependent Role="DTGameLogDetail">
+        <PropertyRef Name="TimeStamp" />
+        <PropertyRef Name="LogID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DTTimeStamp_DTGameLog_FK1">
+    <End Role="DTTimeStamp" Type="Self.DTTimeStamp" Multiplicity="1" />
+    <End Role="DTGameLog" Type="Self.DTGameLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DTTimeStamp">
+        <PropertyRef Name="TimeStamp" />
+      </Principal>
+      <Dependent Role="DTGameLog">
+        <PropertyRef Name="TimeStamp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Event_Coliseum_PlayData_NHN_Event_Coliseum_Character_NHN">
+    <End Role="Event_Coliseum_Character_NHN" Type="Self.Event_Coliseum_Character_NHN" Multiplicity="1" />
+    <End Role="Event_Coliseum_PlayData_NHN" Type="Self.Event_Coliseum_PlayData_NHN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event_Coliseum_Character_NHN">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="Event_Coliseum_PlayData_NHN">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventCharacter_AID">
+    <End Role="EventAccount" Type="Self.EventAccount" Multiplicity="1" />
+    <End Role="EventCharacter" Type="Self.EventCharacter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventAccount">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="EventCharacter">
+        <PropertyRef Name="AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GambleRewa__GIID__72B0FDB1">
+    <End Role="GambleItem" Type="Self.GambleItem" Multiplicity="1" />
+    <End Role="GambleRewardItem" Type="Self.GambleRewardItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GambleItem">
+        <PropertyRef Name="GIID" />
+      </Principal>
+      <Dependent Role="GambleRewardItem">
+        <PropertyRef Name="GIID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemChangeLog_AccountItem_ItemChangeType">
+    <End Role="ItemChangeType" Type="Self.ItemChangeType" Multiplicity="1" />
+    <End Role="ItemChangeLog_AccountItem" Type="Self.ItemChangeLog_AccountItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemChangeType">
+        <PropertyRef Name="ChangeType" />
+      </Principal>
+      <Dependent Role="ItemChangeLog_AccountItem">
+        <PropertyRef Name="ChangeType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MobileChatContact_MobileChat">
+    <End Role="MobileChat" Type="Self.MobileChat" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MobileChatContact" Type="Self.MobileChatContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MobileChat">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MobileChatContact">
+        <PropertyRef Name="ChatId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurvivalCharacterInfo_SurvivalScenarioID">
+    <End Role="SurvivalScenarioID" Type="Self.SurvivalScenarioID" Multiplicity="1" />
+    <End Role="SurvivalCharacterInfo" Type="Self.SurvivalCharacterInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SurvivalScenarioID">
+        <PropertyRef Name="SID" />
+      </Principal>
+      <Dependent Role="SurvivalCharacterInfo">
+        <PropertyRef Name="SID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurvivalGameLog_SurvivalScenarioID">
+    <End Role="SurvivalScenarioID" Type="Self.SurvivalScenarioID" Multiplicity="1" />
+    <End Role="SurvivalGameLog" Type="Self.SurvivalGameLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SurvivalScenarioID">
+        <PropertyRef Name="SID" />
+      </Principal>
+      <Dependent Role="SurvivalGameLog">
+        <PropertyRef Name="SID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GunzDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AbuseLists" EntityType="Self.AbuseList" />
+    <EntitySet Name="Accounts" EntityType="Self.Account" />
+    <EntitySet Name="AccountItems" EntityType="Self.AccountItem" />
+    <EntitySet Name="AccountMobileLoginTokens" EntityType="Self.AccountMobileLoginToken" />
+    <EntitySet Name="AccountPenaltyCodes" EntityType="Self.AccountPenaltyCode" />
+    <EntitySet Name="AccountPenaltyGMLogs" EntityType="Self.AccountPenaltyGMLog" />
+    <EntitySet Name="AccountPenaltyGMTypes" EntityType="Self.AccountPenaltyGMType" />
+    <EntitySet Name="AccountPenaltyLogs" EntityType="Self.AccountPenaltyLog" />
+    <EntitySet Name="AccountPenaltyPeriods" EntityType="Self.AccountPenaltyPeriod" />
+    <EntitySet Name="BattleTimeRewardDescriptions" EntityType="Self.BattleTimeRewardDescription" />
+    <EntitySet Name="BattleTimeRewardItemLists" EntityType="Self.BattleTimeRewardItemList" />
+    <EntitySet Name="BattleTimeRewardTerms" EntityType="Self.BattleTimeRewardTerm" />
+    <EntitySet Name="BillingMethods" EntityType="Self.BillingMethod" />
+    <EntitySet Name="BlockCountryCodes" EntityType="Self.BlockCountryCode" />
+    <EntitySet Name="BringAccountItemLogs" EntityType="Self.BringAccountItemLog" />
+    <EntitySet Name="CashItemPresentLogs" EntityType="Self.CashItemPresentLog" />
+    <EntitySet Name="CashSetItems" EntityType="Self.CashSetItem" />
+    <EntitySet Name="CashSetShops" EntityType="Self.CashSetShop" />
+    <EntitySet Name="CashShops" EntityType="Self.CashShop" />
+    <EntitySet Name="CashShopNewItemCategories" EntityType="Self.CashShopNewItemCategory" />
+    <EntitySet Name="CashShopRanks" EntityType="Self.CashShopRank" />
+    <EntitySet Name="CB_EventItem" EntityType="Self.CB_EventItem" />
+    <EntitySet Name="CB_EventItem_X" EntityType="Self.CB_EventItem_X" />
+    <EntitySet Name="Characters" EntityType="Self.Character" />
+    <EntitySet Name="CharacterBattleTimeRewardInfoes" EntityType="Self.CharacterBattleTimeRewardInfo" />
+    <EntitySet Name="CharacterComments" EntityType="Self.CharacterComment" />
+    <EntitySet Name="CharacterEquipmentSlots" EntityType="Self.CharacterEquipmentSlot" />
+    <EntitySet Name="CharacterEquipmentSlotCodes" EntityType="Self.CharacterEquipmentSlotCode" />
+    <EntitySet Name="CharacterItems" EntityType="Self.CharacterItem" />
+    <EntitySet Name="CharacterMgrLogByGMs" EntityType="Self.CharacterMgrLogByGM" />
+    <EntitySet Name="CharacterMgrTypes" EntityType="Self.CharacterMgrType" />
+    <EntitySet Name="CharacterSkills" EntityType="Self.CharacterSkill" />
+    <EntitySet Name="Clans" EntityType="Self.Clan" />
+    <EntitySet Name="ClanAdsBoards" EntityType="Self.ClanAdsBoard" />
+    <EntitySet Name="ClanComments" EntityType="Self.ClanComment" />
+    <EntitySet Name="ClanGameLogs" EntityType="Self.ClanGameLog" />
+    <EntitySet Name="ClanHonorRankings" EntityType="Self.ClanHonorRanking" />
+    <EntitySet Name="ClanMembers" EntityType="Self.ClanMember" />
+    <EntitySet Name="ClanMemberGrades" EntityType="Self.ClanMemberGrade" />
+    <EntitySet Name="CountryCodes" EntityType="Self.CountryCode" />
+    <EntitySet Name="DayRankings" EntityType="Self.DayRanking" />
+    <EntitySet Name="DonateShopLogs" EntityType="Self.DonateShopLog" />
+    <EntitySet Name="DonatorDailyItems" EntityType="Self.DonatorDailyItem" />
+    <EntitySet Name="DonatorDailyItemLogs" EntityType="Self.DonatorDailyItemLog" />
+    <EntitySet Name="DonatorShopCategories" EntityType="Self.DonatorShopCategory" />
+    <EntitySet Name="DonatorShopItems" EntityType="Self.DonatorShopItem" />
+    <EntitySet Name="DonatorShopSetItems" EntityType="Self.DonatorShopSetItem" />
+    <EntitySet Name="DTCharacterInfoes" EntityType="Self.DTCharacterInfo" />
+    <EntitySet Name="DTCharacterRankings" EntityType="Self.DTCharacterRanking" />
+    <EntitySet Name="DTCharacterRankingHistories" EntityType="Self.DTCharacterRankingHistory" />
+    <EntitySet Name="DTGameLogs" EntityType="Self.DTGameLog" />
+    <EntitySet Name="DTGameLogDetails" EntityType="Self.DTGameLogDetail" />
+    <EntitySet Name="dtproperties" EntityType="Self.dtproperty" />
+    <EntitySet Name="DTTimeStamps" EntityType="Self.DTTimeStamp" />
+    <EntitySet Name="Effects" EntityType="Self.Effect" />
+    <EntitySet Name="EmailTemplates" EntityType="Self.EmailTemplate" />
+    <EntitySet Name="Event_Coliseum_Character_NHN" EntityType="Self.Event_Coliseum_Character_NHN" />
+    <EntitySet Name="Event_Coliseum_DeathsRanking_NHN" EntityType="Self.Event_Coliseum_DeathsRanking_NHN" />
+    <EntitySet Name="Event_Coliseum_KillsRanking_NHN" EntityType="Self.Event_Coliseum_KillsRanking_NHN" />
+    <EntitySet Name="Event_Coliseum_PlayData_NHN" EntityType="Self.Event_Coliseum_PlayData_NHN" />
+    <EntitySet Name="Event_Coliseum_PlayTimeRanking_NHN" EntityType="Self.Event_Coliseum_PlayTimeRanking_NHN" />
+    <EntitySet Name="event_easter2011" EntityType="Self.event_easter2011" />
+    <EntitySet Name="Event_MDTCharacter" EntityType="Self.Event_MDTCharacter" />
+    <EntitySet Name="Event_MDTCharacterRankingHistory" EntityType="Self.Event_MDTCharacterRankingHistory" />
+    <EntitySet Name="Event_Word_NHN" EntityType="Self.Event_Word_NHN" />
+    <EntitySet Name="EventAccounts" EntityType="Self.EventAccount" />
+    <EntitySet Name="EventCharacters" EntityType="Self.EventCharacter" />
+    <EntitySet Name="Friends" EntityType="Self.Friend" />
+    <EntitySet Name="GambleItems" EntityType="Self.GambleItem" />
+    <EntitySet Name="GambleRewardItems" EntityType="Self.GambleRewardItem" />
+    <EntitySet Name="GameTypes" EntityType="Self.GameType" />
+    <EntitySet Name="Ignores" EntityType="Self.Ignore" />
+    <EntitySet Name="IPtoCountries" EntityType="Self.IPtoCountry" />
+    <EntitySet Name="IPtoCountry_temp" EntityType="Self.IPtoCountry_temp" />
+    <EntitySet Name="ItemChangeLog_AccountItem" EntityType="Self.ItemChangeLog_AccountItem" />
+    <EntitySet Name="ItemChangeTypes" EntityType="Self.ItemChangeType" />
+    <EntitySet Name="ItemSlotTypes" EntityType="Self.ItemSlotType" />
+    <EntitySet Name="KillLogs" EntityType="Self.KillLog" />
+    <EntitySet Name="Levels" EntityType="Self.Level" />
+    <EntitySet Name="LevelUpLogs" EntityType="Self.LevelUpLog" />
+    <EntitySet Name="LocatorStatus" EntityType="Self.LocatorStatu" />
+    <EntitySet Name="Logins" EntityType="Self.Login" />
+    <EntitySet Name="Maps" EntityType="Self.Map" />
+    <EntitySet Name="MobileChats" EntityType="Self.MobileChat" />
+    <EntitySet Name="MobileChatContacts" EntityType="Self.MobileChatContact" />
+    <EntitySet Name="News" EntityType="Self.News" />
+    <EntitySet Name="NHNClanMarks" EntityType="Self.NHNClanMark" />
+    <EntitySet Name="NHNItemOfTheDays" EntityType="Self.NHNItemOfTheDay" />
+    <EntitySet Name="NHNItemOfTheDayLogs" EntityType="Self.NHNItemOfTheDayLog" />
+    <EntitySet Name="NHNPurchaseLogs" EntityType="Self.NHNPurchaseLog" />
+    <EntitySet Name="NHNRareItemShops" EntityType="Self.NHNRareItemShop" />
+    <EntitySet Name="NHNRareItemShopLogs" EntityType="Self.NHNRareItemShopLog" />
+    <EntitySet Name="Paypals" EntityType="Self.Paypal" />
+    <EntitySet Name="PaypalPaymentOptions" EntityType="Self.PaypalPaymentOption" />
+    <EntitySet Name="PenaltyLogs" EntityType="Self.PenaltyLog" />
+    <EntitySet Name="PremiumGrades" EntityType="Self.PremiumGrade" />
+    <EntitySet Name="PurchaseMethods" EntityType="Self.PurchaseMethod" />
+    <EntitySet Name="QuestGameLogs" EntityType="Self.QuestGameLog" />
+    <EntitySet Name="QuestItems" EntityType="Self.QuestItem" />
+    <EntitySet Name="QUniqueItemLogs" EntityType="Self.QUniqueItemLog" />
+    <EntitySet Name="RentCashSetShopPrices" EntityType="Self.RentCashSetShopPrice" />
+    <EntitySet Name="RentCashShopPrices" EntityType="Self.RentCashShopPrice" />
+    <EntitySet Name="RentPeriodDays" EntityType="Self.RentPeriodDay" />
+    <EntitySet Name="RentTypes" EntityType="Self.RentType" />
+    <EntitySet Name="ServerLogStorages" EntityType="Self.ServerLogStorage" />
+    <EntitySet Name="ServerStatus" EntityType="Self.ServerStatu" />
+    <EntitySet Name="ServerTypes" EntityType="Self.ServerType" />
+    <EntitySet Name="SleepAccountNHNs" EntityType="Self.SleepAccountNHN" />
+    <EntitySet Name="SleepAccountRestoredLogNHNs" EntityType="Self.SleepAccountRestoredLogNHN" />
+    <EntitySet Name="SleepCharacterNHNs" EntityType="Self.SleepCharacterNHN" />
+    <EntitySet Name="SleepCharacterRestoredLogNHNs" EntityType="Self.SleepCharacterRestoredLogNHN" />
+    <EntitySet Name="SurvivalCharacterInfoes" EntityType="Self.SurvivalCharacterInfo" />
+    <EntitySet Name="SurvivalCharacterInfoWebs" EntityType="Self.SurvivalCharacterInfoWeb" />
+    <EntitySet Name="SurvivalGameLogs" EntityType="Self.SurvivalGameLog" />
+    <EntitySet Name="SurvivalRankings" EntityType="Self.SurvivalRanking" />
+    <EntitySet Name="SurvivalScenarioIDs" EntityType="Self.SurvivalScenarioID" />
+    <EntitySet Name="tmp_summerwave_newreg_event" EntityType="Self.tmp_summerwave_newreg_event" />
+    <EntitySet Name="tmp_summerwave_raffle_event" EntityType="Self.tmp_summerwave_raffle_event" />
+    <EntitySet Name="TotalRankings" EntityType="Self.TotalRanking" />
+    <EntitySet Name="UserGrades" EntityType="Self.UserGrade" />
+    <EntitySet Name="UVs" EntityType="Self.UV" />
+    <EntitySet Name="CashSetItemDetails" EntityType="Self.CashSetItemDetail" />
+    <EntitySet Name="CashShopNewItems" EntityType="Self.CashShopNewItem" />
+    <EntitySet Name="CharacterBattleTimeRewardLogs" EntityType="Self.CharacterBattleTimeRewardLog" />
+    <EntitySet Name="CharacterMakingLogs" EntityType="Self.CharacterMakingLog" />
+    <EntitySet Name="CustomIPs" EntityType="Self.CustomIP" />
+    <EntitySet Name="Events" EntityType="Self.Event" />
+    <EntitySet Name="Event_CharacterItem_Halloween" EntityType="Self.Event_CharacterItem_Halloween" />
+    <EntitySet Name="Event_ClanPointRanking" EntityType="Self.Event_ClanPointRanking" />
+    <EntitySet Name="GameLogs" EntityType="Self.GameLog" />
+    <EntitySet Name="ipto_back" EntityType="Self.ipto_back" />
+    <EntitySet Name="Items" EntityType="Self.Item" />
+    <EntitySet Name="ItemChangeLog_CharacterItem" EntityType="Self.ItemChangeLog_CharacterItem" />
+    <EntitySet Name="ItemDetails" EntityType="Self.ItemDetail" />
+    <EntitySet Name="ItemPurchaseLogByBounties" EntityType="Self.ItemPurchaseLogByBounty" />
+    <EntitySet Name="ItemPurchaseLogByCashes" EntityType="Self.ItemPurchaseLogByCash" />
+    <EntitySet Name="NHNLuckyBoxCoupons" EntityType="Self.NHNLuckyBoxCoupon" />
+    <EntitySet Name="NHNLuckyBoxInventories" EntityType="Self.NHNLuckyBoxInventory" />
+    <EntitySet Name="NHNLuckyBoxItems" EntityType="Self.NHNLuckyBoxItem" />
+    <EntitySet Name="NHNLuckyBoxRewardItems" EntityType="Self.NHNLuckyBoxRewardItem" />
+    <EntitySet Name="PlayerLogs" EntityType="Self.PlayerLog" />
+    <EntitySet Name="ServerLogs" EntityType="Self.ServerLog" />
+    <EntitySet Name="SetItemPurchaseLogByCashes" EntityType="Self.SetItemPurchaseLogByCash" />
+    <EntitySet Name="tmp_stampevent" EntityType="Self.tmp_stampevent" />
+    <AssociationSet Name="Account_BringAccountItemLog_FK1" Association="Self.Account_BringAccountItemLog_FK1">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="BringAccountItemLog" EntitySet="BringAccountItemLogs" />
+    </AssociationSet>
+    <AssociationSet Name="Account_CashItemPresentLog_FK1" Association="Self.Account_CashItemPresentLog_FK1">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="CashItemPresentLog" EntitySet="CashItemPresentLogs" />
+    </AssociationSet>
+    <AssociationSet Name="Account_Character_FK1" Association="Self.Account_Character_FK1">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="Character" EntitySet="Characters" />
+    </AssociationSet>
+    <AssociationSet Name="Account_PurchaseLogByCash_FK1" Association="Self.Account_PurchaseLogByCash_FK1">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="ItemPurchaseLogByCash" EntitySet="ItemPurchaseLogByCashes" />
+    </AssociationSet>
+    <AssociationSet Name="Account_SetItemPurchaseLogByCash_FK1" Association="Self.Account_SetItemPurchaseLogByCash_FK1">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="SetItemPurchaseLogByCash" EntitySet="SetItemPurchaseLogByCashes" />
+    </AssociationSet>
+    <AssociationSet Name="Account_Table1_FK1" Association="Self.Account_Table1_FK1">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="AccountItem" EntitySet="AccountItems" />
+    </AssociationSet>
+    <AssociationSet Name="AccountPenaltyGMLog_Account_FK" Association="Self.AccountPenaltyGMLog_Account_FK">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="AccountPenaltyGMLog" EntitySet="AccountPenaltyGMLogs" />
+    </AssociationSet>
+    <AssociationSet Name="AccountPenaltyLog_Account_FK" Association="Self.AccountPenaltyLog_Account_FK">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="AccountPenaltyLog" EntitySet="AccountPenaltyLogs" />
+    </AssociationSet>
+    <AssociationSet Name="AccountPenaltyPeriod_Account_FK1" Association="Self.AccountPenaltyPeriod_Account_FK1">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="AccountPenaltyPeriod" EntitySet="AccountPenaltyPeriods" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AccountMobileLoginToken_Account" Association="Self.FK_AccountMobileLoginToken_Account">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="AccountMobileLoginToken" EntitySet="AccountMobileLoginTokens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CharacterComment_Account" Association="Self.FK_CharacterComment_Account">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="CharacterComment" EntitySet="CharacterComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClanComment_Account" Association="Self.FK_ClanComment_Account">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="ClanComment" EntitySet="ClanComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DonateShopLog_Account" Association="Self.FK_DonateShopLog_Account">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="DonateShopLog" EntitySet="DonateShopLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventAccount_AID" Association="Self.FK_EventAccount_AID">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="EventAccount" EntitySet="EventAccounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MobileChatContact_Account" Association="Self.FK_MobileChatContact_Account">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="MobileChatContact" EntitySet="MobileChatContacts" />
+    </AssociationSet>
+    <AssociationSet Name="PremiumGrade_Account_FK1" Association="Self.PremiumGrade_Account_FK1">
+      <End Role="PremiumGrade" EntitySet="PremiumGrades" />
+      <End Role="Account" EntitySet="Accounts" />
+    </AssociationSet>
+    <AssociationSet Name="UserGrade_Account_FK1" Association="Self.UserGrade_Account_FK1">
+      <End Role="UserGrade" EntitySet="UserGrades" />
+      <End Role="Account" EntitySet="Accounts" />
+    </AssociationSet>
+    <AssociationSet Name="AccountPenaltyGMLog_AccountPenaltyGMType_FK" Association="Self.AccountPenaltyGMLog_AccountPenaltyGMType_FK">
+      <End Role="AccountPenaltyGMType" EntitySet="AccountPenaltyGMTypes" />
+      <End Role="AccountPenaltyGMLog" EntitySet="AccountPenaltyGMLogs" />
+    </AssociationSet>
+    <AssociationSet Name="AccountPenaltyGMLog_AccountPenaltyGMType_FK2" Association="Self.AccountPenaltyGMLog_AccountPenaltyGMType_FK2">
+      <End Role="AccountPenaltyGMType" EntitySet="AccountPenaltyGMTypes" />
+      <End Role="AccountPenaltyGMLog" EntitySet="AccountPenaltyGMLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BattleTimeRewardItemList_BRID" Association="Self.FK_BattleTimeRewardItemList_BRID">
+      <End Role="BattleTimeRewardDescription" EntitySet="BattleTimeRewardDescriptions" />
+      <End Role="BattleTimeRewardItemList" EntitySet="BattleTimeRewardItemLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BattleTimeRewardTerm_BRID" Association="Self.FK_BattleTimeRewardTerm_BRID">
+      <End Role="BattleTimeRewardDescription" EntitySet="BattleTimeRewardDescriptions" />
+      <End Role="BattleTimeRewardTerm" EntitySet="BattleTimeRewardTerms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CharacterBattleTimeRewardInfo_BRID" Association="Self.FK_CharacterBattleTimeRewardInfo_BRID">
+      <End Role="BattleTimeRewardDescription" EntitySet="BattleTimeRewardDescriptions" />
+      <End Role="CharacterBattleTimeRewardInfo" EntitySet="CharacterBattleTimeRewardInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="Character_BringAccountItemLog_FK1" Association="Self.Character_BringAccountItemLog_FK1">
+      <End Role="Character" EntitySet="Characters" />
+      <End Role="BringAccountItemLog" EntitySet="BringAccountItemLogs" />
+    </AssociationSet>
+    <AssociationSet Name="CashSetShop_CashSetItem_FK1" Association="Self.CashSetShop_CashSetItem_FK1">
+      <End Role="CashSetShop" EntitySet="CashSetShops" />
+      <End Role="CashSetItem" EntitySet="CashSetItems" />
+    </AssociationSet>
+    <AssociationSet Name="Item_CashSetItem_FK1" Association="Self.Item_CashSetItem_FK1">
+      <End Role="CashShop" EntitySet="CashShops" />
+      <End Role="CashSetItem" EntitySet="CashSetItems" />
+    </AssociationSet>
+    <AssociationSet Name="CashSetShop_SetItemPurchaseLogByCash_FK1" Association="Self.CashSetShop_SetItemPurchaseLogByCash_FK1">
+      <End Role="CashSetShop" EntitySet="CashSetShops" />
+      <End Role="SetItemPurchaseLogByCash" EntitySet="SetItemPurchaseLogByCashes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RentCashS__CSSID__47DBAE45" Association="Self.FK__RentCashS__CSSID__47DBAE45">
+      <End Role="CashSetShop" EntitySet="CashSetShops" />
+      <End Role="RentCashSetShopPrice" EntitySet="RentCashSetShopPrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RentCashSh__CSID__4AB81AF0" Association="Self.FK__RentCashSh__CSID__4AB81AF0">
+      <End Role="CashShop" EntitySet="CashShops" />
+      <End Role="RentCashShopPrice" EntitySet="RentCashShopPrices" />
+    </AssociationSet>
+    <AssociationSet Name="Character_CharacterItem_FK1" Association="Self.Character_CharacterItem_FK1">
+      <End Role="Character" EntitySet="Characters" />
+      <End Role="CharacterItem" EntitySet="CharacterItems" />
+    </AssociationSet>
+    <AssociationSet Name="Character_Friend_FK1" Association="Self.Character_Friend_FK1">
+      <End Role="Character" EntitySet="Characters" />
+      <End Role="Friend" EntitySet="Friends" />
+    </AssociationSet>
+    <AssociationSet Name="Character_Friend_FK2" Association="Self.Character_Friend_FK2">
+      <End Role="Character" EntitySet="Characters" />
+      <End Role="Friend" EntitySet="Friends" />
+    </AssociationSet>
+    <AssociationSet Name="Character_PurchaseItemByBountyHistory_FK20050314" Association="Self.Character_PurchaseItemByBountyHistory_FK20050314">
+      <End Role="Character" EntitySet="Characters" />
+      <End Role="ItemPurchaseLogByBounty" EntitySet="ItemPurchaseLogByBounties" />
+    </AssociationSet>
+    <AssociationSet Name="Clan_Character_FK1" Association="Self.Clan_Character_FK1">
+      <End Role="Character" EntitySet="Characters" />
+      <End Role="Clan" EntitySet="Clans" />
+    </AssociationSet>
+    <AssociationSet Name="ClanMember_Clan_FK2" Association="Self.ClanMember_Clan_FK2">
+      <End Role="Character" EntitySet="Characters" />
+      <End Role="ClanMember" EntitySet="ClanMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CharacterMg__CID__5EAA0504" Association="Self.FK__CharacterMg__CID__5EAA0504">
+      <End Role="Character" EntitySet="Characters" />
+      <End Role="CharacterMgrLogByGM" EntitySet="CharacterMgrLogByGMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CharacterComment_Character" Association="Self.FK_CharacterComment_Character">
+      <End Role="Character" EntitySet="Characters" />
+      <End Role="CharacterComment" EntitySet="CharacterComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CharacterSkill_Character" Association="Self.FK_CharacterSkill_Character">
+      <End Role="Character" EntitySet="Characters" />
+      <End Role="CharacterSkill" EntitySet="CharacterSkills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Event_Coliseum_Character_NHN_Character" Association="Self.FK_Event_Coliseum_Character_NHN_Character">
+      <End Role="Character" EntitySet="Characters" />
+      <End Role="Event_Coliseum_Character_NHN" EntitySet="Event_Coliseum_Character_NHN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventCharacter_CID" Association="Self.FK_EventCharacter_CID">
+      <End Role="Character" EntitySet="Characters" />
+      <End Role="EventCharacter" EntitySet="EventCharacters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CharacterEquipmentSlotCode_CharacterEquipmentSlot" Association="Self.FK_CharacterEquipmentSlotCode_CharacterEquipmentSlot">
+      <End Role="CharacterEquipmentSlotCode" EntitySet="CharacterEquipmentSlotCodes" />
+      <End Role="CharacterEquipmentSlot" EntitySet="CharacterEquipmentSlots" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Character__CharM__5DB5E0CB" Association="Self.FK__Character__CharM__5DB5E0CB">
+      <End Role="CharacterMgrType" EntitySet="CharacterMgrTypes" />
+      <End Role="CharacterMgrLogByGM" EntitySet="CharacterMgrLogByGMs" />
+    </AssociationSet>
+    <AssociationSet Name="ClanGameLog_LoserCLID_FK1" Association="Self.ClanGameLog_LoserCLID_FK1">
+      <End Role="Clan" EntitySet="Clans" />
+      <End Role="ClanGameLog" EntitySet="ClanGameLogs" />
+    </AssociationSet>
+    <AssociationSet Name="ClanGameLog_WinnerCLID_FK1" Association="Self.ClanGameLog_WinnerCLID_FK1">
+      <End Role="Clan" EntitySet="Clans" />
+      <End Role="ClanGameLog" EntitySet="ClanGameLogs" />
+    </AssociationSet>
+    <AssociationSet Name="ClanHonorRanking_CLID_FK1" Association="Self.ClanHonorRanking_CLID_FK1">
+      <End Role="Clan" EntitySet="Clans" />
+      <End Role="ClanHonorRanking" EntitySet="ClanHonorRankings" />
+    </AssociationSet>
+    <AssociationSet Name="ClanMember_Clan_FK1" Association="Self.ClanMember_Clan_FK1">
+      <End Role="Clan" EntitySet="Clans" />
+      <End Role="ClanMember" EntitySet="ClanMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClanComment_Clan" Association="Self.FK_ClanComment_Clan">
+      <End Role="Clan" EntitySet="Clans" />
+      <End Role="ClanComment" EntitySet="ClanComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DonatorShopItem_DonatorShopCategory1" Association="Self.FK_DonatorShopItem_DonatorShopCategory1">
+      <End Role="DonatorShopCategory" EntitySet="DonatorShopCategories" />
+      <End Role="DonatorShopItem" EntitySet="DonatorShopItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DonatorShopSetItem_DonatorShopItem" Association="Self.FK_DonatorShopSetItem_DonatorShopItem">
+      <End Role="DonatorShopItem" EntitySet="DonatorShopItems" />
+      <End Role="DonatorShopSetItem" EntitySet="DonatorShopSetItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DonatorShopSetItem_DonatorShopItem1" Association="Self.FK_DonatorShopSetItem_DonatorShopItem1">
+      <End Role="DonatorShopItem" EntitySet="DonatorShopItems" />
+      <End Role="DonatorShopSetItem" EntitySet="DonatorShopSetItems" />
+    </AssociationSet>
+    <AssociationSet Name="DTGameLog_DTGameLogDetail_FK1" Association="Self.DTGameLog_DTGameLogDetail_FK1">
+      <End Role="DTGameLog" EntitySet="DTGameLogs" />
+      <End Role="DTGameLogDetail" EntitySet="DTGameLogDetails" />
+    </AssociationSet>
+    <AssociationSet Name="DTTimeStamp_DTGameLog_FK1" Association="Self.DTTimeStamp_DTGameLog_FK1">
+      <End Role="DTTimeStamp" EntitySet="DTTimeStamps" />
+      <End Role="DTGameLog" EntitySet="DTGameLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Event_Coliseum_PlayData_NHN_Event_Coliseum_Character_NHN" Association="Self.FK_Event_Coliseum_PlayData_NHN_Event_Coliseum_Character_NHN">
+      <End Role="Event_Coliseum_Character_NHN" EntitySet="Event_Coliseum_Character_NHN" />
+      <End Role="Event_Coliseum_PlayData_NHN" EntitySet="Event_Coliseum_PlayData_NHN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventCharacter_AID" Association="Self.FK_EventCharacter_AID">
+      <End Role="EventAccount" EntitySet="EventAccounts" />
+      <End Role="EventCharacter" EntitySet="EventCharacters" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GambleRewa__GIID__72B0FDB1" Association="Self.FK__GambleRewa__GIID__72B0FDB1">
+      <End Role="GambleItem" EntitySet="GambleItems" />
+      <End Role="GambleRewardItem" EntitySet="GambleRewardItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemChangeLog_AccountItem_ItemChangeType" Association="Self.FK_ItemChangeLog_AccountItem_ItemChangeType">
+      <End Role="ItemChangeType" EntitySet="ItemChangeTypes" />
+      <End Role="ItemChangeLog_AccountItem" EntitySet="ItemChangeLog_AccountItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MobileChatContact_MobileChat" Association="Self.FK_MobileChatContact_MobileChat">
+      <End Role="MobileChat" EntitySet="MobileChats" />
+      <End Role="MobileChatContact" EntitySet="MobileChatContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurvivalCharacterInfo_SurvivalScenarioID" Association="Self.FK_SurvivalCharacterInfo_SurvivalScenarioID">
+      <End Role="SurvivalScenarioID" EntitySet="SurvivalScenarioIDs" />
+      <End Role="SurvivalCharacterInfo" EntitySet="SurvivalCharacterInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurvivalGameLog_SurvivalScenarioID" Association="Self.FK_SurvivalGameLog_SurvivalScenarioID">
+      <End Role="SurvivalScenarioID" EntitySet="SurvivalScenarioIDs" />
+      <End Role="SurvivalGameLog" EntitySet="SurvivalGameLogs" />
+    </AssociationSet>
+    <EntitySet Name="ItemRotations" EntityType="GunzDBModel.ItemRotation" />
+  </EntityContainer>
+  <EntityType Name="ItemRotation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemId" Type="Int32" Nullable="false" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="Month" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>

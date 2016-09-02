@@ -1,0 +1,3303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GunzDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AbuseList">
+    <Key>
+      <PropertyRef Name="Word" />
+    </Key>
+    <Property Name="Word" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="AID" />
+    </Key>
+    <Property Name="AID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="UGradeID" Type="int" Nullable="false" />
+    <Property Name="PGradeID" Type="int" Nullable="false" />
+    <Property Name="RegDate" Type="datetime" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="RegNum" Type="varchar" MaxLength="50" />
+    <Property Name="Age" Type="smallint" />
+    <Property Name="Sex" Type="tinyint" />
+    <Property Name="ZipCode" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar" MaxLength="256" />
+    <Property Name="Country" Type="varchar" MaxLength="50" />
+    <Property Name="LastCID" Type="int" />
+    <Property Name="Cert" Type="tinyint" />
+    <Property Name="Question" Type="smallint" />
+    <Property Name="Answer" Type="varchar" MaxLength="30" />
+    <Property Name="Status" Type="char" MaxLength="1" />
+    <Property Name="EndblockDate" Type="smalldatetime" />
+    <Property Name="LastLoginTime" Type="smalldatetime" />
+    <Property Name="LastLogoutTime" Type="smalldatetime" />
+    <Property Name="ServerID" Type="int" />
+    <Property Name="BlockType" Type="tinyint" />
+    <Property Name="HackingType" Type="tinyint" />
+    <Property Name="HackingRegTime" Type="smalldatetime" />
+    <Property Name="EndHackingBlockTime" Type="smalldatetime" />
+    <Property Name="IsPowerLevelingHacker" Type="tinyint" />
+    <Property Name="PowerLevelingRegDate" Type="datetime" />
+    <Property Name="DonationCoins" Type="int" Nullable="false" />
+    <Property Name="EventCoins" Type="int" Nullable="false" />
+    <Property Name="AvatarUrl" Type="varchar" MaxLength="255" />
+    <Property Name="PasswordResetCode" Type="varchar" MaxLength="100" />
+    <Property Name="PasswordResetDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="AccountItem">
+    <Key>
+      <PropertyRef Name="AIID" />
+    </Key>
+    <Property Name="AIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AID" Type="int" Nullable="false" />
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="RentDate" Type="datetime" />
+    <Property Name="RentHourPeriod" Type="smallint" />
+    <Property Name="Cnt" Type="smallint" />
+  </EntityType>
+  <EntityType Name="AccountMobileLoginToken">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Aid" Type="int" Nullable="false" />
+    <Property Name="Selector" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Token" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ExpireDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AccountPenaltyCode">
+    <Key>
+      <PropertyRef Name="PCode" />
+    </Key>
+    <Property Name="PCode" Type="tinyint" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="24" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AccountPenaltyGMLog">
+    <Key>
+      <PropertyRef Name="AID" />
+      <PropertyRef Name="PEndDate" />
+      <PropertyRef Name="PCode" />
+      <PropertyRef Name="PLogID" />
+    </Key>
+    <Property Name="AID" Type="int" Nullable="false" />
+    <Property Name="PEndDate" Type="datetime" Nullable="false" />
+    <Property Name="PCode" Type="int" Nullable="false" />
+    <Property Name="PLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Set_GM_TypeID" Type="tinyint" Nullable="false" />
+    <Property Name="Set_GM_ID" Type="varchar" MaxLength="24" Nullable="false" />
+    <Property Name="Set_Date" Type="datetime" Nullable="false" />
+    <Property Name="Reset_GM_TypeID" Type="tinyint" />
+    <Property Name="Reset_GM_ID" Type="varchar" MaxLength="24" />
+    <Property Name="Reset_Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="AccountPenaltyGMType">
+    <Key>
+      <PropertyRef Name="GM_TypeID" />
+    </Key>
+    <Property Name="GM_TypeID" Type="tinyint" Nullable="false" />
+    <Property Name="GM_TypeName" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AccountPenaltyLog">
+    <Key>
+      <PropertyRef Name="PenaltyLogID" />
+    </Key>
+    <Property Name="PenaltyLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AID" Type="int" />
+    <Property Name="UGradeID" Type="int" />
+    <Property Name="DayLeft" Type="int" />
+    <Property Name="RegDate" Type="smalldatetime" />
+    <Property Name="GMID" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="AccountPenaltyPeriod">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AID" Type="int" Nullable="false" />
+    <Property Name="DayLeft" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BattleTimeRewardDescription">
+    <Key>
+      <PropertyRef Name="BRID" />
+    </Key>
+    <Property Name="BRID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="128" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="StartHour" Type="tinyint" />
+    <Property Name="EndHour" Type="tinyint" />
+    <Property Name="RewardMinutePeriod" Type="int" Nullable="false" />
+    <Property Name="RewardCount" Type="tinyint" Nullable="false" />
+    <Property Name="RewardKillCount" Type="tinyint" Nullable="false" />
+    <Property Name="ResetCode" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="ResetDesc" Type="varchar" MaxLength="128" />
+    <Property Name="IsOpen" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="BattleTimeRewardItemList">
+    <Key>
+      <PropertyRef Name="BRIID" />
+    </Key>
+    <Property Name="BRIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BRID" Type="int" Nullable="false" />
+    <Property Name="ItemIDMale" Type="int" Nullable="false" />
+    <Property Name="ItemIDFemale" Type="int" Nullable="false" />
+    <Property Name="RentHourPeriod" Type="int" />
+    <Property Name="ItemCnt" Type="int" />
+    <Property Name="RatePerThousand" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BattleTimeRewardTerm">
+    <Key>
+      <PropertyRef Name="BRID" />
+      <PropertyRef Name="BRTID" />
+    </Key>
+    <Property Name="BRID" Type="int" Nullable="false" />
+    <Property Name="BRTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LastResetDate" Type="datetime" Nullable="false" />
+    <Property Name="ClosedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="BillingMethod">
+    <Key>
+      <PropertyRef Name="BillingMethodID" />
+    </Key>
+    <Property Name="BillingMethodID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BlockCountryCode">
+    <Key>
+      <PropertyRef Name="CountryCode3" />
+    </Key>
+    <Property Name="CountryCode3" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="RoutingURL" Type="varchar" MaxLength="64" />
+    <Property Name="IsBlock" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="BringAccountItemLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AID" Type="int" />
+    <Property Name="CID" Type="int" />
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CashItemPresentLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SenderUserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ReceiverAID" Type="int" Nullable="false" />
+    <Property Name="CSID" Type="int" />
+    <Property Name="CSSID" Type="int" />
+    <Property Name="Cash" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="RentHourPeriod" Type="int" />
+    <Property Name="MobileCode" Type="char" MaxLength="16" />
+    <Property Name="sid" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="CashSetItem">
+    <Key>
+      <PropertyRef Name="CSIID" />
+    </Key>
+    <Property Name="CSIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CSSID" Type="int" Nullable="false" />
+    <Property Name="CSID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GunzDB.dbo.CashSetItemDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CashSetItemDetail">
+    <Key>
+      <PropertyRef Name="CSSID" />
+    </Key>
+    <Property Name="CSSID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="64" />
+    <Property Name="Lang" Type="varchar" MaxLength="2" />
+    <Property Name="Description" Type="varchar" MaxLength="2048" />
+  </EntityType>
+  <EntityType Name="CashSetShop">
+    <Key>
+      <PropertyRef Name="CSSID" />
+    </Key>
+    <Property Name="CSSID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="64" />
+    <Property Name="Description" Type="varchar" MaxLength="1024" />
+    <Property Name="CashPrice" Type="int" Nullable="false" />
+    <Property Name="WebImgName" Type="varchar" MaxLength="64" />
+    <Property Name="NewItemOrder" Type="tinyint" />
+    <Property Name="ResSex" Type="tinyint" />
+    <Property Name="ResLevel" Type="int" />
+    <Property Name="Weight" Type="int" />
+    <Property Name="Opened" Type="tinyint" />
+    <Property Name="RegDate" Type="datetime" />
+    <Property Name="RentType" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="CashShop">
+    <Key>
+      <PropertyRef Name="CSID" />
+    </Key>
+    <Property Name="CSID" Type="int" Nullable="false" />
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="NewItemOrder" Type="tinyint" />
+    <Property Name="CashPrice" Type="int" Nullable="false" />
+    <Property Name="WebImgName" Type="varchar" MaxLength="64" />
+    <Property Name="Opened" Type="tinyint" />
+    <Property Name="RegDate" Type="datetime" />
+    <Property Name="RentType" Type="tinyint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GunzDB.dbo.CashShopNewItem' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CashShopNewItem">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Category" />
+      <PropertyRef Name="NewOrder" />
+      <PropertyRef Name="IsSetItem" />
+      <PropertyRef Name="Slot" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="ResSex" />
+      <PropertyRef Name="ResLevel" />
+      <PropertyRef Name="CashPrice" />
+      <PropertyRef Name="RegDate" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Category" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="NewOrder" Type="int" Nullable="false" />
+    <Property Name="IsSetItem" Type="int" Nullable="false" />
+    <Property Name="CSID" Type="int" />
+    <Property Name="CSSID" Type="int" />
+    <Property Name="Slot" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="ResSex" Type="int" Nullable="false" />
+    <Property Name="ResLevel" Type="int" Nullable="false" />
+    <Property Name="CashPrice" Type="int" Nullable="false" />
+    <Property Name="WebImgName" Type="varchar" MaxLength="64" />
+    <Property Name="RegDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CashShopNewItemCategory">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="12" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CashShopRank">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Rank" Type="int" Nullable="false" />
+    <Property Name="Category" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="CSID" Type="int" />
+    <Property Name="CSSID" Type="int" />
+    <Property Name="Slot" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="ResSex" Type="int" Nullable="false" />
+    <Property Name="ResLevel" Type="int" Nullable="false" />
+    <Property Name="CashPrice" Type="int" Nullable="false" />
+    <Property Name="RegDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CB_EventItem">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="IsUsed" Type="int" />
+  </EntityType>
+  <EntityType Name="CB_EventItem_X">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="IsUsed" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'GunzDB.dbo.cb_gift_user' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="cb_gift_user">
+          <Property Name="aid" Type="int" />
+          <Property Name="regdate" Type="datetime" />
+        </EntityType>-->
+  <EntityType Name="Character">
+    <Key>
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="CID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="24" Nullable="false" />
+    <Property Name="Level" Type="smallint" Nullable="false" />
+    <Property Name="Sex" Type="tinyint" Nullable="false" />
+    <Property Name="CharNum" Type="smallint" Nullable="false" />
+    <Property Name="Hair" Type="tinyint" />
+    <Property Name="Face" Type="tinyint" />
+    <Property Name="XP" Type="int" Nullable="false" />
+    <Property Name="BP" Type="int" Nullable="false" />
+    <Property Name="HP" Type="smallint" />
+    <Property Name="AP" Type="smallint" />
+    <Property Name="FR" Type="int" />
+    <Property Name="CR" Type="int" />
+    <Property Name="ER" Type="int" />
+    <Property Name="WR" Type="int" />
+    <Property Name="head_slot" Type="int" />
+    <Property Name="chest_slot" Type="int" />
+    <Property Name="hands_slot" Type="int" />
+    <Property Name="legs_slot" Type="int" />
+    <Property Name="feet_slot" Type="int" />
+    <Property Name="fingerl_slot" Type="int" />
+    <Property Name="fingerr_slot" Type="int" />
+    <Property Name="melee_slot" Type="int" />
+    <Property Name="primary_slot" Type="int" />
+    <Property Name="secondary_slot" Type="int" />
+    <Property Name="custom1_slot" Type="int" />
+    <Property Name="custom2_slot" Type="int" />
+    <Property Name="RegDate" Type="datetime" />
+    <Property Name="LastTime" Type="datetime" />
+    <Property Name="PlayTime" Type="int" />
+    <Property Name="GameCount" Type="int" />
+    <Property Name="KillCount" Type="int" />
+    <Property Name="DeathCount" Type="int" />
+    <Property Name="DeleteFlag" Type="tinyint" />
+    <Property Name="DeleteName" Type="varchar" MaxLength="24" />
+    <Property Name="head_itemid" Type="int" />
+    <Property Name="chest_itemid" Type="int" />
+    <Property Name="hands_itemid" Type="int" />
+    <Property Name="legs_itemid" Type="int" />
+    <Property Name="feet_itemid" Type="int" />
+    <Property Name="fingerl_itemid" Type="int" />
+    <Property Name="fingerr_itemid" Type="int" />
+    <Property Name="melee_itemid" Type="int" />
+    <Property Name="primary_itemid" Type="int" />
+    <Property Name="secondary_itemid" Type="int" />
+    <Property Name="custom1_itemid" Type="int" />
+    <Property Name="custom2_itemid" Type="int" />
+    <Property Name="QuestItemInfo" Type="binary" MaxLength="292" />
+    <Property Name="nRedColor" Type="int" />
+    <Property Name="nGreenColor" Type="int" />
+    <Property Name="nBlueColor" Type="int" />
+    <Property Name="BPPlus" Type="int" />
+    <Property Name="HeaderUrl" Type="varchar" MaxLength="255" />
+    <Property Name="AvatarUrl" Type="varchar" MaxLength="255" />
+    <Property Name="About" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="CharacterBattleTimeRewardInfo">
+    <Key>
+      <PropertyRef Name="CID" />
+      <PropertyRef Name="BRID" />
+    </Key>
+    <Property Name="CID" Type="int" Nullable="false" />
+    <Property Name="BRID" Type="int" Nullable="false" />
+    <Property Name="BRTID" Type="int" Nullable="false" />
+    <Property Name="BattleTime" Type="int" />
+    <Property Name="RewardCount" Type="int" />
+    <Property Name="KillCount" Type="int" />
+    <Property Name="LastUpdatedTime" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GunzDB.dbo.CharacterBattleTimeRewardLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CharacterBattleTimeRewardLog">
+    <Key>
+      <PropertyRef Name="CID" />
+      <PropertyRef Name="BRID" />
+      <PropertyRef Name="BRTID" />
+      <PropertyRef Name="BattleTime" />
+      <PropertyRef Name="KillCount" />
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="ItemCnt" />
+      <PropertyRef Name="RentHourPeriod" />
+    </Key>
+    <Property Name="CID" Type="int" Nullable="false" />
+    <Property Name="BRID" Type="int" Nullable="false" />
+    <Property Name="BRTID" Type="int" Nullable="false" />
+    <Property Name="RegDate" Type="datetime" />
+    <Property Name="BattleTime" Type="int" Nullable="false" />
+    <Property Name="KillCount" Type="int" Nullable="false" />
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="ItemCnt" Type="int" Nullable="false" />
+    <Property Name="RentHourPeriod" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CharacterComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cid" Type="int" Nullable="false" />
+    <Property Name="AccountId" Type="int" Nullable="false" />
+    <Property Name="Comment" Type="varchar(max)" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CharacterEquipmentSlot">
+    <Key>
+      <PropertyRef Name="CID" />
+      <PropertyRef Name="SlotID" />
+    </Key>
+    <Property Name="CID" Type="int" Nullable="false" />
+    <Property Name="SlotID" Type="int" Nullable="false" />
+    <Property Name="CIID" Type="int" />
+    <Property Name="ItemID" Type="int" />
+  </EntityType>
+  <EntityType Name="CharacterEquipmentSlotCode">
+    <Key>
+      <PropertyRef Name="SlotID" />
+    </Key>
+    <Property Name="SlotID" Type="int" Nullable="false" />
+    <Property Name="SlotType" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="CharacterItem">
+    <Key>
+      <PropertyRef Name="CIID" />
+    </Key>
+    <Property Name="CIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CID" Type="int" />
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="RegDate" Type="datetime" />
+    <Property Name="RentDate" Type="datetime" />
+    <Property Name="RentHourPeriod" Type="smallint" />
+    <Property Name="Cnt" Type="smallint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GunzDB.dbo.CharacterMakingLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CharacterMakingLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AID" Type="int" />
+    <Property Name="CharName" Type="varchar" MaxLength="32" />
+    <Property Name="Type" Type="varchar" MaxLength="20" />
+    <Property Name="Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CharacterMgrLogByGM">
+    <Key>
+      <PropertyRef Name="CharMgrLogID" />
+    </Key>
+    <Property Name="CharMgrLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CID" Type="int" />
+    <Property Name="CharName" Type="varchar" MaxLength="24" Nullable="false" />
+    <Property Name="CharMgrTypeID" Type="tinyint" />
+    <Property Name="GMID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="NewName" Type="varchar" MaxLength="24" />
+    <Property Name="OrgValue" Type="int" />
+    <Property Name="NewValue" Type="int" />
+    <Property Name="RegDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="CharacterMgrType">
+    <Key>
+      <PropertyRef Name="CharMgrTypeID" />
+    </Key>
+    <Property Name="CharMgrTypeID" Type="tinyint" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="CharacterSkill">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cid" Type="int" Nullable="false" />
+    <Property Name="Skill" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Clan">
+    <Key>
+      <PropertyRef Name="CLID" />
+    </Key>
+    <Property Name="CLID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="24" />
+    <Property Name="Exp" Type="int" Nullable="false" />
+    <Property Name="Level" Type="tinyint" Nullable="false" />
+    <Property Name="Point" Type="int" Nullable="false" />
+    <Property Name="MasterCID" Type="int" />
+    <Property Name="Wins" Type="int" Nullable="false" />
+    <Property Name="MarkWebImg" Type="varchar" MaxLength="48" />
+    <Property Name="Introduction" Type="varchar" MaxLength="1024" />
+    <Property Name="RegDate" Type="datetime" Nullable="false" />
+    <Property Name="DeleteFlag" Type="tinyint" />
+    <Property Name="DeleteName" Type="varchar" MaxLength="24" />
+    <Property Name="Homepage" Type="varchar" MaxLength="128" />
+    <Property Name="Losses" Type="int" Nullable="false" />
+    <Property Name="Draws" Type="int" Nullable="false" />
+    <Property Name="Ranking" Type="int" Nullable="false" />
+    <Property Name="TotalPoint" Type="int" Nullable="false" />
+    <Property Name="Cafe_Url" Type="varchar" MaxLength="20" />
+    <Property Name="Email" Type="varchar" MaxLength="70" />
+    <Property Name="EmblemUrl" Type="varchar" MaxLength="256" />
+    <Property Name="RankIncrease" Type="int" Nullable="false" />
+    <Property Name="EmblemChecksum" Type="int" Nullable="false" />
+    <Property Name="LastDayRanking" Type="int" Nullable="false" />
+    <Property Name="LastMonthRanking" Type="int" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="24" />
+    <Property Name="HeaderUrl" Type="varchar" MaxLength="255" />
+    <Property Name="FaceBookUrl" Type="varchar" MaxLength="50" />
+    <Property Name="GooglePlusUrl" Type="varchar" MaxLength="50" />
+    <Property Name="TwitterUrl" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ClanAdsBoard">
+    <Key>
+      <PropertyRef Name="Seq" />
+    </Key>
+    <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Subject" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RegDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="ReadCount" Type="int" Nullable="false" />
+    <Property Name="Recommend" Type="int" />
+    <Property Name="Content" Type="varchar" MaxLength="2000" Nullable="false" />
+    <Property Name="FileName" Type="varchar" MaxLength="128" />
+    <Property Name="Link" Type="varchar" MaxLength="255" />
+    <Property Name="HTML" Type="smallint" Nullable="false" />
+    <Property Name="CommentCount" Type="int" Nullable="false" />
+    <Property Name="GR_ID" Type="int" Nullable="false" />
+    <Property Name="GR_Depth" Type="int" Nullable="false" />
+    <Property Name="GR_Pos" Type="int" Nullable="false" />
+    <Property Name="Thread" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClanComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClanId" Type="int" Nullable="false" />
+    <Property Name="AccountId" Type="int" Nullable="false" />
+    <Property Name="Comment" Type="varchar(max)" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClanGameLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WinnerCLID" Type="int" Nullable="false" />
+    <Property Name="LoserCLID" Type="int" Nullable="false" />
+    <Property Name="WinnerClanName" Type="varchar" MaxLength="24" />
+    <Property Name="LoserClanName" Type="varchar" MaxLength="24" />
+    <Property Name="WinnerMembers" Type="varchar" MaxLength="110" />
+    <Property Name="LoserMembers" Type="varchar" MaxLength="110" />
+    <Property Name="RoundWins" Type="tinyint" Nullable="false" />
+    <Property Name="RoundLosses" Type="tinyint" Nullable="false" />
+    <Property Name="MapID" Type="tinyint" Nullable="false" />
+    <Property Name="GameType" Type="tinyint" Nullable="false" />
+    <Property Name="RegDate" Type="datetime" Nullable="false" />
+    <Property Name="WinnerPoint" Type="int" />
+    <Property Name="LoserPoint" Type="int" />
+  </EntityType>
+  <EntityType Name="ClanHonorRanking">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CLID" Type="int" />
+    <Property Name="ClanName" Type="varchar" MaxLength="24" Nullable="false" />
+    <Property Name="Point" Type="int" />
+    <Property Name="Wins" Type="int" />
+    <Property Name="Losses" Type="int" />
+    <Property Name="Ranking" Type="int" />
+    <Property Name="Year" Type="smallint" />
+    <Property Name="Month" Type="tinyint" />
+    <Property Name="RankIncrease" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClanMember">
+    <Key>
+      <PropertyRef Name="CMID" />
+    </Key>
+    <Property Name="CMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CLID" Type="int" />
+    <Property Name="CID" Type="int" />
+    <Property Name="Grade" Type="tinyint" Nullable="false" />
+    <Property Name="RegDate" Type="datetime" Nullable="false" />
+    <Property Name="ContPoint" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClanMemberGrade">
+    <Key>
+      <PropertyRef Name="GradeID" />
+    </Key>
+    <Property Name="GradeID" Type="int" Nullable="false" />
+    <Property Name="Grade" Type="varchar" MaxLength="24" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CountryCode">
+    <Key>
+      <PropertyRef Name="CountryCode3" />
+    </Key>
+    <Property Name="CountryCode3" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="CountryName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GunzDB.dbo.CustomIP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CustomIP">
+    <Key>
+      <PropertyRef Name="IPFrom" />
+      <PropertyRef Name="IPTo" />
+      <PropertyRef Name="IsBlock" />
+      <PropertyRef Name="CountryCode3" />
+    </Key>
+    <Property Name="IPFrom" Type="bigint" Nullable="false" />
+    <Property Name="IPTo" Type="bigint" Nullable="false" />
+    <Property Name="IsBlock" Type="tinyint" Nullable="false" />
+    <Property Name="CountryCode3" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="Comment" Type="varchar" MaxLength="128" />
+    <Property Name="RegDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="DayRanking">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="24" Nullable="false" />
+    <Property Name="Level" Type="smallint" Nullable="false" />
+    <Property Name="Point" Type="int" />
+    <Property Name="Rank" Type="int" />
+  </EntityType>
+  <EntityType Name="DonateShopLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountId" Type="int" Nullable="false" />
+    <Property Name="ShopItemId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DonatorDailyItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Image" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="ItemId" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Damage" Type="int" Nullable="false" />
+    <Property Name="Delay" Type="int" Nullable="false" />
+    <Property Name="Magazine" Type="int" Nullable="false" />
+    <Property Name="MaxBullet" Type="int" Nullable="false" />
+    <Property Name="MaxWeight" Type="int" Nullable="false" />
+    <Property Name="ReloadTime" Type="int" Nullable="false" />
+    <Property Name="Hp" Type="int" Nullable="false" />
+    <Property Name="Ap" Type="int" Nullable="false" />
+    <Property Name="Sex" Type="int" />
+    <Property Name="Weight" Type="int" Nullable="false" />
+    <Property Name="DailyPrice" Type="int" Nullable="false" />
+    <Property Name="ForeverPrice" Type="int" Nullable="false" />
+    <Property Name="LimitAmount" Type="int" />
+    <Property Name="PurchasedAmount" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DonatorDailyItemLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountId" Type="int" Nullable="false" />
+    <Property Name="DailyItemId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DonatorShopCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DonatorShopItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Image" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="ItemId" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Damage" Type="int" Nullable="false" />
+    <Property Name="Delay" Type="int" Nullable="false" />
+    <Property Name="Magazine" Type="int" Nullable="false" />
+    <Property Name="MaxBullet" Type="int" Nullable="false" />
+    <Property Name="MaxWeight" Type="int" Nullable="false" />
+    <Property Name="ReloadTime" Type="int" Nullable="false" />
+    <Property Name="Hp" Type="int" Nullable="false" />
+    <Property Name="Ap" Type="int" Nullable="false" />
+    <Property Name="Sex" Type="int" />
+    <Property Name="Weight" Type="int" Nullable="false" />
+    <Property Name="DailyPrice" Type="int" Nullable="false" />
+    <Property Name="NewDailyPrice" Type="int" />
+    <Property Name="ForeverPrice" Type="int" />
+    <Property Name="NewForeverPrice" Type="int" />
+  </EntityType>
+  <EntityType Name="DonatorShopSetItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DonatorShopSetId" Type="int" Nullable="false" />
+    <Property Name="DonatorShopItemId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DTCharacterInfo">
+    <Key>
+      <PropertyRef Name="DTCIID" />
+      <PropertyRef Name="TimeStamp" />
+    </Key>
+    <Property Name="DTCIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TimeStamp" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="CID" Type="int" Nullable="false" />
+    <Property Name="TP" Type="int" Nullable="false" />
+    <Property Name="Wins" Type="int" Nullable="false" />
+    <Property Name="Loses" Type="int" Nullable="false" />
+    <Property Name="Ranking" Type="int" Nullable="false" />
+    <Property Name="RankingIncrease" Type="int" Nullable="false" />
+    <Property Name="FinalGames" Type="int" Nullable="false" />
+    <Property Name="FinalWins" Type="int" Nullable="false" />
+    <Property Name="SFinalGames" Type="int" Nullable="false" />
+    <Property Name="SFinalWins" Type="int" Nullable="false" />
+    <Property Name="QFinalGames" Type="int" Nullable="false" />
+    <Property Name="QFinalWins" Type="int" Nullable="false" />
+    <Property Name="LeaveCount" Type="int" Nullable="false" />
+    <Property Name="PreGrade" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DTCharacterRanking">
+    <Key>
+      <PropertyRef Name="TimeStamp" />
+      <PropertyRef Name="Rank" />
+    </Key>
+    <Property Name="TimeStamp" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="Rank" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CID" Type="int" Nullable="false" />
+    <Property Name="TP" Type="int" Nullable="false" />
+    <Property Name="FinalWins" Type="int" Nullable="false" />
+    <Property Name="Wins" Type="int" Nullable="false" />
+    <Property Name="Loses" Type="int" Nullable="false" />
+    <Property Name="RankingIncrease" Type="int" />
+    <Property Name="PreGrade" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DTCharacterRankingHistory">
+    <Key>
+      <PropertyRef Name="TimeStamp" />
+      <PropertyRef Name="Rank" />
+    </Key>
+    <Property Name="TimeStamp" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="Rank" Type="int" Nullable="false" />
+    <Property Name="CID" Type="int" Nullable="false" />
+    <Property Name="TP" Type="int" Nullable="false" />
+    <Property Name="FinalWins" Type="int" Nullable="false" />
+    <Property Name="Wins" Type="int" Nullable="false" />
+    <Property Name="Loses" Type="int" Nullable="false" />
+    <Property Name="Grade" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="24" />
+  </EntityType>
+  <EntityType Name="DTGameLog">
+    <Key>
+      <PropertyRef Name="TimeStamp" />
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="TimeStamp" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="LogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TournamentType" Type="tinyint" Nullable="false" />
+    <Property Name="ChampCID" Type="int" />
+    <Property Name="StartTime" Type="datetime" Nullable="false" />
+    <Property Name="EndTime" Type="datetime" />
+    <Property Name="MatchFactor" Type="tinyint" />
+    <Property Name="Player1CID" Type="int" />
+    <Property Name="Player2CID" Type="int" />
+    <Property Name="Player3CID" Type="int" />
+    <Property Name="Player4CID" Type="int" />
+    <Property Name="Player5CID" Type="int" />
+    <Property Name="Player6CID" Type="int" />
+    <Property Name="Player7CID" Type="int" />
+    <Property Name="Player8CID" Type="int" />
+  </EntityType>
+  <EntityType Name="DTGameLogDetail">
+    <Key>
+      <PropertyRef Name="TimeStamp" />
+      <PropertyRef Name="LogID" />
+      <PropertyRef Name="StartTime" />
+    </Key>
+    <Property Name="TimeStamp" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="LogID" Type="int" Nullable="false" />
+    <Property Name="StartTime" Type="datetime" Nullable="false" />
+    <Property Name="PlayTime" Type="int" Nullable="false" />
+    <Property Name="MatchType" Type="tinyint" Nullable="false" />
+    <Property Name="WinnerCID" Type="int" Nullable="false" />
+    <Property Name="LoserCID" Type="int" Nullable="false" />
+    <Property Name="GainTP" Type="int" Nullable="false" />
+    <Property Name="LoseTP" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="dtproperties">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="property" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="objectid" Type="int" />
+    <Property Name="property" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="value" Type="varchar" MaxLength="255" />
+    <Property Name="uvalue" Type="nvarchar" MaxLength="255" />
+    <Property Name="lvalue" Type="image" />
+    <Property Name="version" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DTTimeStamp">
+    <Key>
+      <PropertyRef Name="TimeStamp" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="TimeStamp" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="Closed" Type="tinyint" Nullable="false" />
+    <Property Name="TotalUser" Type="int" />
+  </EntityType>
+  <EntityType Name="Effect">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="Area" Type="int" />
+    <Property Name="Time" Type="int" />
+    <Property Name="ModHP" Type="int" />
+    <Property Name="ModAP" Type="int" />
+    <Property Name="ModMaxWT" Type="int" />
+    <Property Name="ModSF" Type="int" />
+    <Property Name="ModFR" Type="int" />
+    <Property Name="ModCR" Type="int" />
+    <Property Name="ModPR" Type="int" />
+    <Property Name="ModLR" Type="int" />
+    <Property Name="ResAP" Type="int" />
+    <Property Name="ResFR" Type="int" />
+    <Property Name="ResCR" Type="int" />
+    <Property Name="ResPR" Type="int" />
+    <Property Name="ResLR" Type="int" />
+    <Property Name="Stun" Type="int" />
+    <Property Name="KnockBack" Type="int" />
+    <Property Name="Smoke" Type="int" />
+    <Property Name="Flash" Type="int" />
+    <Property Name="Tear" Type="int" />
+    <Property Name="Flame" Type="int" />
+  </EntityType>
+  <EntityType Name="EmailTemplate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Subject" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Message" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GunzDB.dbo.Event' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="AID" />
+      <PropertyRef Name="CID" />
+      <PropertyRef Name="RegDate" />
+    </Key>
+    <Property Name="AID" Type="int" Nullable="false" />
+    <Property Name="CID" Type="int" Nullable="false" />
+    <Property Name="RegDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="Checked" Type="bit" />
+    <Property Name="EventName" Type="varchar" MaxLength="24" />
+    <Property Name="SubDescription" Type="varchar" MaxLength="128" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'GunzDB.dbo.event_back2school' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="event_back2school">
+          <Property Name="regdate" Type="char" MaxLength="10" />
+          <Property Name="userid" Type="varchar" MaxLength="20" />
+          <Property Name="playtime" Type="int" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GunzDB.dbo.Event_CharacterItem_Halloween' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Event_CharacterItem_Halloween">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="UpdatedDate" />
+    </Key>
+    <Property Name="UserID" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="Trick" Type="int" />
+    <Property Name="Treat" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GunzDB.dbo.Event_ClanPointRanking' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Event_ClanPointRanking">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Rank" />
+      <PropertyRef Name="CLID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Count" />
+      <PropertyRef Name="Point" />
+      <PropertyRef Name="RegDate" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Rank" Type="int" Nullable="false" />
+    <Property Name="CLID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="24" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="Point" Type="int" Nullable="false" />
+    <Property Name="RegDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Event_Coliseum_Character_NHN">
+    <Key>
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="CID" Type="int" Nullable="false" />
+    <Property Name="RegDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Event_Coliseum_DeathsRanking_NHN">
+    <Key>
+      <PropertyRef Name="DateTag" />
+      <PropertyRef Name="Rank" />
+    </Key>
+    <Property Name="DateTag" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Rank" Type="int" Nullable="false" />
+    <Property Name="CID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Event_Coliseum_KillsRanking_NHN">
+    <Key>
+      <PropertyRef Name="DateTag" />
+      <PropertyRef Name="Rank" />
+    </Key>
+    <Property Name="DateTag" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Rank" Type="int" Nullable="false" />
+    <Property Name="CID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Event_Coliseum_PlayData_NHN">
+    <Key>
+      <PropertyRef Name="DateTag" />
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="DateTag" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="CID" Type="int" Nullable="false" />
+    <Property Name="PlayTime" Type="int" Nullable="false" />
+    <Property Name="Kills" Type="int" Nullable="false" />
+    <Property Name="Deaths" Type="int" Nullable="false" />
+    <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="PlayTimeRank" Type="int" />
+    <Property Name="KillRank" Type="int" />
+    <Property Name="DeathRank" Type="int" />
+  </EntityType>
+  <EntityType Name="Event_Coliseum_PlayTimeRanking_NHN">
+    <Key>
+      <PropertyRef Name="DateTag" />
+      <PropertyRef Name="Rank" />
+    </Key>
+    <Property Name="DateTag" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Rank" Type="int" Nullable="false" />
+    <Property Name="CID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="event_easter2011">
+    <Key>
+      <PropertyRef Name="userid" />
+      <PropertyRef Name="regdate" />
+    </Key>
+    <Property Name="userid" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="regdate" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="playtime" Type="smallint" />
+  </EntityType>
+  <EntityType Name="Event_MDTCharacter">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="24" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Event_MDTCharacterRankingHistory">
+    <Key>
+      <PropertyRef Name="TimeStamp" />
+      <PropertyRef Name="Rank" />
+    </Key>
+    <Property Name="TimeStamp" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="Rank" Type="int" Nullable="false" />
+    <Property Name="CID" Type="int" Nullable="false" />
+    <Property Name="TP" Type="int" Nullable="false" />
+    <Property Name="FinalWins" Type="int" Nullable="false" />
+    <Property Name="Wins" Type="int" Nullable="false" />
+    <Property Name="Loses" Type="int" Nullable="false" />
+    <Property Name="Grade" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Event_Word_NHN">
+    <Key>
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="CID" Type="int" Nullable="false" />
+    <Property Name="Have A" Type="smallint" />
+    <Property Name="Happy" Type="smallint" />
+    <Property Name="Halloween" Type="smallint" />
+    <Property Name="From" Type="smallint" />
+    <Property Name="IJJI" Type="smallint" />
+    <Property Name="AND" Type="smallint" />
+    <Property Name="MAIET!" Type="smallint" />
+    <Property Name="Pumpkin" Type="smallint" />
+    <Property Name="Ghost" Type="smallint" />
+    <Property Name="Trick Or" Type="smallint" />
+    <Property Name="Treat!!" Type="smallint" />
+  </EntityType>
+  <EntityType Name="EventAccount">
+    <Key>
+      <PropertyRef Name="AID" />
+    </Key>
+    <Property Name="AID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="XPOrder" Type="int" />
+    <Property Name="LevelOrder" Type="int" />
+    <Property Name="PlayTimeOrder" Type="int" />
+    <Property Name="GainXP" Type="int" Nullable="false" />
+    <Property Name="GainLevel" Type="int" Nullable="false" />
+    <Property Name="GainPlayTime" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventCharacter">
+    <Key>
+      <PropertyRef Name="AID" />
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="AID" Type="int" Nullable="false" />
+    <Property Name="CID" Type="int" Nullable="false" />
+    <Property Name="DeleteFlag" Type="bit" Nullable="false" />
+    <Property Name="StartXP" Type="int" Nullable="false" />
+    <Property Name="StartLevel" Type="int" Nullable="false" />
+    <Property Name="PlayTime" Type="int" />
+    <Property Name="LastXP" Type="int" Nullable="false" />
+    <Property Name="LastLevel" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Friend">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CID" Type="int" Nullable="false" />
+    <Property Name="FriendCID" Type="int" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="Favorite" Type="tinyint" />
+    <Property Name="DeleteFlag" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="GambleItem">
+    <Key>
+      <PropertyRef Name="GIID" />
+    </Key>
+    <Property Name="GIID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="Price" Type="int" Nullable="false" />
+    <Property Name="RegDate" Type="datetime" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="LifeTimeHour" Type="smallint" Nullable="false" />
+    <Property Name="IsCash" Type="tinyint" Nullable="false" />
+    <Property Name="Opened" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GambleRewardItem">
+    <Key>
+      <PropertyRef Name="GRIID" />
+    </Key>
+    <Property Name="GRIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GIID" Type="int" Nullable="false" />
+    <Property Name="ItemIDMale" Type="int" Nullable="false" />
+    <Property Name="ItemIDFemale" Type="int" Nullable="false" />
+    <Property Name="RentHourPeriod" Type="int" Nullable="false" />
+    <Property Name="RatePerThousand" Type="smallint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GunzDB.dbo.GameLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="GameLog">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="StartTime" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GameName" Type="varchar" MaxLength="64" />
+    <Property Name="MasterCID" Type="int" />
+    <Property Name="Map" Type="varchar" MaxLength="32" />
+    <Property Name="GameType" Type="varchar" MaxLength="24" />
+    <Property Name="Round" Type="int" />
+    <Property Name="StartTime" Type="datetime" Nullable="false" />
+    <Property Name="PlayerCount" Type="tinyint" />
+    <Property Name="Players" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="GameType">
+    <Key>
+      <PropertyRef Name="GameTypeID" />
+    </Key>
+    <Property Name="GameTypeID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="Ignore">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CID" Type="int" Nullable="false" />
+    <Property Name="IgnoreCID" Type="int" Nullable="false" />
+    <Property Name="TYPE" Type="int" Nullable="false" />
+    <Property Name="Favorite" Type="tinyint" />
+    <Property Name="DeleteFlag" Type="tinyint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GunzDB.dbo.ipto_back' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ipto_back">
+    <Key>
+      <PropertyRef Name="IPFrom" />
+      <PropertyRef Name="IPTo" />
+      <PropertyRef Name="CountryCode2" />
+      <PropertyRef Name="CountryCode3" />
+      <PropertyRef Name="CountryName" />
+    </Key>
+    <Property Name="IPFrom" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IPTo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CountryCode2" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="CountryCode3" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="CountryName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IPtoCountry">
+    <Key>
+      <PropertyRef Name="IPFrom" />
+      <PropertyRef Name="IPTo" />
+    </Key>
+    <Property Name="IPFrom" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IPTo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CountryCode2" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="CountryCode3" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="CountryName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IPtoCountry_temp">
+    <Key>
+      <PropertyRef Name="IPFrom" />
+      <PropertyRef Name="IPTo" />
+    </Key>
+    <Property Name="IPFrom" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IPTo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CountryCode2" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="CountryCode3" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="CountryName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GunzDB.dbo.Item' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="TotalPoint" Type="int" />
+    <Property Name="ResSex" Type="tinyint" />
+    <Property Name="ResRace" Type="tinyint" />
+    <Property Name="ResLevel" Type="int" />
+    <Property Name="Slot" Type="tinyint" />
+    <Property Name="Weight" Type="int" />
+    <Property Name="BountyPrice" Type="int" />
+    <Property Name="Damage" Type="int" />
+    <Property Name="Delay" Type="int" />
+    <Property Name="EffectID" Type="int" />
+    <Property Name="Controllability" Type="int" />
+    <Property Name="Magazine" Type="int" />
+    <Property Name="ReloadTime" Type="int" />
+    <Property Name="SlugOutput" Type="tinyint" />
+    <Property Name="Gadget" Type="int" />
+    <Property Name="HP" Type="int" />
+    <Property Name="AP" Type="int" />
+    <Property Name="MAXWT" Type="int" />
+    <Property Name="SF" Type="int" />
+    <Property Name="FR" Type="int" />
+    <Property Name="CR" Type="int" />
+    <Property Name="PR" Type="int" />
+    <Property Name="LR" Type="int" />
+    <Property Name="BlendColor" Type="int" />
+    <Property Name="ModelName" Type="varchar" MaxLength="64" />
+    <Property Name="Description" Type="varchar" MaxLength="1024" />
+    <Property Name="MaxBullet" Type="int" />
+    <Property Name="LimitSpeed" Type="tinyint" />
+    <Property Name="IsCashItem" Type="tinyint" />
+    <Property Name="IsSpendableItem" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="ItemChangeLog_AccountItem">
+    <Key>
+      <PropertyRef Name="ChangeDate" />
+      <PropertyRef Name="ChangeType" />
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="ChangeDate" Type="datetime" Nullable="false" />
+    <Property Name="ChangeType" Type="smallint" Nullable="false" />
+    <Property Name="LogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AID" Type="int" Nullable="false" />
+    <Property Name="AIID" Type="int" Nullable="false" />
+    <Property Name="CID" Type="int" />
+    <Property Name="CIID" Type="int" />
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GunzDB.dbo.ItemChangeLog_CharacterItem' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ItemChangeLog_CharacterItem">
+    <Key>
+      <PropertyRef Name="ChangeDate" />
+      <PropertyRef Name="ChangeType" />
+      <PropertyRef Name="LogID" />
+      <PropertyRef Name="CID" />
+      <PropertyRef Name="CIID" />
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="Count" />
+    </Key>
+    <Property Name="ChangeDate" Type="datetime" Nullable="false" />
+    <Property Name="ChangeType" Type="smallint" Nullable="false" />
+    <Property Name="LogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CID" Type="int" Nullable="false" />
+    <Property Name="CIID" Type="int" Nullable="false" />
+    <Property Name="AID" Type="int" />
+    <Property Name="AIID" Type="int" />
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ItemChangeType">
+    <Key>
+      <PropertyRef Name="ChangeType" />
+    </Key>
+    <Property Name="ChangeType" Type="smallint" Nullable="false" />
+    <Property Name="DESC" Type="varchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GunzDB.dbo.ItemDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ItemDetail">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="256" />
+    <Property Name="Lang" Type="varchar" MaxLength="2" />
+    <Property Name="Description" Type="varchar" MaxLength="2048" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GunzDB.dbo.ItemPurchaseLogByBounty' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ItemPurchaseLogByBounty">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="CID" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Bounty" Type="int" />
+    <Property Name="CharBounty" Type="int" />
+    <Property Name="Type" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GunzDB.dbo.ItemPurchaseLogByCash' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ItemPurchaseLogByCash">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="Date" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AID" Type="int" />
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Cash" Type="int" />
+    <Property Name="RentHourPeriod" Type="int" />
+    <Property Name="MobileCode" Type="char" MaxLength="16" />
+    <Property Name="sid" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ItemRotation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemId" Type="int" Nullable="false" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="Month" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ItemSlotType">
+    <Key>
+      <PropertyRef Name="SlotType" />
+    </Key>
+    <Property Name="SlotType" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="24" />
+    <Property Name="Category" Type="varchar" MaxLength="24" />
+  </EntityType>
+  <EntityType Name="KillLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AttackerCID" Type="int" />
+    <Property Name="VictimCID" Type="int" />
+    <Property Name="Time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Level">
+    <Key>
+      <PropertyRef Name="Level" />
+    </Key>
+    <Property Name="Level" Type="smallint" Nullable="false" />
+    <Property Name="MinXP" Type="int" />
+  </EntityType>
+  <EntityType Name="LevelUpLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CID" Type="int" />
+    <Property Name="Level" Type="smallint" />
+    <Property Name="BP" Type="int" />
+    <Property Name="KillCount" Type="int" />
+    <Property Name="DeathCount" Type="int" />
+    <Property Name="PlayTime" Type="int" />
+    <Property Name="Date" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'GunzDB.dbo.LocatorCountryStatistics' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="LocatorCountryStatistics">
+          <Property Name="LocatorID" Type="int" />
+          <Property Name="CountryCode3" Type="char" MaxLength="3" />
+          <Property Name="Count" Type="int" />
+          <Property Name="RegDate" Type="smalldatetime" />
+        </EntityType>-->
+  <EntityType Name="LocatorStatus">
+    <Key>
+      <PropertyRef Name="LocatorID" />
+    </Key>
+    <Property Name="LocatorID" Type="int" Nullable="false" />
+    <Property Name="IP" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Port" Type="int" Nullable="false" />
+    <Property Name="RecvCount" Type="int" />
+    <Property Name="SendCount" Type="int" />
+    <Property Name="BlockCount" Type="int" />
+    <Property Name="DuplicatedCount" Type="int" />
+    <Property Name="UpdateElapsedTime" Type="int" Nullable="false" />
+    <Property Name="LastUpdatedTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AID" Type="int" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="20" />
+    <Property Name="LastConnDate" Type="datetime" />
+    <Property Name="LastIP" Type="varchar" MaxLength="20" />
+    <Property Name="EncryptedPassword" Type="varchar" MaxLength="72" />
+  </EntityType>
+  <EntityType Name="Map">
+    <Key>
+      <PropertyRef Name="MapID" />
+    </Key>
+    <Property Name="MapID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="MaxPlayer" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MobileChat">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OwnerId" Type="int" />
+    <Property Name="IsGroup" Type="bit" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MobileChatContact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChatId" Type="int" Nullable="false" />
+    <Property Name="AccountId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="News" Type="text" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Number" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NHNClanMark">
+    <Key>
+      <PropertyRef Name="CLMARKID" />
+    </Key>
+    <Property Name="CLMARKID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CLID" Type="int" Nullable="false" />
+    <Property Name="EmblemUrl" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="Approved" Type="tinyint" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+    <Property Name="LastCount" Type="int" />
+    <Property Name="LastCreated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="NHNItemOfTheDay">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="itemids" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="isset" Type="tinyint" Nullable="false" />
+    <Property Name="originalprice" Type="int" Nullable="false" />
+    <Property Name="originalperiod" Type="int" />
+    <Property Name="reslevel" Type="int" />
+    <Property Name="price" Type="int" Nullable="false" />
+    <Property Name="period" Type="int" />
+    <Property Name="remaining" Type="int" Nullable="false" />
+    <Property Name="imgurl" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="startdate" Type="datetime" Nullable="false" />
+    <Property Name="regdate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NHNItemOfTheDayLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="RentHourPeriod" Type="int" />
+    <Property Name="Cash" Type="int" Nullable="false" />
+    <Property Name="SenderUserID" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GunzDB.dbo.NHNLuckyBoxCoupon' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="NHNLuckyBoxCoupon">
+    <Key>
+      <PropertyRef Name="BoxCID" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="BoxCategory" />
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="Regdate" />
+    </Key>
+    <Property Name="BoxCID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="BoxCategory" Type="tinyint" Nullable="false" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="BoxID" Type="int" />
+    <Property Name="sid" Type="varchar" MaxLength="20" />
+    <Property Name="Regdate" Type="datetime" Nullable="false" />
+    <Property Name="Opendate" Type="datetime" />
+    <Property Name="Expiredate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GunzDB.dbo.NHNLuckyBoxInventory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="NHNLuckyBoxInventory">
+    <Key>
+      <PropertyRef Name="BoxIID" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="BoxID" />
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="Regdate" />
+    </Key>
+    <Property Name="BoxIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="BoxID" Type="int" Nullable="false" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="BoxRID" Type="int" />
+    <Property Name="RefundPrice" Type="int" />
+    <Property Name="sid" Type="varchar" MaxLength="20" />
+    <Property Name="Sender" Type="varchar" MaxLength="50" />
+    <Property Name="Regdate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GunzDB.dbo.NHNLuckyBoxItem' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="NHNLuckyBoxItem">
+    <Key>
+      <PropertyRef Name="BoxID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Description" />
+      <PropertyRef Name="Category" />
+      <PropertyRef Name="webimgname" />
+      <PropertyRef Name="Price" />
+      <PropertyRef Name="RefundPrice" />
+      <PropertyRef Name="ResSex" />
+      <PropertyRef Name="ResLevel" />
+      <PropertyRef Name="Opened" />
+      <PropertyRef Name="displayorder" />
+      <PropertyRef Name="Regdate" />
+    </Key>
+    <Property Name="BoxID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="Category" Type="tinyint" Nullable="false" />
+    <Property Name="webimgname" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="Price" Type="int" Nullable="false" />
+    <Property Name="RefundPrice" Type="int" Nullable="false" />
+    <Property Name="ResSex" Type="tinyint" Nullable="false" />
+    <Property Name="ResLevel" Type="smallint" Nullable="false" />
+    <Property Name="Opened" Type="tinyint" Nullable="false" />
+    <Property Name="displayorder" Type="int" Nullable="false" />
+    <Property Name="Regdate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GunzDB.dbo.NHNLuckyBoxRewardItem' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="NHNLuckyBoxRewardItem">
+    <Key>
+      <PropertyRef Name="BoxRID" />
+      <PropertyRef Name="BoxID" />
+      <PropertyRef Name="ItemIDs" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Category" />
+      <PropertyRef Name="RentHourPeriod" />
+      <PropertyRef Name="RatePerThousand" />
+    </Key>
+    <Property Name="BoxRID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BoxID" Type="int" Nullable="false" />
+    <Property Name="ItemIDs" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="Category" Type="tinyint" Nullable="false" />
+    <Property Name="RentHourPeriod" Type="int" Nullable="false" />
+    <Property Name="RatePerThousand" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NHNPurchaseLog">
+    <Key>
+      <PropertyRef Name="PID" />
+    </Key>
+    <Property Name="PID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PurchasedMonth" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="UserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PurchasedId" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Price" Type="int" />
+    <Property Name="sid" Type="varchar" MaxLength="20" />
+    <Property Name="gift" Type="tinyint" />
+    <Property Name="Regdate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NHNRareItemShop">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Month" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="itemids" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="isset" Type="tinyint" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="20" />
+    <Property Name="ResSex" Type="varchar" MaxLength="20" />
+    <Property Name="ResLevel" Type="int" />
+    <Property Name="price" Type="int" Nullable="false" />
+    <Property Name="period" Type="int" Nullable="false" />
+    <Property Name="imgurl" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="regdate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NHNRareItemShopLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="RentHourPeriod" Type="int" />
+    <Property Name="Cash" Type="int" Nullable="false" />
+    <Property Name="SenderUserID" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Paypal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountId" Type="int" Nullable="false" />
+    <Property Name="InvoiceId" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="PayerId" Type="varchar" MaxLength="250" />
+    <Property Name="PaymentId" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Token" Type="varchar" MaxLength="250" />
+    <Property Name="PaymentOptionId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="DateCompleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PaypalPaymentOptions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Coins" Type="int" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PenaltyLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AID" Type="int" Nullable="false" />
+    <Property Name="UGradeID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GunzDB.dbo.PlayerLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="PlayerLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CID" Type="int" />
+    <Property Name="DisTime" Type="datetime" />
+    <Property Name="PlayTime" Type="int" />
+    <Property Name="Kills" Type="int" />
+    <Property Name="Deaths" Type="int" />
+    <Property Name="XP" Type="int" />
+    <Property Name="TotalXP" Type="int" />
+  </EntityType>
+  <EntityType Name="PremiumGrade">
+    <Key>
+      <PropertyRef Name="PGradeID" />
+    </Key>
+    <Property Name="PGradeID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PurchaseMethod">
+    <Key>
+      <PropertyRef Name="PurchaseMethodID" />
+    </Key>
+    <Property Name="PurchaseMethodID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="QuestGameLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GameName" Type="varchar" MaxLength="64" />
+    <Property Name="Master" Type="int" Nullable="false" />
+    <Property Name="Player1" Type="int" />
+    <Property Name="Player2" Type="int" />
+    <Property Name="Player3" Type="int" />
+    <Property Name="TotalQItemCount" Type="tinyint" />
+    <Property Name="ScenarioID" Type="smallint" Nullable="false" />
+    <Property Name="StartTime" Type="smalldatetime" Nullable="false" />
+    <Property Name="EndTime" Type="smalldatetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="QuestItem">
+    <Key>
+      <PropertyRef Name="QIID" />
+    </Key>
+    <Property Name="QIID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="char" MaxLength="32" />
+    <Property Name="Level" Type="tinyint" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+    <Property Name="Price" Type="int" />
+    <Property Name="UniqueItem" Type="bit" Nullable="false" />
+    <Property Name="Sacrifice" Type="bit" Nullable="false" />
+    <Property Name="Type" Type="char" MaxLength="10" />
+    <Property Name="Param" Type="int" />
+  </EntityType>
+  <EntityType Name="QUniqueItemLog">
+    <Key>
+      <PropertyRef Name="QUILID" />
+    </Key>
+    <Property Name="QUILID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="QGLID" Type="int" />
+    <Property Name="CID" Type="int" Nullable="false" />
+    <Property Name="QIID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RentCashSetShopPrice">
+    <Key>
+      <PropertyRef Name="RCSSPID" />
+    </Key>
+    <Property Name="RCSSPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CSSID" Type="int" />
+    <Property Name="RentHourPeriod" Type="smallint" />
+    <Property Name="CashPrice" Type="int" />
+  </EntityType>
+  <EntityType Name="RentCashShopPrice">
+    <Key>
+      <PropertyRef Name="RCSPID" />
+    </Key>
+    <Property Name="RCSPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CSID" Type="int" />
+    <Property Name="RentHourPeriod" Type="smallint" />
+    <Property Name="CashPrice" Type="int" />
+  </EntityType>
+  <EntityType Name="RentPeriodDay">
+    <Key>
+      <PropertyRef Name="Day" />
+    </Key>
+    <Property Name="Day" Type="int" Nullable="false" />
+    <Property Name="Hour" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RentType">
+    <Key>
+      <PropertyRef Name="TypeID" />
+    </Key>
+    <Property Name="TypeID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="256" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GunzDB.dbo.ServerLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ServerLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServerID" Type="smallint" />
+    <Property Name="PlayerCount" Type="smallint" />
+    <Property Name="GameCount" Type="smallint" />
+    <Property Name="Time" Type="smalldatetime" />
+    <Property Name="BlockCount" Type="int" />
+    <Property Name="NonBlockCount" Type="int" />
+  </EntityType>
+  <EntityType Name="ServerLogStorage">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServerID" Type="smallint" Nullable="false" />
+    <Property Name="PlayerCount" Type="int" Nullable="false" />
+    <Property Name="GameCount" Type="int" Nullable="false" />
+    <Property Name="BlockCount" Type="int" Nullable="false" />
+    <Property Name="NonBlockCount" Type="int" Nullable="false" />
+    <Property Name="Time" Type="smalldatetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ServerStatus">
+    <Key>
+      <PropertyRef Name="ServerID" />
+    </Key>
+    <Property Name="ServerID" Type="int" Nullable="false" />
+    <Property Name="CurrPlayer" Type="smallint" />
+    <Property Name="MaxPlayer" Type="smallint" />
+    <Property Name="Time" Type="datetime" />
+    <Property Name="IP" Type="varchar" MaxLength="32" />
+    <Property Name="Port" Type="int" />
+    <Property Name="ServerName" Type="varchar" MaxLength="64" />
+    <Property Name="Opened" Type="tinyint" />
+    <Property Name="Type" Type="int" />
+    <Property Name="AgentIP" Type="varchar" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="ServerType">
+    <Key>
+      <PropertyRef Name="TypeID" />
+    </Key>
+    <Property Name="TypeID" Type="int" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="64" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GunzDB.dbo.SetItemPurchaseLogByCash' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SetItemPurchaseLogByCash">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Date" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AID" Type="int" />
+    <Property Name="CSSID" Type="int" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Cash" Type="int" />
+    <Property Name="RentHourPeriod" Type="int" />
+    <Property Name="MobileCode" Type="char" MaxLength="16" />
+    <Property Name="sid" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'GunzDB.dbo.sjr_TableSizeIncr' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="sjr_TableSizeIncr">
+          <Property Name="name" Type="varchar" MaxLength="40" />
+          <Property Name="rows" Type="int" />
+          <Property Name="reserved" Type="varchar" MaxLength="100" />
+          <Property Name="date" Type="varchar" MaxLength="100" />
+          <Property Name="index_size" Type="varchar" MaxLength="100" />
+          <Property Name="unused" Type="varchar" MaxLength="100" />
+          <Property Name="rd" Type="datetime" />
+        </EntityType>-->
+  <EntityType Name="SleepAccountNHN">
+    <Key>
+      <PropertyRef Name="AID" />
+    </Key>
+    <Property Name="AID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="varchar" MaxLength="24" Nullable="false" />
+    <Property Name="RegDt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SleepAccountRestoredLogNHN">
+    <Key>
+      <PropertyRef Name="AID" />
+      <PropertyRef Name="RegDt" />
+    </Key>
+    <Property Name="AID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="varchar" MaxLength="24" Nullable="false" />
+    <Property Name="RegDt" Type="datetime" Nullable="false" />
+    <Property Name="RestoredDt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SleepCharacterNHN">
+    <Key>
+      <PropertyRef Name="AID" />
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="AID" Type="int" Nullable="false" />
+    <Property Name="CID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="24" Nullable="false" />
+    <Property Name="RegDt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SleepCharacterRestoredLogNHN">
+    <Key>
+      <PropertyRef Name="CID" />
+      <PropertyRef Name="RegDt" />
+    </Key>
+    <Property Name="CID" Type="int" Nullable="false" />
+    <Property Name="OrginName" Type="varchar" MaxLength="24" Nullable="false" />
+    <Property Name="RestoreName" Type="varchar" MaxLength="24" Nullable="false" />
+    <Property Name="RegDt" Type="datetime" Nullable="false" />
+    <Property Name="RestoredDt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SurvivalCharacterInfo">
+    <Key>
+      <PropertyRef Name="SID" />
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="SID" Type="tinyint" Nullable="false" />
+    <Property Name="CID" Type="int" Nullable="false" />
+    <Property Name="RP" Type="int" Nullable="false" />
+    <Property Name="RP_LatestTime" Type="smalldatetime" Nullable="false" />
+    <Property Name="tmpRP" Type="int" />
+    <Property Name="RankRP" Type="int" />
+  </EntityType>
+  <EntityType Name="SurvivalCharacterInfoWeb">
+    <Key>
+      <PropertyRef Name="RowNum" />
+      <PropertyRef Name="SID" />
+    </Key>
+    <Property Name="RowNum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SID" Type="tinyint" Nullable="false" />
+    <Property Name="CID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SurvivalGameLog">
+    <Key>
+      <PropertyRef Name="StartTime" />
+      <PropertyRef Name="Master_Player" />
+    </Key>
+    <Property Name="StartTime" Type="datetime" Nullable="false" />
+    <Property Name="FinishTime" Type="datetime" Nullable="false" />
+    <Property Name="Master_Player" Type="int" Nullable="false" />
+    <Property Name="GainRP1" Type="int" Nullable="false" />
+    <Property Name="Player2" Type="int" />
+    <Property Name="GainRP2" Type="int" />
+    <Property Name="Player3" Type="int" />
+    <Property Name="GainRP3" Type="int" />
+    <Property Name="Player4" Type="int" />
+    <Property Name="GainRP4" Type="int" />
+    <Property Name="GameName" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="SID" Type="tinyint" Nullable="false" />
+    <Property Name="TotalRound" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SurvivalRanking">
+    <Key>
+      <PropertyRef Name="SID" />
+      <PropertyRef Name="RP" />
+    </Key>
+    <Property Name="SID" Type="int" Nullable="false" />
+    <Property Name="RP" Type="int" Nullable="false" />
+    <Property Name="Ranking" Type="int" />
+  </EntityType>
+  <EntityType Name="SurvivalScenarioID">
+    <Key>
+      <PropertyRef Name="SID" />
+    </Key>
+    <Property Name="SID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SName" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GunzDB.dbo.tmp_stampevent' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tmp_stampevent">
+    <Key>
+      <PropertyRef Name="sdate" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="PlayTime" />
+    </Key>
+    <Property Name="sdate" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="UserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PlayTime" Type="int" Nullable="false" />
+    <Property Name="GiftDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="tmp_summerwave_newreg_event">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="regdate" Type="datetime" Nullable="false" />
+    <Property Name="jobdate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tmp_summerwave_raffle_event">
+    <Key>
+      <PropertyRef Name="sdate" />
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="sdate" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="userid" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="playtime" Type="int" Nullable="false" />
+    <Property Name="gifttype" Type="int" Nullable="false" />
+    <Property Name="giftdate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="TotalRanking">
+    <Key>
+      <PropertyRef Name="Rank" />
+    </Key>
+    <Property Name="Rank" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="varchar" MaxLength="20" />
+    <Property Name="Name" Type="varchar" MaxLength="24" Nullable="false" />
+    <Property Name="Level" Type="smallint" Nullable="false" />
+    <Property Name="XP" Type="int" />
+    <Property Name="KillCount" Type="int" />
+    <Property Name="DeathCount" Type="int" />
+  </EntityType>
+  <EntityType Name="UserGrade">
+    <Key>
+      <PropertyRef Name="UGradeID" />
+    </Key>
+    <Property Name="UGradeID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UV">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Time" Type="smalldatetime" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="Account_BringAccountItemLog_FK1">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="BringAccountItemLog" Type="Self.BringAccountItemLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="BringAccountItemLog">
+        <PropertyRef Name="AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Account_CashItemPresentLog_FK1">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="CashItemPresentLog" Type="Self.CashItemPresentLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="CashItemPresentLog">
+        <PropertyRef Name="ReceiverAID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Account_Character_FK1">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="Character" Type="Self.Character" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="Character">
+        <PropertyRef Name="AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Account_PurchaseLogByCash_FK1">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="ItemPurchaseLogByCash" Type="Self.ItemPurchaseLogByCash" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="ItemPurchaseLogByCash">
+        <PropertyRef Name="AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Account_SetItemPurchaseLogByCash_FK1">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="SetItemPurchaseLogByCash" Type="Self.SetItemPurchaseLogByCash" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="SetItemPurchaseLogByCash">
+        <PropertyRef Name="AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Account_Table1_FK1">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="AccountItem" Type="Self.AccountItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="AccountItem">
+        <PropertyRef Name="AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AccountPenaltyGMLog_Account_FK">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="AccountPenaltyGMLog" Type="Self.AccountPenaltyGMLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="AccountPenaltyGMLog">
+        <PropertyRef Name="AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AccountPenaltyGMLog_AccountPenaltyGMType_FK">
+    <End Role="AccountPenaltyGMType" Type="Self.AccountPenaltyGMType" Multiplicity="1" />
+    <End Role="AccountPenaltyGMLog" Type="Self.AccountPenaltyGMLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccountPenaltyGMType">
+        <PropertyRef Name="GM_TypeID" />
+      </Principal>
+      <Dependent Role="AccountPenaltyGMLog">
+        <PropertyRef Name="Set_GM_TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AccountPenaltyGMLog_AccountPenaltyGMType_FK2">
+    <End Role="AccountPenaltyGMType" Type="Self.AccountPenaltyGMType" Multiplicity="0..1" />
+    <End Role="AccountPenaltyGMLog" Type="Self.AccountPenaltyGMLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccountPenaltyGMType">
+        <PropertyRef Name="GM_TypeID" />
+      </Principal>
+      <Dependent Role="AccountPenaltyGMLog">
+        <PropertyRef Name="Reset_GM_TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AccountPenaltyLog_Account_FK">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="AccountPenaltyLog" Type="Self.AccountPenaltyLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="AccountPenaltyLog">
+        <PropertyRef Name="AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AccountPenaltyPeriod_Account_FK1">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="AccountPenaltyPeriod" Type="Self.AccountPenaltyPeriod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="AccountPenaltyPeriod">
+        <PropertyRef Name="AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CashSetShop_CashSetItem_FK1">
+    <End Role="CashSetShop" Type="Self.CashSetShop" Multiplicity="1" />
+    <End Role="CashSetItem" Type="Self.CashSetItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CashSetShop">
+        <PropertyRef Name="CSSID" />
+      </Principal>
+      <Dependent Role="CashSetItem">
+        <PropertyRef Name="CSSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CashSetShop_SetItemPurchaseLogByCash_FK1">
+    <End Role="CashSetShop" Type="Self.CashSetShop" Multiplicity="0..1" />
+    <End Role="SetItemPurchaseLogByCash" Type="Self.SetItemPurchaseLogByCash" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CashSetShop">
+        <PropertyRef Name="CSSID" />
+      </Principal>
+      <Dependent Role="SetItemPurchaseLogByCash">
+        <PropertyRef Name="CSSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Character_BringAccountItemLog_FK1">
+    <End Role="Character" Type="Self.Character" Multiplicity="0..1" />
+    <End Role="BringAccountItemLog" Type="Self.BringAccountItemLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="BringAccountItemLog">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Character_CharacterItem_FK1">
+    <End Role="Character" Type="Self.Character" Multiplicity="0..1" />
+    <End Role="CharacterItem" Type="Self.CharacterItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="CharacterItem">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Character_Friend_FK1">
+    <End Role="Character" Type="Self.Character" Multiplicity="1" />
+    <End Role="Friend" Type="Self.Friend" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="Friend">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Character_Friend_FK2">
+    <End Role="Character" Type="Self.Character" Multiplicity="1" />
+    <End Role="Friend" Type="Self.Friend" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="Friend">
+        <PropertyRef Name="FriendCID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Character_PurchaseItemByBountyHistory_FK20050314">
+    <End Role="Character" Type="Self.Character" Multiplicity="0..1" />
+    <End Role="ItemPurchaseLogByBounty" Type="Self.ItemPurchaseLogByBounty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="ItemPurchaseLogByBounty">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Clan_Character_FK1">
+    <End Role="Character" Type="Self.Character" Multiplicity="0..1" />
+    <End Role="Clan" Type="Self.Clan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="Clan">
+        <PropertyRef Name="MasterCID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClanGameLog_LoserCLID_FK1">
+    <End Role="Clan" Type="Self.Clan" Multiplicity="1" />
+    <End Role="ClanGameLog" Type="Self.ClanGameLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clan">
+        <PropertyRef Name="CLID" />
+      </Principal>
+      <Dependent Role="ClanGameLog">
+        <PropertyRef Name="LoserCLID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClanGameLog_WinnerCLID_FK1">
+    <End Role="Clan" Type="Self.Clan" Multiplicity="1" />
+    <End Role="ClanGameLog" Type="Self.ClanGameLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clan">
+        <PropertyRef Name="CLID" />
+      </Principal>
+      <Dependent Role="ClanGameLog">
+        <PropertyRef Name="WinnerCLID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClanHonorRanking_CLID_FK1">
+    <End Role="Clan" Type="Self.Clan" Multiplicity="0..1" />
+    <End Role="ClanHonorRanking" Type="Self.ClanHonorRanking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clan">
+        <PropertyRef Name="CLID" />
+      </Principal>
+      <Dependent Role="ClanHonorRanking">
+        <PropertyRef Name="CLID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClanMember_Clan_FK1">
+    <End Role="Clan" Type="Self.Clan" Multiplicity="0..1" />
+    <End Role="ClanMember" Type="Self.ClanMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clan">
+        <PropertyRef Name="CLID" />
+      </Principal>
+      <Dependent Role="ClanMember">
+        <PropertyRef Name="CLID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClanMember_Clan_FK2">
+    <End Role="Character" Type="Self.Character" Multiplicity="0..1" />
+    <End Role="ClanMember" Type="Self.ClanMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="ClanMember">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DTGameLog_DTGameLogDetail_FK1">
+    <End Role="DTGameLog" Type="Self.DTGameLog" Multiplicity="1" />
+    <End Role="DTGameLogDetail" Type="Self.DTGameLogDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DTGameLog">
+        <PropertyRef Name="TimeStamp" />
+        <PropertyRef Name="LogID" />
+      </Principal>
+      <Dependent Role="DTGameLogDetail">
+        <PropertyRef Name="TimeStamp" />
+        <PropertyRef Name="LogID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DTTimeStamp_DTGameLog_FK1">
+    <End Role="DTTimeStamp" Type="Self.DTTimeStamp" Multiplicity="1" />
+    <End Role="DTGameLog" Type="Self.DTGameLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DTTimeStamp">
+        <PropertyRef Name="TimeStamp" />
+      </Principal>
+      <Dependent Role="DTGameLog">
+        <PropertyRef Name="TimeStamp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Character__CharM__5DB5E0CB">
+    <End Role="CharacterMgrType" Type="Self.CharacterMgrType" Multiplicity="0..1" />
+    <End Role="CharacterMgrLogByGM" Type="Self.CharacterMgrLogByGM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CharacterMgrType">
+        <PropertyRef Name="CharMgrTypeID" />
+      </Principal>
+      <Dependent Role="CharacterMgrLogByGM">
+        <PropertyRef Name="CharMgrTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CharacterMg__CID__5EAA0504">
+    <End Role="Character" Type="Self.Character" Multiplicity="0..1" />
+    <End Role="CharacterMgrLogByGM" Type="Self.CharacterMgrLogByGM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="CharacterMgrLogByGM">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GambleRewa__GIID__72B0FDB1">
+    <End Role="GambleItem" Type="Self.GambleItem" Multiplicity="1" />
+    <End Role="GambleRewardItem" Type="Self.GambleRewardItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GambleItem">
+        <PropertyRef Name="GIID" />
+      </Principal>
+      <Dependent Role="GambleRewardItem">
+        <PropertyRef Name="GIID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RentCashS__CSSID__47DBAE45">
+    <End Role="CashSetShop" Type="Self.CashSetShop" Multiplicity="0..1" />
+    <End Role="RentCashSetShopPrice" Type="Self.RentCashSetShopPrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CashSetShop">
+        <PropertyRef Name="CSSID" />
+      </Principal>
+      <Dependent Role="RentCashSetShopPrice">
+        <PropertyRef Name="CSSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RentCashSh__CSID__4AB81AF0">
+    <End Role="CashShop" Type="Self.CashShop" Multiplicity="0..1" />
+    <End Role="RentCashShopPrice" Type="Self.RentCashShopPrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CashShop">
+        <PropertyRef Name="CSID" />
+      </Principal>
+      <Dependent Role="RentCashShopPrice">
+        <PropertyRef Name="CSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AccountMobileLoginToken_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AccountMobileLoginToken" Type="Self.AccountMobileLoginToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="AccountMobileLoginToken">
+        <PropertyRef Name="Aid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BattleTimeRewardItemList_BRID">
+    <End Role="BattleTimeRewardDescription" Type="Self.BattleTimeRewardDescription" Multiplicity="1" />
+    <End Role="BattleTimeRewardItemList" Type="Self.BattleTimeRewardItemList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BattleTimeRewardDescription">
+        <PropertyRef Name="BRID" />
+      </Principal>
+      <Dependent Role="BattleTimeRewardItemList">
+        <PropertyRef Name="BRID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BattleTimeRewardTerm_BRID">
+    <End Role="BattleTimeRewardDescription" Type="Self.BattleTimeRewardDescription" Multiplicity="1" />
+    <End Role="BattleTimeRewardTerm" Type="Self.BattleTimeRewardTerm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BattleTimeRewardDescription">
+        <PropertyRef Name="BRID" />
+      </Principal>
+      <Dependent Role="BattleTimeRewardTerm">
+        <PropertyRef Name="BRID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CharacterBattleTimeRewardInfo_BRID">
+    <End Role="BattleTimeRewardDescription" Type="Self.BattleTimeRewardDescription" Multiplicity="1" />
+    <End Role="CharacterBattleTimeRewardInfo" Type="Self.CharacterBattleTimeRewardInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BattleTimeRewardDescription">
+        <PropertyRef Name="BRID" />
+      </Principal>
+      <Dependent Role="CharacterBattleTimeRewardInfo">
+        <PropertyRef Name="BRID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CharacterComment_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CharacterComment" Type="Self.CharacterComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="CharacterComment">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CharacterComment_Character">
+    <End Role="Character" Type="Self.Character" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CharacterComment" Type="Self.CharacterComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="CharacterComment">
+        <PropertyRef Name="Cid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CharacterEquipmentSlotCode_CharacterEquipmentSlot">
+    <End Role="CharacterEquipmentSlotCode" Type="Self.CharacterEquipmentSlotCode" Multiplicity="1" />
+    <End Role="CharacterEquipmentSlot" Type="Self.CharacterEquipmentSlot" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CharacterEquipmentSlotCode">
+        <PropertyRef Name="SlotID" />
+      </Principal>
+      <Dependent Role="CharacterEquipmentSlot">
+        <PropertyRef Name="SlotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CharacterSkill_Character">
+    <End Role="Character" Type="Self.Character" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CharacterSkill" Type="Self.CharacterSkill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="CharacterSkill">
+        <PropertyRef Name="Cid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClanComment_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ClanComment" Type="Self.ClanComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="ClanComment">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClanComment_Clan">
+    <End Role="Clan" Type="Self.Clan" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ClanComment" Type="Self.ClanComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clan">
+        <PropertyRef Name="CLID" />
+      </Principal>
+      <Dependent Role="ClanComment">
+        <PropertyRef Name="ClanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DonateShopLog_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DonateShopLog" Type="Self.DonateShopLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="DonateShopLog">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DonatorShopItem_DonatorShopCategory1">
+    <End Role="DonatorShopCategory" Type="Self.DonatorShopCategory" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DonatorShopItem" Type="Self.DonatorShopItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonatorShopCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DonatorShopItem">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DonatorShopSetItem_DonatorShopItem">
+    <End Role="DonatorShopItem" Type="Self.DonatorShopItem" Multiplicity="1" />
+    <End Role="DonatorShopSetItem" Type="Self.DonatorShopSetItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonatorShopItem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DonatorShopSetItem">
+        <PropertyRef Name="DonatorShopItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DonatorShopSetItem_DonatorShopItem1">
+    <End Role="DonatorShopItem" Type="Self.DonatorShopItem" Multiplicity="1" />
+    <End Role="DonatorShopSetItem" Type="Self.DonatorShopSetItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonatorShopItem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DonatorShopSetItem">
+        <PropertyRef Name="DonatorShopSetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Event_Coliseum_Character_NHN_Character">
+    <End Role="Character" Type="Self.Character" Multiplicity="1" />
+    <End Role="Event_Coliseum_Character_NHN" Type="Self.Event_Coliseum_Character_NHN" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="Event_Coliseum_Character_NHN">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Event_Coliseum_PlayData_NHN_Event_Coliseum_Character_NHN">
+    <End Role="Event_Coliseum_Character_NHN" Type="Self.Event_Coliseum_Character_NHN" Multiplicity="1" />
+    <End Role="Event_Coliseum_PlayData_NHN" Type="Self.Event_Coliseum_PlayData_NHN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event_Coliseum_Character_NHN">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="Event_Coliseum_PlayData_NHN">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventAccount_AID">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="EventAccount" Type="Self.EventAccount" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="EventAccount">
+        <PropertyRef Name="AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventCharacter_AID">
+    <End Role="EventAccount" Type="Self.EventAccount" Multiplicity="1" />
+    <End Role="EventCharacter" Type="Self.EventCharacter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventAccount">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="EventCharacter">
+        <PropertyRef Name="AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventCharacter_CID">
+    <End Role="Character" Type="Self.Character" Multiplicity="1" />
+    <End Role="EventCharacter" Type="Self.EventCharacter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="EventCharacter">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemChangeLog_AccountItem_ItemChangeType">
+    <End Role="ItemChangeType" Type="Self.ItemChangeType" Multiplicity="1" />
+    <End Role="ItemChangeLog_AccountItem" Type="Self.ItemChangeLog_AccountItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemChangeType">
+        <PropertyRef Name="ChangeType" />
+      </Principal>
+      <Dependent Role="ItemChangeLog_AccountItem">
+        <PropertyRef Name="ChangeType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MobileChatContact_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MobileChatContact" Type="Self.MobileChatContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="MobileChatContact">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MobileChatContact_MobileChat">
+    <End Role="MobileChat" Type="Self.MobileChat" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MobileChatContact" Type="Self.MobileChatContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MobileChat">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MobileChatContact">
+        <PropertyRef Name="ChatId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurvivalCharacterInfo_SurvivalScenarioID">
+    <End Role="SurvivalScenarioID" Type="Self.SurvivalScenarioID" Multiplicity="1" />
+    <End Role="SurvivalCharacterInfo" Type="Self.SurvivalCharacterInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SurvivalScenarioID">
+        <PropertyRef Name="SID" />
+      </Principal>
+      <Dependent Role="SurvivalCharacterInfo">
+        <PropertyRef Name="SID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurvivalGameLog_SurvivalScenarioID">
+    <End Role="SurvivalScenarioID" Type="Self.SurvivalScenarioID" Multiplicity="1" />
+    <End Role="SurvivalGameLog" Type="Self.SurvivalGameLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SurvivalScenarioID">
+        <PropertyRef Name="SID" />
+      </Principal>
+      <Dependent Role="SurvivalGameLog">
+        <PropertyRef Name="SID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Item_CashSetItem_FK1">
+    <End Role="CashShop" Type="Self.CashShop" Multiplicity="1" />
+    <End Role="CashSetItem" Type="Self.CashSetItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CashShop">
+        <PropertyRef Name="CSID" />
+      </Principal>
+      <Dependent Role="CashSetItem">
+        <PropertyRef Name="CSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PremiumGrade_Account_FK1">
+    <End Role="PremiumGrade" Type="Self.PremiumGrade" Multiplicity="1" />
+    <End Role="Account" Type="Self.Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PremiumGrade">
+        <PropertyRef Name="PGradeID" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="PGradeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserGrade_Account_FK1">
+    <End Role="UserGrade" Type="Self.UserGrade" Multiplicity="1" />
+    <End Role="Account" Type="Self.Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserGrade">
+        <PropertyRef Name="UGradeID" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="UGradeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GunzDBModelStoreContainer">
+    <EntitySet Name="AbuseList" EntityType="Self.AbuseList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AccountItem" EntityType="Self.AccountItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AccountMobileLoginToken" EntityType="Self.AccountMobileLoginToken" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AccountPenaltyCode" EntityType="Self.AccountPenaltyCode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AccountPenaltyGMLog" EntityType="Self.AccountPenaltyGMLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AccountPenaltyGMType" EntityType="Self.AccountPenaltyGMType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AccountPenaltyLog" EntityType="Self.AccountPenaltyLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AccountPenaltyPeriod" EntityType="Self.AccountPenaltyPeriod" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BattleTimeRewardDescription" EntityType="Self.BattleTimeRewardDescription" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BattleTimeRewardItemList" EntityType="Self.BattleTimeRewardItemList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BattleTimeRewardTerm" EntityType="Self.BattleTimeRewardTerm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BillingMethod" EntityType="Self.BillingMethod" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BlockCountryCode" EntityType="Self.BlockCountryCode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BringAccountItemLog" EntityType="Self.BringAccountItemLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CashItemPresentLog" EntityType="Self.CashItemPresentLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CashSetItem" EntityType="Self.CashSetItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CashSetShop" EntityType="Self.CashSetShop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CashShop" EntityType="Self.CashShop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CashShopNewItemCategory" EntityType="Self.CashShopNewItemCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CashShopRank" EntityType="Self.CashShopRank" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CB_EventItem" EntityType="Self.CB_EventItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CB_EventItem_X" EntityType="Self.CB_EventItem_X" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Character" EntityType="Self.Character" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CharacterBattleTimeRewardInfo" EntityType="Self.CharacterBattleTimeRewardInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CharacterComment" EntityType="Self.CharacterComment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CharacterEquipmentSlot" EntityType="Self.CharacterEquipmentSlot" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CharacterEquipmentSlotCode" EntityType="Self.CharacterEquipmentSlotCode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CharacterItem" EntityType="Self.CharacterItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CharacterMgrLogByGM" EntityType="Self.CharacterMgrLogByGM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CharacterMgrType" EntityType="Self.CharacterMgrType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CharacterSkill" EntityType="Self.CharacterSkill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clan" EntityType="Self.Clan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClanAdsBoard" EntityType="Self.ClanAdsBoard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClanComment" EntityType="Self.ClanComment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClanGameLog" EntityType="Self.ClanGameLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClanHonorRanking" EntityType="Self.ClanHonorRanking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClanMember" EntityType="Self.ClanMember" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClanMemberGrade" EntityType="Self.ClanMemberGrade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CountryCode" EntityType="Self.CountryCode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DayRanking" EntityType="Self.DayRanking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DonateShopLog" EntityType="Self.DonateShopLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DonatorDailyItem" EntityType="Self.DonatorDailyItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DonatorDailyItemLog" EntityType="Self.DonatorDailyItemLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DonatorShopCategory" EntityType="Self.DonatorShopCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DonatorShopItem" EntityType="Self.DonatorShopItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DonatorShopSetItem" EntityType="Self.DonatorShopSetItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DTCharacterInfo" EntityType="Self.DTCharacterInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DTCharacterRanking" EntityType="Self.DTCharacterRanking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DTCharacterRankingHistory" EntityType="Self.DTCharacterRankingHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DTGameLog" EntityType="Self.DTGameLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DTGameLogDetail" EntityType="Self.DTGameLogDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dtproperties" EntityType="Self.dtproperties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DTTimeStamp" EntityType="Self.DTTimeStamp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Effect" EntityType="Self.Effect" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmailTemplate" EntityType="Self.EmailTemplate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Event_Coliseum_Character_NHN" EntityType="Self.Event_Coliseum_Character_NHN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Event_Coliseum_DeathsRanking_NHN" EntityType="Self.Event_Coliseum_DeathsRanking_NHN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Event_Coliseum_KillsRanking_NHN" EntityType="Self.Event_Coliseum_KillsRanking_NHN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Event_Coliseum_PlayData_NHN" EntityType="Self.Event_Coliseum_PlayData_NHN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Event_Coliseum_PlayTimeRanking_NHN" EntityType="Self.Event_Coliseum_PlayTimeRanking_NHN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="event_easter2011" EntityType="Self.event_easter2011" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Event_MDTCharacter" EntityType="Self.Event_MDTCharacter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Event_MDTCharacterRankingHistory" EntityType="Self.Event_MDTCharacterRankingHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Event_Word_NHN" EntityType="Self.Event_Word_NHN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventAccount" EntityType="Self.EventAccount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventCharacter" EntityType="Self.EventCharacter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Friend" EntityType="Self.Friend" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GambleItem" EntityType="Self.GambleItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GambleRewardItem" EntityType="Self.GambleRewardItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GameType" EntityType="Self.GameType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ignore" EntityType="Self.Ignore" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IPtoCountry" EntityType="Self.IPtoCountry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IPtoCountry_temp" EntityType="Self.IPtoCountry_temp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemChangeLog_AccountItem" EntityType="Self.ItemChangeLog_AccountItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemChangeType" EntityType="Self.ItemChangeType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemRotation" EntityType="Self.ItemRotation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemSlotType" EntityType="Self.ItemSlotType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KillLog" EntityType="Self.KillLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Level" EntityType="Self.Level" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LevelUpLog" EntityType="Self.LevelUpLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LocatorStatus" EntityType="Self.LocatorStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Map" EntityType="Self.Map" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MobileChat" EntityType="Self.MobileChat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MobileChatContact" EntityType="Self.MobileChatContact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHNClanMark" EntityType="Self.NHNClanMark" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHNItemOfTheDay" EntityType="Self.NHNItemOfTheDay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHNItemOfTheDayLog" EntityType="Self.NHNItemOfTheDayLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHNPurchaseLog" EntityType="Self.NHNPurchaseLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHNRareItemShop" EntityType="Self.NHNRareItemShop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHNRareItemShopLog" EntityType="Self.NHNRareItemShopLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Paypal" EntityType="Self.Paypal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaypalPaymentOptions" EntityType="Self.PaypalPaymentOptions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PenaltyLog" EntityType="Self.PenaltyLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PremiumGrade" EntityType="Self.PremiumGrade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PurchaseMethod" EntityType="Self.PurchaseMethod" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuestGameLog" EntityType="Self.QuestGameLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuestItem" EntityType="Self.QuestItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QUniqueItemLog" EntityType="Self.QUniqueItemLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RentCashSetShopPrice" EntityType="Self.RentCashSetShopPrice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RentCashShopPrice" EntityType="Self.RentCashShopPrice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RentPeriodDay" EntityType="Self.RentPeriodDay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RentType" EntityType="Self.RentType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServerLogStorage" EntityType="Self.ServerLogStorage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServerStatus" EntityType="Self.ServerStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServerType" EntityType="Self.ServerType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SleepAccountNHN" EntityType="Self.SleepAccountNHN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SleepAccountRestoredLogNHN" EntityType="Self.SleepAccountRestoredLogNHN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SleepCharacterNHN" EntityType="Self.SleepCharacterNHN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SleepCharacterRestoredLogNHN" EntityType="Self.SleepCharacterRestoredLogNHN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SurvivalCharacterInfo" EntityType="Self.SurvivalCharacterInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SurvivalCharacterInfoWeb" EntityType="Self.SurvivalCharacterInfoWeb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SurvivalGameLog" EntityType="Self.SurvivalGameLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SurvivalRanking" EntityType="Self.SurvivalRanking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SurvivalScenarioID" EntityType="Self.SurvivalScenarioID" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tmp_summerwave_newreg_event" EntityType="Self.tmp_summerwave_newreg_event" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tmp_summerwave_raffle_event" EntityType="Self.tmp_summerwave_raffle_event" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TotalRanking" EntityType="Self.TotalRanking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserGrade" EntityType="Self.UserGrade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UV" EntityType="Self.UV" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CashSetItemDetail" EntityType="Self.CashSetItemDetail" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CashSetItemDetail].[CSSID] AS [CSSID], 
+    [CashSetItemDetail].[Name] AS [Name], 
+    [CashSetItemDetail].[Lang] AS [Lang], 
+    [CashSetItemDetail].[Description] AS [Description]
+    FROM [dbo].[CashSetItemDetail] AS [CashSetItemDetail]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CashShopNewItem" EntityType="Self.CashShopNewItem" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CashShopNewItem].[id] AS [id], 
+    [CashShopNewItem].[Category] AS [Category], 
+    [CashShopNewItem].[NewOrder] AS [NewOrder], 
+    [CashShopNewItem].[IsSetItem] AS [IsSetItem], 
+    [CashShopNewItem].[CSID] AS [CSID], 
+    [CashShopNewItem].[CSSID] AS [CSSID], 
+    [CashShopNewItem].[Slot] AS [Slot], 
+    [CashShopNewItem].[Name] AS [Name], 
+    [CashShopNewItem].[ResSex] AS [ResSex], 
+    [CashShopNewItem].[ResLevel] AS [ResLevel], 
+    [CashShopNewItem].[CashPrice] AS [CashPrice], 
+    [CashShopNewItem].[WebImgName] AS [WebImgName], 
+    [CashShopNewItem].[RegDate] AS [RegDate]
+    FROM [dbo].[CashShopNewItem] AS [CashShopNewItem]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CharacterBattleTimeRewardLog" EntityType="Self.CharacterBattleTimeRewardLog" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CharacterBattleTimeRewardLog].[CID] AS [CID], 
+    [CharacterBattleTimeRewardLog].[BRID] AS [BRID], 
+    [CharacterBattleTimeRewardLog].[BRTID] AS [BRTID], 
+    [CharacterBattleTimeRewardLog].[RegDate] AS [RegDate], 
+    [CharacterBattleTimeRewardLog].[BattleTime] AS [BattleTime], 
+    [CharacterBattleTimeRewardLog].[KillCount] AS [KillCount], 
+    [CharacterBattleTimeRewardLog].[ItemID] AS [ItemID], 
+    [CharacterBattleTimeRewardLog].[ItemCnt] AS [ItemCnt], 
+    [CharacterBattleTimeRewardLog].[RentHourPeriod] AS [RentHourPeriod]
+    FROM [dbo].[CharacterBattleTimeRewardLog] AS [CharacterBattleTimeRewardLog]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CharacterMakingLog" EntityType="Self.CharacterMakingLog" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CharacterMakingLog].[id] AS [id], 
+    [CharacterMakingLog].[AID] AS [AID], 
+    [CharacterMakingLog].[CharName] AS [CharName], 
+    [CharacterMakingLog].[Type] AS [Type], 
+    [CharacterMakingLog].[Date] AS [Date]
+    FROM [dbo].[CharacterMakingLog] AS [CharacterMakingLog]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CustomIP" EntityType="Self.CustomIP" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CustomIP].[IPFrom] AS [IPFrom], 
+    [CustomIP].[IPTo] AS [IPTo], 
+    [CustomIP].[IsBlock] AS [IsBlock], 
+    [CustomIP].[CountryCode3] AS [CountryCode3], 
+    [CustomIP].[Comment] AS [Comment], 
+    [CustomIP].[RegDate] AS [RegDate]
+    FROM [dbo].[CustomIP] AS [CustomIP]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Event" EntityType="Self.Event" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Event].[AID] AS [AID], 
+    [Event].[CID] AS [CID], 
+    [Event].[RegDate] AS [RegDate], 
+    [Event].[Checked] AS [Checked], 
+    [Event].[EventName] AS [EventName], 
+    [Event].[SubDescription] AS [SubDescription]
+    FROM [dbo].[Event] AS [Event]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Event_CharacterItem_Halloween" EntityType="Self.Event_CharacterItem_Halloween" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Event_CharacterItem_Halloween].[UserID] AS [UserID], 
+    [Event_CharacterItem_Halloween].[UpdatedDate] AS [UpdatedDate], 
+    [Event_CharacterItem_Halloween].[Trick] AS [Trick], 
+    [Event_CharacterItem_Halloween].[Treat] AS [Treat]
+    FROM [dbo].[Event_CharacterItem_Halloween] AS [Event_CharacterItem_Halloween]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Event_ClanPointRanking" EntityType="Self.Event_ClanPointRanking" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Event_ClanPointRanking].[id] AS [id], 
+    [Event_ClanPointRanking].[Rank] AS [Rank], 
+    [Event_ClanPointRanking].[CLID] AS [CLID], 
+    [Event_ClanPointRanking].[Name] AS [Name], 
+    [Event_ClanPointRanking].[Count] AS [Count], 
+    [Event_ClanPointRanking].[Point] AS [Point], 
+    [Event_ClanPointRanking].[RegDate] AS [RegDate]
+    FROM [dbo].[Event_ClanPointRanking] AS [Event_ClanPointRanking]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="GameLog" EntityType="Self.GameLog" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [GameLog].[id] AS [id], 
+    [GameLog].[GameName] AS [GameName], 
+    [GameLog].[MasterCID] AS [MasterCID], 
+    [GameLog].[Map] AS [Map], 
+    [GameLog].[GameType] AS [GameType], 
+    [GameLog].[Round] AS [Round], 
+    [GameLog].[StartTime] AS [StartTime], 
+    [GameLog].[PlayerCount] AS [PlayerCount], 
+    [GameLog].[Players] AS [Players]
+    FROM [dbo].[GameLog] AS [GameLog]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ipto_back" EntityType="Self.ipto_back" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ipto_back].[IPFrom] AS [IPFrom], 
+    [ipto_back].[IPTo] AS [IPTo], 
+    [ipto_back].[CountryCode2] AS [CountryCode2], 
+    [ipto_back].[CountryCode3] AS [CountryCode3], 
+    [ipto_back].[CountryName] AS [CountryName]
+    FROM [dbo].[ipto_back] AS [ipto_back]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Item" EntityType="Self.Item" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Item].[ItemID] AS [ItemID], 
+    [Item].[Name] AS [Name], 
+    [Item].[TotalPoint] AS [TotalPoint], 
+    [Item].[ResSex] AS [ResSex], 
+    [Item].[ResRace] AS [ResRace], 
+    [Item].[ResLevel] AS [ResLevel], 
+    [Item].[Slot] AS [Slot], 
+    [Item].[Weight] AS [Weight], 
+    [Item].[BountyPrice] AS [BountyPrice], 
+    [Item].[Damage] AS [Damage], 
+    [Item].[Delay] AS [Delay], 
+    [Item].[EffectID] AS [EffectID], 
+    [Item].[Controllability] AS [Controllability], 
+    [Item].[Magazine] AS [Magazine], 
+    [Item].[ReloadTime] AS [ReloadTime], 
+    [Item].[SlugOutput] AS [SlugOutput], 
+    [Item].[Gadget] AS [Gadget], 
+    [Item].[HP] AS [HP], 
+    [Item].[AP] AS [AP], 
+    [Item].[MAXWT] AS [MAXWT], 
+    [Item].[SF] AS [SF], 
+    [Item].[FR] AS [FR], 
+    [Item].[CR] AS [CR], 
+    [Item].[PR] AS [PR], 
+    [Item].[LR] AS [LR], 
+    [Item].[BlendColor] AS [BlendColor], 
+    [Item].[ModelName] AS [ModelName], 
+    [Item].[Description] AS [Description], 
+    [Item].[MaxBullet] AS [MaxBullet], 
+    [Item].[LimitSpeed] AS [LimitSpeed], 
+    [Item].[IsCashItem] AS [IsCashItem], 
+    [Item].[IsSpendableItem] AS [IsSpendableItem]
+    FROM [dbo].[Item] AS [Item]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ItemChangeLog_CharacterItem" EntityType="Self.ItemChangeLog_CharacterItem" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ItemChangeLog_CharacterItem].[ChangeDate] AS [ChangeDate], 
+    [ItemChangeLog_CharacterItem].[ChangeType] AS [ChangeType], 
+    [ItemChangeLog_CharacterItem].[LogID] AS [LogID], 
+    [ItemChangeLog_CharacterItem].[CID] AS [CID], 
+    [ItemChangeLog_CharacterItem].[CIID] AS [CIID], 
+    [ItemChangeLog_CharacterItem].[AID] AS [AID], 
+    [ItemChangeLog_CharacterItem].[AIID] AS [AIID], 
+    [ItemChangeLog_CharacterItem].[ItemID] AS [ItemID], 
+    [ItemChangeLog_CharacterItem].[Count] AS [Count]
+    FROM [dbo].[ItemChangeLog_CharacterItem] AS [ItemChangeLog_CharacterItem]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ItemDetail" EntityType="Self.ItemDetail" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ItemDetail].[ItemID] AS [ItemID], 
+    [ItemDetail].[Name] AS [Name], 
+    [ItemDetail].[Lang] AS [Lang], 
+    [ItemDetail].[Description] AS [Description]
+    FROM [dbo].[ItemDetail] AS [ItemDetail]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ItemPurchaseLogByBounty" EntityType="Self.ItemPurchaseLogByBounty" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ItemPurchaseLogByBounty].[id] AS [id], 
+    [ItemPurchaseLogByBounty].[ItemID] AS [ItemID], 
+    [ItemPurchaseLogByBounty].[CID] AS [CID], 
+    [ItemPurchaseLogByBounty].[Date] AS [Date], 
+    [ItemPurchaseLogByBounty].[Bounty] AS [Bounty], 
+    [ItemPurchaseLogByBounty].[CharBounty] AS [CharBounty], 
+    [ItemPurchaseLogByBounty].[Type] AS [Type]
+    FROM [dbo].[ItemPurchaseLogByBounty] AS [ItemPurchaseLogByBounty]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ItemPurchaseLogByCash" EntityType="Self.ItemPurchaseLogByCash" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ItemPurchaseLogByCash].[id] AS [id], 
+    [ItemPurchaseLogByCash].[AID] AS [AID], 
+    [ItemPurchaseLogByCash].[ItemID] AS [ItemID], 
+    [ItemPurchaseLogByCash].[Date] AS [Date], 
+    [ItemPurchaseLogByCash].[Cash] AS [Cash], 
+    [ItemPurchaseLogByCash].[RentHourPeriod] AS [RentHourPeriod], 
+    [ItemPurchaseLogByCash].[MobileCode] AS [MobileCode], 
+    [ItemPurchaseLogByCash].[sid] AS [sid]
+    FROM [dbo].[ItemPurchaseLogByCash] AS [ItemPurchaseLogByCash]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="NHNLuckyBoxCoupon" EntityType="Self.NHNLuckyBoxCoupon" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [NHNLuckyBoxCoupon].[BoxCID] AS [BoxCID], 
+    [NHNLuckyBoxCoupon].[UserID] AS [UserID], 
+    [NHNLuckyBoxCoupon].[BoxCategory] AS [BoxCategory], 
+    [NHNLuckyBoxCoupon].[Status] AS [Status], 
+    [NHNLuckyBoxCoupon].[BoxID] AS [BoxID], 
+    [NHNLuckyBoxCoupon].[sid] AS [sid], 
+    [NHNLuckyBoxCoupon].[Regdate] AS [Regdate], 
+    [NHNLuckyBoxCoupon].[Opendate] AS [Opendate], 
+    [NHNLuckyBoxCoupon].[Expiredate] AS [Expiredate]
+    FROM [dbo].[NHNLuckyBoxCoupon] AS [NHNLuckyBoxCoupon]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="NHNLuckyBoxInventory" EntityType="Self.NHNLuckyBoxInventory" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [NHNLuckyBoxInventory].[BoxIID] AS [BoxIID], 
+    [NHNLuckyBoxInventory].[UserID] AS [UserID], 
+    [NHNLuckyBoxInventory].[BoxID] AS [BoxID], 
+    [NHNLuckyBoxInventory].[Status] AS [Status], 
+    [NHNLuckyBoxInventory].[BoxRID] AS [BoxRID], 
+    [NHNLuckyBoxInventory].[RefundPrice] AS [RefundPrice], 
+    [NHNLuckyBoxInventory].[sid] AS [sid], 
+    [NHNLuckyBoxInventory].[Sender] AS [Sender], 
+    [NHNLuckyBoxInventory].[Regdate] AS [Regdate]
+    FROM [dbo].[NHNLuckyBoxInventory] AS [NHNLuckyBoxInventory]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="NHNLuckyBoxItem" EntityType="Self.NHNLuckyBoxItem" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [NHNLuckyBoxItem].[BoxID] AS [BoxID], 
+    [NHNLuckyBoxItem].[Name] AS [Name], 
+    [NHNLuckyBoxItem].[Description] AS [Description], 
+    [NHNLuckyBoxItem].[Category] AS [Category], 
+    [NHNLuckyBoxItem].[webimgname] AS [webimgname], 
+    [NHNLuckyBoxItem].[Price] AS [Price], 
+    [NHNLuckyBoxItem].[RefundPrice] AS [RefundPrice], 
+    [NHNLuckyBoxItem].[ResSex] AS [ResSex], 
+    [NHNLuckyBoxItem].[ResLevel] AS [ResLevel], 
+    [NHNLuckyBoxItem].[Opened] AS [Opened], 
+    [NHNLuckyBoxItem].[displayorder] AS [displayorder], 
+    [NHNLuckyBoxItem].[Regdate] AS [Regdate]
+    FROM [dbo].[NHNLuckyBoxItem] AS [NHNLuckyBoxItem]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="NHNLuckyBoxRewardItem" EntityType="Self.NHNLuckyBoxRewardItem" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [NHNLuckyBoxRewardItem].[BoxRID] AS [BoxRID], 
+    [NHNLuckyBoxRewardItem].[BoxID] AS [BoxID], 
+    [NHNLuckyBoxRewardItem].[ItemIDs] AS [ItemIDs], 
+    [NHNLuckyBoxRewardItem].[Name] AS [Name], 
+    [NHNLuckyBoxRewardItem].[Category] AS [Category], 
+    [NHNLuckyBoxRewardItem].[RentHourPeriod] AS [RentHourPeriod], 
+    [NHNLuckyBoxRewardItem].[RatePerThousand] AS [RatePerThousand]
+    FROM [dbo].[NHNLuckyBoxRewardItem] AS [NHNLuckyBoxRewardItem]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PlayerLog" EntityType="Self.PlayerLog" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PlayerLog].[id] AS [id], 
+    [PlayerLog].[CID] AS [CID], 
+    [PlayerLog].[DisTime] AS [DisTime], 
+    [PlayerLog].[PlayTime] AS [PlayTime], 
+    [PlayerLog].[Kills] AS [Kills], 
+    [PlayerLog].[Deaths] AS [Deaths], 
+    [PlayerLog].[XP] AS [XP], 
+    [PlayerLog].[TotalXP] AS [TotalXP]
+    FROM [dbo].[PlayerLog] AS [PlayerLog]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ServerLog" EntityType="Self.ServerLog" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ServerLog].[id] AS [id], 
+    [ServerLog].[ServerID] AS [ServerID], 
+    [ServerLog].[PlayerCount] AS [PlayerCount], 
+    [ServerLog].[GameCount] AS [GameCount], 
+    [ServerLog].[Time] AS [Time], 
+    [ServerLog].[BlockCount] AS [BlockCount], 
+    [ServerLog].[NonBlockCount] AS [NonBlockCount]
+    FROM [dbo].[ServerLog] AS [ServerLog]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SetItemPurchaseLogByCash" EntityType="Self.SetItemPurchaseLogByCash" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SetItemPurchaseLogByCash].[id] AS [id], 
+    [SetItemPurchaseLogByCash].[AID] AS [AID], 
+    [SetItemPurchaseLogByCash].[CSSID] AS [CSSID], 
+    [SetItemPurchaseLogByCash].[Date] AS [Date], 
+    [SetItemPurchaseLogByCash].[Cash] AS [Cash], 
+    [SetItemPurchaseLogByCash].[RentHourPeriod] AS [RentHourPeriod], 
+    [SetItemPurchaseLogByCash].[MobileCode] AS [MobileCode], 
+    [SetItemPurchaseLogByCash].[sid] AS [sid]
+    FROM [dbo].[SetItemPurchaseLogByCash] AS [SetItemPurchaseLogByCash]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tmp_stampevent" EntityType="Self.tmp_stampevent" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tmp_stampevent].[sdate] AS [sdate], 
+    [tmp_stampevent].[UserID] AS [UserID], 
+    [tmp_stampevent].[PlayTime] AS [PlayTime], 
+    [tmp_stampevent].[GiftDate] AS [GiftDate]
+    FROM [dbo].[tmp_stampevent] AS [tmp_stampevent]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="Account_BringAccountItemLog_FK1" Association="Self.Account_BringAccountItemLog_FK1">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="BringAccountItemLog" EntitySet="BringAccountItemLog" />
+    </AssociationSet>
+    <AssociationSet Name="Account_CashItemPresentLog_FK1" Association="Self.Account_CashItemPresentLog_FK1">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="CashItemPresentLog" EntitySet="CashItemPresentLog" />
+    </AssociationSet>
+    <AssociationSet Name="Account_Character_FK1" Association="Self.Account_Character_FK1">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Character" EntitySet="Character" />
+    </AssociationSet>
+    <AssociationSet Name="Account_PurchaseLogByCash_FK1" Association="Self.Account_PurchaseLogByCash_FK1">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="ItemPurchaseLogByCash" EntitySet="ItemPurchaseLogByCash" />
+    </AssociationSet>
+    <AssociationSet Name="Account_SetItemPurchaseLogByCash_FK1" Association="Self.Account_SetItemPurchaseLogByCash_FK1">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="SetItemPurchaseLogByCash" EntitySet="SetItemPurchaseLogByCash" />
+    </AssociationSet>
+    <AssociationSet Name="Account_Table1_FK1" Association="Self.Account_Table1_FK1">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="AccountItem" EntitySet="AccountItem" />
+    </AssociationSet>
+    <AssociationSet Name="AccountPenaltyGMLog_Account_FK" Association="Self.AccountPenaltyGMLog_Account_FK">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="AccountPenaltyGMLog" EntitySet="AccountPenaltyGMLog" />
+    </AssociationSet>
+    <AssociationSet Name="AccountPenaltyGMLog_AccountPenaltyGMType_FK" Association="Self.AccountPenaltyGMLog_AccountPenaltyGMType_FK">
+      <End Role="AccountPenaltyGMType" EntitySet="AccountPenaltyGMType" />
+      <End Role="AccountPenaltyGMLog" EntitySet="AccountPenaltyGMLog" />
+    </AssociationSet>
+    <AssociationSet Name="AccountPenaltyGMLog_AccountPenaltyGMType_FK2" Association="Self.AccountPenaltyGMLog_AccountPenaltyGMType_FK2">
+      <End Role="AccountPenaltyGMType" EntitySet="AccountPenaltyGMType" />
+      <End Role="AccountPenaltyGMLog" EntitySet="AccountPenaltyGMLog" />
+    </AssociationSet>
+    <AssociationSet Name="AccountPenaltyLog_Account_FK" Association="Self.AccountPenaltyLog_Account_FK">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="AccountPenaltyLog" EntitySet="AccountPenaltyLog" />
+    </AssociationSet>
+    <AssociationSet Name="AccountPenaltyPeriod_Account_FK1" Association="Self.AccountPenaltyPeriod_Account_FK1">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="AccountPenaltyPeriod" EntitySet="AccountPenaltyPeriod" />
+    </AssociationSet>
+    <AssociationSet Name="CashSetShop_CashSetItem_FK1" Association="Self.CashSetShop_CashSetItem_FK1">
+      <End Role="CashSetShop" EntitySet="CashSetShop" />
+      <End Role="CashSetItem" EntitySet="CashSetItem" />
+    </AssociationSet>
+    <AssociationSet Name="CashSetShop_SetItemPurchaseLogByCash_FK1" Association="Self.CashSetShop_SetItemPurchaseLogByCash_FK1">
+      <End Role="CashSetShop" EntitySet="CashSetShop" />
+      <End Role="SetItemPurchaseLogByCash" EntitySet="SetItemPurchaseLogByCash" />
+    </AssociationSet>
+    <AssociationSet Name="Character_BringAccountItemLog_FK1" Association="Self.Character_BringAccountItemLog_FK1">
+      <End Role="Character" EntitySet="Character" />
+      <End Role="BringAccountItemLog" EntitySet="BringAccountItemLog" />
+    </AssociationSet>
+    <AssociationSet Name="Character_CharacterItem_FK1" Association="Self.Character_CharacterItem_FK1">
+      <End Role="Character" EntitySet="Character" />
+      <End Role="CharacterItem" EntitySet="CharacterItem" />
+    </AssociationSet>
+    <AssociationSet Name="Character_Friend_FK1" Association="Self.Character_Friend_FK1">
+      <End Role="Character" EntitySet="Character" />
+      <End Role="Friend" EntitySet="Friend" />
+    </AssociationSet>
+    <AssociationSet Name="Character_Friend_FK2" Association="Self.Character_Friend_FK2">
+      <End Role="Character" EntitySet="Character" />
+      <End Role="Friend" EntitySet="Friend" />
+    </AssociationSet>
+    <AssociationSet Name="Character_PurchaseItemByBountyHistory_FK20050314" Association="Self.Character_PurchaseItemByBountyHistory_FK20050314">
+      <End Role="Character" EntitySet="Character" />
+      <End Role="ItemPurchaseLogByBounty" EntitySet="ItemPurchaseLogByBounty" />
+    </AssociationSet>
+    <AssociationSet Name="Clan_Character_FK1" Association="Self.Clan_Character_FK1">
+      <End Role="Character" EntitySet="Character" />
+      <End Role="Clan" EntitySet="Clan" />
+    </AssociationSet>
+    <AssociationSet Name="ClanGameLog_LoserCLID_FK1" Association="Self.ClanGameLog_LoserCLID_FK1">
+      <End Role="Clan" EntitySet="Clan" />
+      <End Role="ClanGameLog" EntitySet="ClanGameLog" />
+    </AssociationSet>
+    <AssociationSet Name="ClanGameLog_WinnerCLID_FK1" Association="Self.ClanGameLog_WinnerCLID_FK1">
+      <End Role="Clan" EntitySet="Clan" />
+      <End Role="ClanGameLog" EntitySet="ClanGameLog" />
+    </AssociationSet>
+    <AssociationSet Name="ClanHonorRanking_CLID_FK1" Association="Self.ClanHonorRanking_CLID_FK1">
+      <End Role="Clan" EntitySet="Clan" />
+      <End Role="ClanHonorRanking" EntitySet="ClanHonorRanking" />
+    </AssociationSet>
+    <AssociationSet Name="ClanMember_Clan_FK1" Association="Self.ClanMember_Clan_FK1">
+      <End Role="Clan" EntitySet="Clan" />
+      <End Role="ClanMember" EntitySet="ClanMember" />
+    </AssociationSet>
+    <AssociationSet Name="ClanMember_Clan_FK2" Association="Self.ClanMember_Clan_FK2">
+      <End Role="Character" EntitySet="Character" />
+      <End Role="ClanMember" EntitySet="ClanMember" />
+    </AssociationSet>
+    <AssociationSet Name="DTGameLog_DTGameLogDetail_FK1" Association="Self.DTGameLog_DTGameLogDetail_FK1">
+      <End Role="DTGameLog" EntitySet="DTGameLog" />
+      <End Role="DTGameLogDetail" EntitySet="DTGameLogDetail" />
+    </AssociationSet>
+    <AssociationSet Name="DTTimeStamp_DTGameLog_FK1" Association="Self.DTTimeStamp_DTGameLog_FK1">
+      <End Role="DTTimeStamp" EntitySet="DTTimeStamp" />
+      <End Role="DTGameLog" EntitySet="DTGameLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Character__CharM__5DB5E0CB" Association="Self.FK__Character__CharM__5DB5E0CB">
+      <End Role="CharacterMgrType" EntitySet="CharacterMgrType" />
+      <End Role="CharacterMgrLogByGM" EntitySet="CharacterMgrLogByGM" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CharacterMg__CID__5EAA0504" Association="Self.FK__CharacterMg__CID__5EAA0504">
+      <End Role="Character" EntitySet="Character" />
+      <End Role="CharacterMgrLogByGM" EntitySet="CharacterMgrLogByGM" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GambleRewa__GIID__72B0FDB1" Association="Self.FK__GambleRewa__GIID__72B0FDB1">
+      <End Role="GambleItem" EntitySet="GambleItem" />
+      <End Role="GambleRewardItem" EntitySet="GambleRewardItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RentCashS__CSSID__47DBAE45" Association="Self.FK__RentCashS__CSSID__47DBAE45">
+      <End Role="CashSetShop" EntitySet="CashSetShop" />
+      <End Role="RentCashSetShopPrice" EntitySet="RentCashSetShopPrice" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RentCashSh__CSID__4AB81AF0" Association="Self.FK__RentCashSh__CSID__4AB81AF0">
+      <End Role="CashShop" EntitySet="CashShop" />
+      <End Role="RentCashShopPrice" EntitySet="RentCashShopPrice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AccountMobileLoginToken_Account" Association="Self.FK_AccountMobileLoginToken_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="AccountMobileLoginToken" EntitySet="AccountMobileLoginToken" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BattleTimeRewardItemList_BRID" Association="Self.FK_BattleTimeRewardItemList_BRID">
+      <End Role="BattleTimeRewardDescription" EntitySet="BattleTimeRewardDescription" />
+      <End Role="BattleTimeRewardItemList" EntitySet="BattleTimeRewardItemList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BattleTimeRewardTerm_BRID" Association="Self.FK_BattleTimeRewardTerm_BRID">
+      <End Role="BattleTimeRewardDescription" EntitySet="BattleTimeRewardDescription" />
+      <End Role="BattleTimeRewardTerm" EntitySet="BattleTimeRewardTerm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CharacterBattleTimeRewardInfo_BRID" Association="Self.FK_CharacterBattleTimeRewardInfo_BRID">
+      <End Role="BattleTimeRewardDescription" EntitySet="BattleTimeRewardDescription" />
+      <End Role="CharacterBattleTimeRewardInfo" EntitySet="CharacterBattleTimeRewardInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CharacterComment_Account" Association="Self.FK_CharacterComment_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="CharacterComment" EntitySet="CharacterComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CharacterComment_Character" Association="Self.FK_CharacterComment_Character">
+      <End Role="Character" EntitySet="Character" />
+      <End Role="CharacterComment" EntitySet="CharacterComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CharacterEquipmentSlotCode_CharacterEquipmentSlot" Association="Self.FK_CharacterEquipmentSlotCode_CharacterEquipmentSlot">
+      <End Role="CharacterEquipmentSlotCode" EntitySet="CharacterEquipmentSlotCode" />
+      <End Role="CharacterEquipmentSlot" EntitySet="CharacterEquipmentSlot" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CharacterSkill_Character" Association="Self.FK_CharacterSkill_Character">
+      <End Role="Character" EntitySet="Character" />
+      <End Role="CharacterSkill" EntitySet="CharacterSkill" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClanComment_Account" Association="Self.FK_ClanComment_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="ClanComment" EntitySet="ClanComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClanComment_Clan" Association="Self.FK_ClanComment_Clan">
+      <End Role="Clan" EntitySet="Clan" />
+      <End Role="ClanComment" EntitySet="ClanComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DonateShopLog_Account" Association="Self.FK_DonateShopLog_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="DonateShopLog" EntitySet="DonateShopLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DonatorShopItem_DonatorShopCategory1" Association="Self.FK_DonatorShopItem_DonatorShopCategory1">
+      <End Role="DonatorShopCategory" EntitySet="DonatorShopCategory" />
+      <End Role="DonatorShopItem" EntitySet="DonatorShopItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DonatorShopSetItem_DonatorShopItem" Association="Self.FK_DonatorShopSetItem_DonatorShopItem">
+      <End Role="DonatorShopItem" EntitySet="DonatorShopItem" />
+      <End Role="DonatorShopSetItem" EntitySet="DonatorShopSetItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DonatorShopSetItem_DonatorShopItem1" Association="Self.FK_DonatorShopSetItem_DonatorShopItem1">
+      <End Role="DonatorShopItem" EntitySet="DonatorShopItem" />
+      <End Role="DonatorShopSetItem" EntitySet="DonatorShopSetItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Event_Coliseum_Character_NHN_Character" Association="Self.FK_Event_Coliseum_Character_NHN_Character">
+      <End Role="Character" EntitySet="Character" />
+      <End Role="Event_Coliseum_Character_NHN" EntitySet="Event_Coliseum_Character_NHN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Event_Coliseum_PlayData_NHN_Event_Coliseum_Character_NHN" Association="Self.FK_Event_Coliseum_PlayData_NHN_Event_Coliseum_Character_NHN">
+      <End Role="Event_Coliseum_Character_NHN" EntitySet="Event_Coliseum_Character_NHN" />
+      <End Role="Event_Coliseum_PlayData_NHN" EntitySet="Event_Coliseum_PlayData_NHN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventAccount_AID" Association="Self.FK_EventAccount_AID">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="EventAccount" EntitySet="EventAccount" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventCharacter_AID" Association="Self.FK_EventCharacter_AID">
+      <End Role="EventAccount" EntitySet="EventAccount" />
+      <End Role="EventCharacter" EntitySet="EventCharacter" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventCharacter_CID" Association="Self.FK_EventCharacter_CID">
+      <End Role="Character" EntitySet="Character" />
+      <End Role="EventCharacter" EntitySet="EventCharacter" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemChangeLog_AccountItem_ItemChangeType" Association="Self.FK_ItemChangeLog_AccountItem_ItemChangeType">
+      <End Role="ItemChangeType" EntitySet="ItemChangeType" />
+      <End Role="ItemChangeLog_AccountItem" EntitySet="ItemChangeLog_AccountItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MobileChatContact_Account" Association="Self.FK_MobileChatContact_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="MobileChatContact" EntitySet="MobileChatContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MobileChatContact_MobileChat" Association="Self.FK_MobileChatContact_MobileChat">
+      <End Role="MobileChat" EntitySet="MobileChat" />
+      <End Role="MobileChatContact" EntitySet="MobileChatContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurvivalCharacterInfo_SurvivalScenarioID" Association="Self.FK_SurvivalCharacterInfo_SurvivalScenarioID">
+      <End Role="SurvivalScenarioID" EntitySet="SurvivalScenarioID" />
+      <End Role="SurvivalCharacterInfo" EntitySet="SurvivalCharacterInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurvivalGameLog_SurvivalScenarioID" Association="Self.FK_SurvivalGameLog_SurvivalScenarioID">
+      <End Role="SurvivalScenarioID" EntitySet="SurvivalScenarioID" />
+      <End Role="SurvivalGameLog" EntitySet="SurvivalGameLog" />
+    </AssociationSet>
+    <AssociationSet Name="Item_CashSetItem_FK1" Association="Self.Item_CashSetItem_FK1">
+      <End Role="CashShop" EntitySet="CashShop" />
+      <End Role="CashSetItem" EntitySet="CashSetItem" />
+    </AssociationSet>
+    <AssociationSet Name="PremiumGrade_Account_FK1" Association="Self.PremiumGrade_Account_FK1">
+      <End Role="PremiumGrade" EntitySet="PremiumGrade" />
+      <End Role="Account" EntitySet="Account" />
+    </AssociationSet>
+    <AssociationSet Name="UserGrade_Account_FK1" Association="Self.UserGrade_Account_FK1">
+      <End Role="UserGrade" EntitySet="UserGrade" />
+      <End Role="Account" EntitySet="Account" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

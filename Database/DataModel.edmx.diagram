@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="258c111744074be09359f679851d9945" Name="Diagram1">
+        <EntityTypeShape EntityType="GunzDBModel.AbuseList" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.Account" Width="1.5" PointX="3" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.AccountItem" Width="1.5" PointX="5.25" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.AccountMobileLoginToken" Width="1.5" PointX="5.25" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.AccountPenaltyCode" Width="1.5" PointX="7.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.AccountPenaltyGMLog" Width="1.5" PointX="5.25" PointY="43.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.AccountPenaltyGMType" Width="1.5" PointX="3" PointY="37.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.AccountPenaltyLog" Width="1.5" PointX="5.25" PointY="30.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.AccountPenaltyPeriod" Width="1.5" PointX="5.25" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.BattleTimeRewardDescription" Width="1.5" PointX="7.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.BattleTimeRewardItemList" Width="1.5" PointX="10" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.BattleTimeRewardTerm" Width="1.5" PointX="10" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.BillingMethod" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.BlockCountryCode" Width="1.5" PointX="2.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.BringAccountItemLog" Width="1.5" PointX="7.5" PointY="50" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.CashItemPresentLog" Width="1.5" PointX="5.25" PointY="39.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.CashSetItem" Width="1.5" PointX="15" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.CashSetShop" Width="1.5" PointX="6" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.CashShop" Width="1.5" PointX="12.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.CashShopNewItemCategory" Width="1.5" PointX="0.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.CashShopRank" Width="1.5" PointX="17.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.CB_EventItem" Width="1.5" PointX="2.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.CB_EventItem_X" Width="1.5" PointX="17.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.Character" Width="1.5" PointX="5.25" PointY="48.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.CharacterBattleTimeRewardInfo" Width="1.5" PointX="10" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.CharacterComment" Width="1.5" PointX="10.5" PointY="50" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.CharacterEquipmentSlot" Width="1.5" PointX="16" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.CharacterEquipmentSlotCode" Width="1.5" PointX="13.75" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.CharacterItem" Width="1.5" PointX="7.5" PointY="46.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.CharacterMgrLogByGM" Width="1.5" PointX="10.5" PointY="53.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.CharacterMgrType" Width="1.5" PointX="8.25" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.CharacterSkill" Width="1.5" PointX="7.5" PointY="53.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.Clan" Width="1.5" PointX="7.5" PointY="56.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.ClanAdsBoard" Width="1.5" PointX="10.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.ClanComment" Width="1.5" PointX="12.75" PointY="50.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.ClanGameLog" Width="1.5" PointX="9.75" PointY="59.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.ClanHonorRanking" Width="1.5" PointX="9.75" PointY="64.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.ClanMember" Width="1.5" PointX="12.75" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.ClanMemberGrade" Width="1.5" PointX="18.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.CountryCode" Width="1.5" PointX="18.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.DayRanking" Width="1.5" PointX="18.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.DonateShopLog" Width="1.5" PointX="5.25" PointY="68.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.DonatorDailyItem" Width="1.5" PointX="19.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.DonatorDailyItemLog" Width="1.5" PointX="19.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.DonatorShopCategory" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.DonatorShopItem" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.DonatorShopSetItem" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.DTCharacterInfo" Width="1.5" PointX="12.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.DTCharacterRanking" Width="1.5" PointX="14.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.DTCharacterRankingHistory" Width="1.5" PointX="0.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.DTGameLog" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.DTGameLogDetail" Width="1.5" PointX="5.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.dtproperty" Width="1.5" PointX="7.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.DTTimeStamp" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.Effect" Width="1.5" PointX="20.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.EmailTemplate" Width="1.5" PointX="20.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.Event_Coliseum_Character_NHN" Width="1.5" PointX="7.5" PointY="69.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.Event_Coliseum_DeathsRanking_NHN" Width="1.5" PointX="20.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.Event_Coliseum_KillsRanking_NHN" Width="1.5" PointX="21.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.Event_Coliseum_PlayData_NHN" Width="1.5" PointX="9.75" PointY="68.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.Event_Coliseum_PlayTimeRanking_NHN" Width="1.5" PointX="21.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.event_easter2011" Width="1.5" PointX="21.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.Event_MDTCharacter" Width="1.5" PointX="16.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.Event_MDTCharacterRankingHistory" Width="1.5" PointX="22.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.Event_Word_NHN" Width="1.5" PointX="22.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.EventAccount" Width="1.5" PointX="5.25" PointY="70.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.EventCharacter" Width="1.5" PointX="12.5" PointY="61.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.Friend" Width="1.5" PointX="7.5" PointY="72.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.GambleItem" Width="1.5" PointX="14.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.GambleRewardItem" Width="1.5" PointX="17" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.GameType" Width="1.5" PointX="22.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.Ignore" Width="1.5" PointX="18.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.IPtoCountry" Width="1.5" PointX="20.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.IPtoCountry_temp" Width="1.5" PointX="22.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.ItemChangeLog_AccountItem" Width="1.5" PointX="16" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.ItemChangeType" Width="1.5" PointX="13.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.ItemSlotType" Width="1.5" PointX="23.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.KillLog" Width="1.5" PointX="23.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.Level" Width="1.5" PointX="23.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.LevelUpLog" Width="1.5" PointX="9.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.LocatorStatu" Width="1.5" PointX="0.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.Login" Width="1.5" PointX="24.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.Map" Width="1.5" PointX="11.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.MobileChat" Width="1.5" PointX="6" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.MobileChatContact" Width="1.5" PointX="8.25" PointY="43.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.News" Width="1.5" PointX="24.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.NHNClanMark" Width="1.5" PointX="13.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.NHNItemOfTheDay" Width="1.5" PointX="24.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.NHNItemOfTheDayLog" Width="1.5" PointX="15.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.NHNPurchaseLog" Width="1.5" PointX="24.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.NHNRareItemShop" Width="1.5" PointX="22.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.NHNRareItemShopLog" Width="1.5" PointX="24.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.Paypal" Width="1.5" PointX="25.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.PaypalPaymentOption" Width="1.5" PointX="25.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.PenaltyLog" Width="1.5" PointX="17.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.PremiumGrade" Width="1.5" PointX="0.75" PointY="44.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.PurchaseMethod" Width="1.5" PointX="19.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.QuestGameLog" Width="1.5" PointX="2.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.QuestItem" Width="1.5" PointX="26.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.QUniqueItemLog" Width="1.5" PointX="26.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.RentCashSetShopPrice" Width="1.5" PointX="8.25" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.RentCashShopPrice" Width="1.5" PointX="15" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.RentPeriodDay" Width="1.5" PointX="26.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.RentType" Width="1.5" PointX="26.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.ServerLogStorage" Width="1.5" PointX="26.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.ServerStatu" Width="1.5" PointX="26.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.ServerType" Width="1.5" PointX="27.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.SleepAccountNHN" Width="1.5" PointX="27.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.SleepAccountRestoredLogNHN" Width="1.5" PointX="8.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.SleepCharacterNHN" Width="1.5" PointX="10.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.SleepCharacterRestoredLogNHN" Width="1.5" PointX="28.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.SurvivalCharacterInfo" Width="1.5" PointX="11" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.SurvivalCharacterInfoWeb" Width="1.5" PointX="28.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.SurvivalGameLog" Width="1.5" PointX="11" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.SurvivalRanking" Width="1.5" PointX="28.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.SurvivalScenarioID" Width="1.5" PointX="8.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.tmp_summerwave_newreg_event" Width="1.5" PointX="12.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.tmp_summerwave_raffle_event" Width="1.5" PointX="14.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.TotalRanking" Width="1.5" PointX="28.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.UserGrade" Width="1.5" PointX="0.75" PointY="41.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.UV" Width="1.5" PointX="16.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.CashSetItemDetail" Width="1.5" PointX="18.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.CashShopNewItem" Width="1.5" PointX="28.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.CharacterBattleTimeRewardLog" Width="1.5" PointX="28.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.CharacterMakingLog" Width="1.5" PointX="24.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.CustomIP" Width="1.5" PointX="26.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.Event" Width="1.5" PointX="28.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.Event_CharacterItem_Halloween" Width="1.5" PointX="29.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.Event_ClanPointRanking" Width="1.5" PointX="20.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.GameLog" Width="1.5" PointX="0.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.ipto_back" Width="1.5" PointX="29.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.Item" Width="1.5" PointX="30.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.ItemChangeLog_CharacterItem" Width="1.5" PointX="7.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.ItemDetail" Width="1.5" PointX="9.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.ItemPurchaseLogByBounty" Width="1.5" PointX="7.5" PointY="75.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.ItemPurchaseLogByCash" Width="1.5" PointX="5.25" PointY="77.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.NHNLuckyBoxCoupon" Width="1.5" PointX="30.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.NHNLuckyBoxInventory" Width="1.5" PointX="30.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.NHNLuckyBoxItem" Width="1.5" PointX="30.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.NHNLuckyBoxRewardItem" Width="1.5" PointX="30.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.PlayerLog" Width="1.5" PointX="31.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.ServerLog" Width="1.5" PointX="11.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.SetItemPurchaseLogByCash" Width="1.5" PointX="8.25" PointY="38.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GunzDBModel.tmp_stampevent" Width="1.5" PointX="13.75" PointY="31.75" IsExpanded="true" />
+        <AssociationConnector Association="GunzDBModel.Account_BringAccountItemLog_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.Account_CashItemPresentLog_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.Account_Character_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.Account_PurchaseLogByCash_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.Account_SetItemPurchaseLogByCash_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.Account_Table1_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.AccountPenaltyGMLog_Account_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.AccountPenaltyLog_Account_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.AccountPenaltyPeriod_Account_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK_AccountMobileLoginToken_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK_CharacterComment_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK_ClanComment_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK_DonateShopLog_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK_EventAccount_AID" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK_MobileChatContact_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.PremiumGrade_Account_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.UserGrade_Account_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.AccountPenaltyGMLog_AccountPenaltyGMType_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.AccountPenaltyGMLog_AccountPenaltyGMType_FK2" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK_BattleTimeRewardItemList_BRID" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK_BattleTimeRewardTerm_BRID" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK_CharacterBattleTimeRewardInfo_BRID" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.Character_BringAccountItemLog_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.CashSetShop_CashSetItem_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.Item_CashSetItem_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.CashSetShop_SetItemPurchaseLogByCash_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK__RentCashS__CSSID__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK__RentCashSh__CSID__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.Character_CharacterItem_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.Character_Friend_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.Character_Friend_FK2" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.Character_PurchaseItemByBountyHistory_FK20050314" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.Clan_Character_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.ClanMember_Clan_FK2" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK__CharacterMg__CID__5EAA0504" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK_CharacterComment_Character" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK_CharacterSkill_Character" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK_Event_Coliseum_Character_NHN_Character" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK_EventCharacter_CID" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK_CharacterEquipmentSlotCode_CharacterEquipmentSlot" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK__Character__CharM__5DB5E0CB" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.ClanGameLog_LoserCLID_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.ClanGameLog_WinnerCLID_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.ClanHonorRanking_CLID_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.ClanMember_Clan_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK_ClanComment_Clan" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK_DonatorShopItem_DonatorShopCategory1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK_DonatorShopSetItem_DonatorShopItem" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK_DonatorShopSetItem_DonatorShopItem1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.DTGameLog_DTGameLogDetail_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.DTTimeStamp_DTGameLog_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK_Event_Coliseum_PlayData_NHN_Event_Coliseum_Character_NHN" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK_EventCharacter_AID" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK__GambleRewa__GIID__72B0FDB1" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK_ItemChangeLog_AccountItem_ItemChangeType" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK_MobileChatContact_MobileChat" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK_SurvivalCharacterInfo_SurvivalScenarioID" ManuallyRouted="false" />
+        <AssociationConnector Association="GunzDBModel.FK_SurvivalGameLog_SurvivalScenarioID" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="GunzDBModel.ItemRotation" Width="1.5" PointX="16.375" PointY="31.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

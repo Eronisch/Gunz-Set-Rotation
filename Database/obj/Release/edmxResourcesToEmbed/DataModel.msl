@@ -1,0 +1,1911 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GunzDBModelStoreContainer" CdmEntityContainer="GunzDBEntities">
+    <EntitySetMapping Name="AbuseLists">
+      <EntityTypeMapping TypeName="GunzDBModel.AbuseList">
+        <MappingFragment StoreEntitySet="AbuseList">
+          <ScalarProperty Name="Word" ColumnName="Word" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="GunzDBModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UGradeID" ColumnName="UGradeID" />
+          <ScalarProperty Name="PGradeID" ColumnName="PGradeID" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="RegNum" ColumnName="RegNum" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="LastCID" ColumnName="LastCID" />
+          <ScalarProperty Name="Cert" ColumnName="Cert" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="EndblockDate" ColumnName="EndblockDate" />
+          <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+          <ScalarProperty Name="LastLogoutTime" ColumnName="LastLogoutTime" />
+          <ScalarProperty Name="ServerID" ColumnName="ServerID" />
+          <ScalarProperty Name="BlockType" ColumnName="BlockType" />
+          <ScalarProperty Name="HackingType" ColumnName="HackingType" />
+          <ScalarProperty Name="HackingRegTime" ColumnName="HackingRegTime" />
+          <ScalarProperty Name="EndHackingBlockTime" ColumnName="EndHackingBlockTime" />
+          <ScalarProperty Name="IsPowerLevelingHacker" ColumnName="IsPowerLevelingHacker" />
+          <ScalarProperty Name="PowerLevelingRegDate" ColumnName="PowerLevelingRegDate" />
+          <ScalarProperty Name="DonationCoins" ColumnName="DonationCoins" />
+          <ScalarProperty Name="EventCoins" ColumnName="EventCoins" />
+          <ScalarProperty Name="AvatarUrl" ColumnName="AvatarUrl" />
+          <ScalarProperty Name="PasswordResetCode" ColumnName="PasswordResetCode" />
+          <ScalarProperty Name="PasswordResetDate" ColumnName="PasswordResetDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountItems">
+      <EntityTypeMapping TypeName="GunzDBModel.AccountItem">
+        <MappingFragment StoreEntitySet="AccountItem">
+          <ScalarProperty Name="AIID" ColumnName="AIID" />
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="RentDate" ColumnName="RentDate" />
+          <ScalarProperty Name="RentHourPeriod" ColumnName="RentHourPeriod" />
+          <ScalarProperty Name="Cnt" ColumnName="Cnt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountMobileLoginTokens">
+      <EntityTypeMapping TypeName="GunzDBModel.AccountMobileLoginToken">
+        <MappingFragment StoreEntitySet="AccountMobileLoginToken">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Aid" ColumnName="Aid" />
+          <ScalarProperty Name="Selector" ColumnName="Selector" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountPenaltyCodes">
+      <EntityTypeMapping TypeName="GunzDBModel.AccountPenaltyCode">
+        <MappingFragment StoreEntitySet="AccountPenaltyCode">
+          <ScalarProperty Name="PCode" ColumnName="PCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountPenaltyGMLogs">
+      <EntityTypeMapping TypeName="GunzDBModel.AccountPenaltyGMLog">
+        <MappingFragment StoreEntitySet="AccountPenaltyGMLog">
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="PEndDate" ColumnName="PEndDate" />
+          <ScalarProperty Name="PCode" ColumnName="PCode" />
+          <ScalarProperty Name="PLogID" ColumnName="PLogID" />
+          <ScalarProperty Name="Set_GM_TypeID" ColumnName="Set_GM_TypeID" />
+          <ScalarProperty Name="Set_GM_ID" ColumnName="Set_GM_ID" />
+          <ScalarProperty Name="Set_Date" ColumnName="Set_Date" />
+          <ScalarProperty Name="Reset_GM_TypeID" ColumnName="Reset_GM_TypeID" />
+          <ScalarProperty Name="Reset_GM_ID" ColumnName="Reset_GM_ID" />
+          <ScalarProperty Name="Reset_Date" ColumnName="Reset_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountPenaltyGMTypes">
+      <EntityTypeMapping TypeName="GunzDBModel.AccountPenaltyGMType">
+        <MappingFragment StoreEntitySet="AccountPenaltyGMType">
+          <ScalarProperty Name="GM_TypeID" ColumnName="GM_TypeID" />
+          <ScalarProperty Name="GM_TypeName" ColumnName="GM_TypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountPenaltyLogs">
+      <EntityTypeMapping TypeName="GunzDBModel.AccountPenaltyLog">
+        <MappingFragment StoreEntitySet="AccountPenaltyLog">
+          <ScalarProperty Name="PenaltyLogID" ColumnName="PenaltyLogID" />
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="UGradeID" ColumnName="UGradeID" />
+          <ScalarProperty Name="DayLeft" ColumnName="DayLeft" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="GMID" ColumnName="GMID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountPenaltyPeriods">
+      <EntityTypeMapping TypeName="GunzDBModel.AccountPenaltyPeriod">
+        <MappingFragment StoreEntitySet="AccountPenaltyPeriod">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="DayLeft" ColumnName="DayLeft" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BattleTimeRewardDescriptions">
+      <EntityTypeMapping TypeName="GunzDBModel.BattleTimeRewardDescription">
+        <MappingFragment StoreEntitySet="BattleTimeRewardDescription">
+          <ScalarProperty Name="BRID" ColumnName="BRID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartHour" ColumnName="StartHour" />
+          <ScalarProperty Name="EndHour" ColumnName="EndHour" />
+          <ScalarProperty Name="RewardMinutePeriod" ColumnName="RewardMinutePeriod" />
+          <ScalarProperty Name="RewardCount" ColumnName="RewardCount" />
+          <ScalarProperty Name="RewardKillCount" ColumnName="RewardKillCount" />
+          <ScalarProperty Name="ResetCode" ColumnName="ResetCode" />
+          <ScalarProperty Name="ResetDesc" ColumnName="ResetDesc" />
+          <ScalarProperty Name="IsOpen" ColumnName="IsOpen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BattleTimeRewardItemLists">
+      <EntityTypeMapping TypeName="GunzDBModel.BattleTimeRewardItemList">
+        <MappingFragment StoreEntitySet="BattleTimeRewardItemList">
+          <ScalarProperty Name="BRIID" ColumnName="BRIID" />
+          <ScalarProperty Name="BRID" ColumnName="BRID" />
+          <ScalarProperty Name="ItemIDMale" ColumnName="ItemIDMale" />
+          <ScalarProperty Name="ItemIDFemale" ColumnName="ItemIDFemale" />
+          <ScalarProperty Name="RentHourPeriod" ColumnName="RentHourPeriod" />
+          <ScalarProperty Name="ItemCnt" ColumnName="ItemCnt" />
+          <ScalarProperty Name="RatePerThousand" ColumnName="RatePerThousand" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BattleTimeRewardTerms">
+      <EntityTypeMapping TypeName="GunzDBModel.BattleTimeRewardTerm">
+        <MappingFragment StoreEntitySet="BattleTimeRewardTerm">
+          <ScalarProperty Name="BRID" ColumnName="BRID" />
+          <ScalarProperty Name="BRTID" ColumnName="BRTID" />
+          <ScalarProperty Name="LastResetDate" ColumnName="LastResetDate" />
+          <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BillingMethods">
+      <EntityTypeMapping TypeName="GunzDBModel.BillingMethod">
+        <MappingFragment StoreEntitySet="BillingMethod">
+          <ScalarProperty Name="BillingMethodID" ColumnName="BillingMethodID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlockCountryCodes">
+      <EntityTypeMapping TypeName="GunzDBModel.BlockCountryCode">
+        <MappingFragment StoreEntitySet="BlockCountryCode">
+          <ScalarProperty Name="CountryCode3" ColumnName="CountryCode3" />
+          <ScalarProperty Name="RoutingURL" ColumnName="RoutingURL" />
+          <ScalarProperty Name="IsBlock" ColumnName="IsBlock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BringAccountItemLogs">
+      <EntityTypeMapping TypeName="GunzDBModel.BringAccountItemLog">
+        <MappingFragment StoreEntitySet="BringAccountItemLog">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CashItemPresentLogs">
+      <EntityTypeMapping TypeName="GunzDBModel.CashItemPresentLog">
+        <MappingFragment StoreEntitySet="CashItemPresentLog">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="SenderUserID" ColumnName="SenderUserID" />
+          <ScalarProperty Name="ReceiverAID" ColumnName="ReceiverAID" />
+          <ScalarProperty Name="CSID" ColumnName="CSID" />
+          <ScalarProperty Name="CSSID" ColumnName="CSSID" />
+          <ScalarProperty Name="Cash" ColumnName="Cash" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="RentHourPeriod" ColumnName="RentHourPeriod" />
+          <ScalarProperty Name="MobileCode" ColumnName="MobileCode" />
+          <ScalarProperty Name="sid" ColumnName="sid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CashSetItems">
+      <EntityTypeMapping TypeName="GunzDBModel.CashSetItem">
+        <MappingFragment StoreEntitySet="CashSetItem">
+          <ScalarProperty Name="CSIID" ColumnName="CSIID" />
+          <ScalarProperty Name="CSSID" ColumnName="CSSID" />
+          <ScalarProperty Name="CSID" ColumnName="CSID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CashSetShops">
+      <EntityTypeMapping TypeName="GunzDBModel.CashSetShop">
+        <MappingFragment StoreEntitySet="CashSetShop">
+          <ScalarProperty Name="CSSID" ColumnName="CSSID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CashPrice" ColumnName="CashPrice" />
+          <ScalarProperty Name="WebImgName" ColumnName="WebImgName" />
+          <ScalarProperty Name="NewItemOrder" ColumnName="NewItemOrder" />
+          <ScalarProperty Name="ResSex" ColumnName="ResSex" />
+          <ScalarProperty Name="ResLevel" ColumnName="ResLevel" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Opened" ColumnName="Opened" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="RentType" ColumnName="RentType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CashShops">
+      <EntityTypeMapping TypeName="GunzDBModel.CashShop">
+        <MappingFragment StoreEntitySet="CashShop">
+          <ScalarProperty Name="CSID" ColumnName="CSID" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="NewItemOrder" ColumnName="NewItemOrder" />
+          <ScalarProperty Name="CashPrice" ColumnName="CashPrice" />
+          <ScalarProperty Name="WebImgName" ColumnName="WebImgName" />
+          <ScalarProperty Name="Opened" ColumnName="Opened" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="RentType" ColumnName="RentType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CashShopNewItemCategories">
+      <EntityTypeMapping TypeName="GunzDBModel.CashShopNewItemCategory">
+        <MappingFragment StoreEntitySet="CashShopNewItemCategory">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CashShopRanks">
+      <EntityTypeMapping TypeName="GunzDBModel.CashShopRank">
+        <MappingFragment StoreEntitySet="CashShopRank">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="CSID" ColumnName="CSID" />
+          <ScalarProperty Name="CSSID" ColumnName="CSSID" />
+          <ScalarProperty Name="Slot" ColumnName="Slot" />
+          <ScalarProperty Name="ResSex" ColumnName="ResSex" />
+          <ScalarProperty Name="ResLevel" ColumnName="ResLevel" />
+          <ScalarProperty Name="CashPrice" ColumnName="CashPrice" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CB_EventItem">
+      <EntityTypeMapping TypeName="GunzDBModel.CB_EventItem">
+        <MappingFragment StoreEntitySet="CB_EventItem">
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CB_EventItem_X">
+      <EntityTypeMapping TypeName="GunzDBModel.CB_EventItem_X">
+        <MappingFragment StoreEntitySet="CB_EventItem_X">
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Characters">
+      <EntityTypeMapping TypeName="GunzDBModel.Character">
+        <MappingFragment StoreEntitySet="Character">
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="CharNum" ColumnName="CharNum" />
+          <ScalarProperty Name="Hair" ColumnName="Hair" />
+          <ScalarProperty Name="Face" ColumnName="Face" />
+          <ScalarProperty Name="XP" ColumnName="XP" />
+          <ScalarProperty Name="BP" ColumnName="BP" />
+          <ScalarProperty Name="HP" ColumnName="HP" />
+          <ScalarProperty Name="AP" ColumnName="AP" />
+          <ScalarProperty Name="FR" ColumnName="FR" />
+          <ScalarProperty Name="CR" ColumnName="CR" />
+          <ScalarProperty Name="ER" ColumnName="ER" />
+          <ScalarProperty Name="WR" ColumnName="WR" />
+          <ScalarProperty Name="head_slot" ColumnName="head_slot" />
+          <ScalarProperty Name="chest_slot" ColumnName="chest_slot" />
+          <ScalarProperty Name="hands_slot" ColumnName="hands_slot" />
+          <ScalarProperty Name="legs_slot" ColumnName="legs_slot" />
+          <ScalarProperty Name="feet_slot" ColumnName="feet_slot" />
+          <ScalarProperty Name="fingerl_slot" ColumnName="fingerl_slot" />
+          <ScalarProperty Name="fingerr_slot" ColumnName="fingerr_slot" />
+          <ScalarProperty Name="melee_slot" ColumnName="melee_slot" />
+          <ScalarProperty Name="primary_slot" ColumnName="primary_slot" />
+          <ScalarProperty Name="secondary_slot" ColumnName="secondary_slot" />
+          <ScalarProperty Name="custom1_slot" ColumnName="custom1_slot" />
+          <ScalarProperty Name="custom2_slot" ColumnName="custom2_slot" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="LastTime" ColumnName="LastTime" />
+          <ScalarProperty Name="PlayTime" ColumnName="PlayTime" />
+          <ScalarProperty Name="GameCount" ColumnName="GameCount" />
+          <ScalarProperty Name="KillCount" ColumnName="KillCount" />
+          <ScalarProperty Name="DeathCount" ColumnName="DeathCount" />
+          <ScalarProperty Name="DeleteFlag" ColumnName="DeleteFlag" />
+          <ScalarProperty Name="DeleteName" ColumnName="DeleteName" />
+          <ScalarProperty Name="head_itemid" ColumnName="head_itemid" />
+          <ScalarProperty Name="chest_itemid" ColumnName="chest_itemid" />
+          <ScalarProperty Name="hands_itemid" ColumnName="hands_itemid" />
+          <ScalarProperty Name="legs_itemid" ColumnName="legs_itemid" />
+          <ScalarProperty Name="feet_itemid" ColumnName="feet_itemid" />
+          <ScalarProperty Name="fingerl_itemid" ColumnName="fingerl_itemid" />
+          <ScalarProperty Name="fingerr_itemid" ColumnName="fingerr_itemid" />
+          <ScalarProperty Name="melee_itemid" ColumnName="melee_itemid" />
+          <ScalarProperty Name="primary_itemid" ColumnName="primary_itemid" />
+          <ScalarProperty Name="secondary_itemid" ColumnName="secondary_itemid" />
+          <ScalarProperty Name="custom1_itemid" ColumnName="custom1_itemid" />
+          <ScalarProperty Name="custom2_itemid" ColumnName="custom2_itemid" />
+          <ScalarProperty Name="QuestItemInfo" ColumnName="QuestItemInfo" />
+          <ScalarProperty Name="nRedColor" ColumnName="nRedColor" />
+          <ScalarProperty Name="nGreenColor" ColumnName="nGreenColor" />
+          <ScalarProperty Name="nBlueColor" ColumnName="nBlueColor" />
+          <ScalarProperty Name="BPPlus" ColumnName="BPPlus" />
+          <ScalarProperty Name="HeaderUrl" ColumnName="HeaderUrl" />
+          <ScalarProperty Name="AvatarUrl" ColumnName="AvatarUrl" />
+          <ScalarProperty Name="About" ColumnName="About" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CharacterBattleTimeRewardInfoes">
+      <EntityTypeMapping TypeName="GunzDBModel.CharacterBattleTimeRewardInfo">
+        <MappingFragment StoreEntitySet="CharacterBattleTimeRewardInfo">
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="BRID" ColumnName="BRID" />
+          <ScalarProperty Name="BRTID" ColumnName="BRTID" />
+          <ScalarProperty Name="BattleTime" ColumnName="BattleTime" />
+          <ScalarProperty Name="RewardCount" ColumnName="RewardCount" />
+          <ScalarProperty Name="KillCount" ColumnName="KillCount" />
+          <ScalarProperty Name="LastUpdatedTime" ColumnName="LastUpdatedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CharacterComments">
+      <EntityTypeMapping TypeName="GunzDBModel.CharacterComment">
+        <MappingFragment StoreEntitySet="CharacterComment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cid" ColumnName="Cid" />
+          <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CharacterEquipmentSlots">
+      <EntityTypeMapping TypeName="GunzDBModel.CharacterEquipmentSlot">
+        <MappingFragment StoreEntitySet="CharacterEquipmentSlot">
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="SlotID" ColumnName="SlotID" />
+          <ScalarProperty Name="CIID" ColumnName="CIID" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CharacterEquipmentSlotCodes">
+      <EntityTypeMapping TypeName="GunzDBModel.CharacterEquipmentSlotCode">
+        <MappingFragment StoreEntitySet="CharacterEquipmentSlotCode">
+          <ScalarProperty Name="SlotID" ColumnName="SlotID" />
+          <ScalarProperty Name="SlotType" ColumnName="SlotType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CharacterItems">
+      <EntityTypeMapping TypeName="GunzDBModel.CharacterItem">
+        <MappingFragment StoreEntitySet="CharacterItem">
+          <ScalarProperty Name="CIID" ColumnName="CIID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="RentDate" ColumnName="RentDate" />
+          <ScalarProperty Name="RentHourPeriod" ColumnName="RentHourPeriod" />
+          <ScalarProperty Name="Cnt" ColumnName="Cnt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CharacterMgrLogByGMs">
+      <EntityTypeMapping TypeName="GunzDBModel.CharacterMgrLogByGM">
+        <MappingFragment StoreEntitySet="CharacterMgrLogByGM">
+          <ScalarProperty Name="CharMgrLogID" ColumnName="CharMgrLogID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="CharName" ColumnName="CharName" />
+          <ScalarProperty Name="CharMgrTypeID" ColumnName="CharMgrTypeID" />
+          <ScalarProperty Name="GMID" ColumnName="GMID" />
+          <ScalarProperty Name="NewName" ColumnName="NewName" />
+          <ScalarProperty Name="OrgValue" ColumnName="OrgValue" />
+          <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CharacterMgrTypes">
+      <EntityTypeMapping TypeName="GunzDBModel.CharacterMgrType">
+        <MappingFragment StoreEntitySet="CharacterMgrType">
+          <ScalarProperty Name="CharMgrTypeID" ColumnName="CharMgrTypeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CharacterSkills">
+      <EntityTypeMapping TypeName="GunzDBModel.CharacterSkill">
+        <MappingFragment StoreEntitySet="CharacterSkill">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cid" ColumnName="Cid" />
+          <ScalarProperty Name="Skill" ColumnName="Skill" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clans">
+      <EntityTypeMapping TypeName="GunzDBModel.Clan">
+        <MappingFragment StoreEntitySet="Clan">
+          <ScalarProperty Name="CLID" ColumnName="CLID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Exp" ColumnName="Exp" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="MasterCID" ColumnName="MasterCID" />
+          <ScalarProperty Name="Wins" ColumnName="Wins" />
+          <ScalarProperty Name="MarkWebImg" ColumnName="MarkWebImg" />
+          <ScalarProperty Name="Introduction" ColumnName="Introduction" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="DeleteFlag" ColumnName="DeleteFlag" />
+          <ScalarProperty Name="DeleteName" ColumnName="DeleteName" />
+          <ScalarProperty Name="Homepage" ColumnName="Homepage" />
+          <ScalarProperty Name="Losses" ColumnName="Losses" />
+          <ScalarProperty Name="Draws" ColumnName="Draws" />
+          <ScalarProperty Name="Ranking" ColumnName="Ranking" />
+          <ScalarProperty Name="TotalPoint" ColumnName="TotalPoint" />
+          <ScalarProperty Name="Cafe_Url" ColumnName="Cafe_Url" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmblemUrl" ColumnName="EmblemUrl" />
+          <ScalarProperty Name="RankIncrease" ColumnName="RankIncrease" />
+          <ScalarProperty Name="EmblemChecksum" ColumnName="EmblemChecksum" />
+          <ScalarProperty Name="LastDayRanking" ColumnName="LastDayRanking" />
+          <ScalarProperty Name="LastMonthRanking" ColumnName="LastMonthRanking" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="HeaderUrl" ColumnName="HeaderUrl" />
+          <ScalarProperty Name="FaceBookUrl" ColumnName="FaceBookUrl" />
+          <ScalarProperty Name="GooglePlusUrl" ColumnName="GooglePlusUrl" />
+          <ScalarProperty Name="TwitterUrl" ColumnName="TwitterUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClanAdsBoards">
+      <EntityTypeMapping TypeName="GunzDBModel.ClanAdsBoard">
+        <MappingFragment StoreEntitySet="ClanAdsBoard">
+          <ScalarProperty Name="Seq" ColumnName="Seq" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="ReadCount" ColumnName="ReadCount" />
+          <ScalarProperty Name="Recommend" ColumnName="Recommend" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="HTML" ColumnName="HTML" />
+          <ScalarProperty Name="CommentCount" ColumnName="CommentCount" />
+          <ScalarProperty Name="GR_ID" ColumnName="GR_ID" />
+          <ScalarProperty Name="GR_Depth" ColumnName="GR_Depth" />
+          <ScalarProperty Name="GR_Pos" ColumnName="GR_Pos" />
+          <ScalarProperty Name="Thread" ColumnName="Thread" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClanComments">
+      <EntityTypeMapping TypeName="GunzDBModel.ClanComment">
+        <MappingFragment StoreEntitySet="ClanComment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClanId" ColumnName="ClanId" />
+          <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClanGameLogs">
+      <EntityTypeMapping TypeName="GunzDBModel.ClanGameLog">
+        <MappingFragment StoreEntitySet="ClanGameLog">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="WinnerCLID" ColumnName="WinnerCLID" />
+          <ScalarProperty Name="LoserCLID" ColumnName="LoserCLID" />
+          <ScalarProperty Name="WinnerClanName" ColumnName="WinnerClanName" />
+          <ScalarProperty Name="LoserClanName" ColumnName="LoserClanName" />
+          <ScalarProperty Name="WinnerMembers" ColumnName="WinnerMembers" />
+          <ScalarProperty Name="LoserMembers" ColumnName="LoserMembers" />
+          <ScalarProperty Name="RoundWins" ColumnName="RoundWins" />
+          <ScalarProperty Name="RoundLosses" ColumnName="RoundLosses" />
+          <ScalarProperty Name="MapID" ColumnName="MapID" />
+          <ScalarProperty Name="GameType" ColumnName="GameType" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="WinnerPoint" ColumnName="WinnerPoint" />
+          <ScalarProperty Name="LoserPoint" ColumnName="LoserPoint" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClanHonorRankings">
+      <EntityTypeMapping TypeName="GunzDBModel.ClanHonorRanking">
+        <MappingFragment StoreEntitySet="ClanHonorRanking">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="CLID" ColumnName="CLID" />
+          <ScalarProperty Name="ClanName" ColumnName="ClanName" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="Wins" ColumnName="Wins" />
+          <ScalarProperty Name="Losses" ColumnName="Losses" />
+          <ScalarProperty Name="Ranking" ColumnName="Ranking" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="RankIncrease" ColumnName="RankIncrease" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClanMembers">
+      <EntityTypeMapping TypeName="GunzDBModel.ClanMember">
+        <MappingFragment StoreEntitySet="ClanMember">
+          <ScalarProperty Name="CMID" ColumnName="CMID" />
+          <ScalarProperty Name="CLID" ColumnName="CLID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="ContPoint" ColumnName="ContPoint" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClanMemberGrades">
+      <EntityTypeMapping TypeName="GunzDBModel.ClanMemberGrade">
+        <MappingFragment StoreEntitySet="ClanMemberGrade">
+          <ScalarProperty Name="GradeID" ColumnName="GradeID" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CountryCodes">
+      <EntityTypeMapping TypeName="GunzDBModel.CountryCode">
+        <MappingFragment StoreEntitySet="CountryCode">
+          <ScalarProperty Name="CountryCode3" ColumnName="CountryCode3" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DayRankings">
+      <EntityTypeMapping TypeName="GunzDBModel.DayRanking">
+        <MappingFragment StoreEntitySet="DayRanking">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DonateShopLogs">
+      <EntityTypeMapping TypeName="GunzDBModel.DonateShopLog">
+        <MappingFragment StoreEntitySet="DonateShopLog">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+          <ScalarProperty Name="ShopItemId" ColumnName="ShopItemId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DonatorDailyItems">
+      <EntityTypeMapping TypeName="GunzDBModel.DonatorDailyItem">
+        <MappingFragment StoreEntitySet="DonatorDailyItem">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Damage" ColumnName="Damage" />
+          <ScalarProperty Name="Delay" ColumnName="Delay" />
+          <ScalarProperty Name="Magazine" ColumnName="Magazine" />
+          <ScalarProperty Name="MaxBullet" ColumnName="MaxBullet" />
+          <ScalarProperty Name="MaxWeight" ColumnName="MaxWeight" />
+          <ScalarProperty Name="ReloadTime" ColumnName="ReloadTime" />
+          <ScalarProperty Name="Hp" ColumnName="Hp" />
+          <ScalarProperty Name="Ap" ColumnName="Ap" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="DailyPrice" ColumnName="DailyPrice" />
+          <ScalarProperty Name="ForeverPrice" ColumnName="ForeverPrice" />
+          <ScalarProperty Name="LimitAmount" ColumnName="LimitAmount" />
+          <ScalarProperty Name="PurchasedAmount" ColumnName="PurchasedAmount" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DonatorDailyItemLogs">
+      <EntityTypeMapping TypeName="GunzDBModel.DonatorDailyItemLog">
+        <MappingFragment StoreEntitySet="DonatorDailyItemLog">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+          <ScalarProperty Name="DailyItemId" ColumnName="DailyItemId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DonatorShopCategories">
+      <EntityTypeMapping TypeName="GunzDBModel.DonatorShopCategory">
+        <MappingFragment StoreEntitySet="DonatorShopCategory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DonatorShopItems">
+      <EntityTypeMapping TypeName="GunzDBModel.DonatorShopItem">
+        <MappingFragment StoreEntitySet="DonatorShopItem">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Damage" ColumnName="Damage" />
+          <ScalarProperty Name="Delay" ColumnName="Delay" />
+          <ScalarProperty Name="Magazine" ColumnName="Magazine" />
+          <ScalarProperty Name="MaxBullet" ColumnName="MaxBullet" />
+          <ScalarProperty Name="MaxWeight" ColumnName="MaxWeight" />
+          <ScalarProperty Name="ReloadTime" ColumnName="ReloadTime" />
+          <ScalarProperty Name="Hp" ColumnName="Hp" />
+          <ScalarProperty Name="Ap" ColumnName="Ap" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="DailyPrice" ColumnName="DailyPrice" />
+          <ScalarProperty Name="NewDailyPrice" ColumnName="NewDailyPrice" />
+          <ScalarProperty Name="ForeverPrice" ColumnName="ForeverPrice" />
+          <ScalarProperty Name="NewForeverPrice" ColumnName="NewForeverPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DonatorShopSetItems">
+      <EntityTypeMapping TypeName="GunzDBModel.DonatorShopSetItem">
+        <MappingFragment StoreEntitySet="DonatorShopSetItem">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DonatorShopSetId" ColumnName="DonatorShopSetId" />
+          <ScalarProperty Name="DonatorShopItemId" ColumnName="DonatorShopItemId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DTCharacterInfoes">
+      <EntityTypeMapping TypeName="GunzDBModel.DTCharacterInfo">
+        <MappingFragment StoreEntitySet="DTCharacterInfo">
+          <ScalarProperty Name="DTCIID" ColumnName="DTCIID" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="TP" ColumnName="TP" />
+          <ScalarProperty Name="Wins" ColumnName="Wins" />
+          <ScalarProperty Name="Loses" ColumnName="Loses" />
+          <ScalarProperty Name="Ranking" ColumnName="Ranking" />
+          <ScalarProperty Name="RankingIncrease" ColumnName="RankingIncrease" />
+          <ScalarProperty Name="FinalGames" ColumnName="FinalGames" />
+          <ScalarProperty Name="FinalWins" ColumnName="FinalWins" />
+          <ScalarProperty Name="SFinalGames" ColumnName="SFinalGames" />
+          <ScalarProperty Name="SFinalWins" ColumnName="SFinalWins" />
+          <ScalarProperty Name="QFinalGames" ColumnName="QFinalGames" />
+          <ScalarProperty Name="QFinalWins" ColumnName="QFinalWins" />
+          <ScalarProperty Name="LeaveCount" ColumnName="LeaveCount" />
+          <ScalarProperty Name="PreGrade" ColumnName="PreGrade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DTCharacterRankings">
+      <EntityTypeMapping TypeName="GunzDBModel.DTCharacterRanking">
+        <MappingFragment StoreEntitySet="DTCharacterRanking">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="TP" ColumnName="TP" />
+          <ScalarProperty Name="FinalWins" ColumnName="FinalWins" />
+          <ScalarProperty Name="Wins" ColumnName="Wins" />
+          <ScalarProperty Name="Loses" ColumnName="Loses" />
+          <ScalarProperty Name="RankingIncrease" ColumnName="RankingIncrease" />
+          <ScalarProperty Name="PreGrade" ColumnName="PreGrade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DTCharacterRankingHistories">
+      <EntityTypeMapping TypeName="GunzDBModel.DTCharacterRankingHistory">
+        <MappingFragment StoreEntitySet="DTCharacterRankingHistory">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="TP" ColumnName="TP" />
+          <ScalarProperty Name="FinalWins" ColumnName="FinalWins" />
+          <ScalarProperty Name="Wins" ColumnName="Wins" />
+          <ScalarProperty Name="Loses" ColumnName="Loses" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DTGameLogs">
+      <EntityTypeMapping TypeName="GunzDBModel.DTGameLog">
+        <MappingFragment StoreEntitySet="DTGameLog">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="LogID" ColumnName="LogID" />
+          <ScalarProperty Name="TournamentType" ColumnName="TournamentType" />
+          <ScalarProperty Name="ChampCID" ColumnName="ChampCID" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="MatchFactor" ColumnName="MatchFactor" />
+          <ScalarProperty Name="Player1CID" ColumnName="Player1CID" />
+          <ScalarProperty Name="Player2CID" ColumnName="Player2CID" />
+          <ScalarProperty Name="Player3CID" ColumnName="Player3CID" />
+          <ScalarProperty Name="Player4CID" ColumnName="Player4CID" />
+          <ScalarProperty Name="Player5CID" ColumnName="Player5CID" />
+          <ScalarProperty Name="Player6CID" ColumnName="Player6CID" />
+          <ScalarProperty Name="Player7CID" ColumnName="Player7CID" />
+          <ScalarProperty Name="Player8CID" ColumnName="Player8CID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DTGameLogDetails">
+      <EntityTypeMapping TypeName="GunzDBModel.DTGameLogDetail">
+        <MappingFragment StoreEntitySet="DTGameLogDetail">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="LogID" ColumnName="LogID" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="PlayTime" ColumnName="PlayTime" />
+          <ScalarProperty Name="MatchType" ColumnName="MatchType" />
+          <ScalarProperty Name="WinnerCID" ColumnName="WinnerCID" />
+          <ScalarProperty Name="LoserCID" ColumnName="LoserCID" />
+          <ScalarProperty Name="GainTP" ColumnName="GainTP" />
+          <ScalarProperty Name="LoseTP" ColumnName="LoseTP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dtproperties">
+      <EntityTypeMapping TypeName="GunzDBModel.dtproperty">
+        <MappingFragment StoreEntitySet="dtproperties">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="objectid" ColumnName="objectid" />
+          <ScalarProperty Name="property" ColumnName="property" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="uvalue" ColumnName="uvalue" />
+          <ScalarProperty Name="lvalue" ColumnName="lvalue" />
+          <ScalarProperty Name="version" ColumnName="version" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DTTimeStamps">
+      <EntityTypeMapping TypeName="GunzDBModel.DTTimeStamp">
+        <MappingFragment StoreEntitySet="DTTimeStamp">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Closed" ColumnName="Closed" />
+          <ScalarProperty Name="TotalUser" ColumnName="TotalUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Effects">
+      <EntityTypeMapping TypeName="GunzDBModel.Effect">
+        <MappingFragment StoreEntitySet="Effect">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="ModHP" ColumnName="ModHP" />
+          <ScalarProperty Name="ModAP" ColumnName="ModAP" />
+          <ScalarProperty Name="ModMaxWT" ColumnName="ModMaxWT" />
+          <ScalarProperty Name="ModSF" ColumnName="ModSF" />
+          <ScalarProperty Name="ModFR" ColumnName="ModFR" />
+          <ScalarProperty Name="ModCR" ColumnName="ModCR" />
+          <ScalarProperty Name="ModPR" ColumnName="ModPR" />
+          <ScalarProperty Name="ModLR" ColumnName="ModLR" />
+          <ScalarProperty Name="ResAP" ColumnName="ResAP" />
+          <ScalarProperty Name="ResFR" ColumnName="ResFR" />
+          <ScalarProperty Name="ResCR" ColumnName="ResCR" />
+          <ScalarProperty Name="ResPR" ColumnName="ResPR" />
+          <ScalarProperty Name="ResLR" ColumnName="ResLR" />
+          <ScalarProperty Name="Stun" ColumnName="Stun" />
+          <ScalarProperty Name="KnockBack" ColumnName="KnockBack" />
+          <ScalarProperty Name="Smoke" ColumnName="Smoke" />
+          <ScalarProperty Name="Flash" ColumnName="Flash" />
+          <ScalarProperty Name="Tear" ColumnName="Tear" />
+          <ScalarProperty Name="Flame" ColumnName="Flame" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailTemplates">
+      <EntityTypeMapping TypeName="GunzDBModel.EmailTemplate">
+        <MappingFragment StoreEntitySet="EmailTemplate">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Event_Coliseum_Character_NHN">
+      <EntityTypeMapping TypeName="GunzDBModel.Event_Coliseum_Character_NHN">
+        <MappingFragment StoreEntitySet="Event_Coliseum_Character_NHN">
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Event_Coliseum_DeathsRanking_NHN">
+      <EntityTypeMapping TypeName="GunzDBModel.Event_Coliseum_DeathsRanking_NHN">
+        <MappingFragment StoreEntitySet="Event_Coliseum_DeathsRanking_NHN">
+          <ScalarProperty Name="DateTag" ColumnName="DateTag" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Event_Coliseum_KillsRanking_NHN">
+      <EntityTypeMapping TypeName="GunzDBModel.Event_Coliseum_KillsRanking_NHN">
+        <MappingFragment StoreEntitySet="Event_Coliseum_KillsRanking_NHN">
+          <ScalarProperty Name="DateTag" ColumnName="DateTag" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Event_Coliseum_PlayData_NHN">
+      <EntityTypeMapping TypeName="GunzDBModel.Event_Coliseum_PlayData_NHN">
+        <MappingFragment StoreEntitySet="Event_Coliseum_PlayData_NHN">
+          <ScalarProperty Name="DateTag" ColumnName="DateTag" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="PlayTime" ColumnName="PlayTime" />
+          <ScalarProperty Name="Kills" ColumnName="Kills" />
+          <ScalarProperty Name="Deaths" ColumnName="Deaths" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="PlayTimeRank" ColumnName="PlayTimeRank" />
+          <ScalarProperty Name="KillRank" ColumnName="KillRank" />
+          <ScalarProperty Name="DeathRank" ColumnName="DeathRank" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Event_Coliseum_PlayTimeRanking_NHN">
+      <EntityTypeMapping TypeName="GunzDBModel.Event_Coliseum_PlayTimeRanking_NHN">
+        <MappingFragment StoreEntitySet="Event_Coliseum_PlayTimeRanking_NHN">
+          <ScalarProperty Name="DateTag" ColumnName="DateTag" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="event_easter2011">
+      <EntityTypeMapping TypeName="GunzDBModel.event_easter2011">
+        <MappingFragment StoreEntitySet="event_easter2011">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="regdate" ColumnName="regdate" />
+          <ScalarProperty Name="playtime" ColumnName="playtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Event_MDTCharacter">
+      <EntityTypeMapping TypeName="GunzDBModel.Event_MDTCharacter">
+        <MappingFragment StoreEntitySet="Event_MDTCharacter">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Event_MDTCharacterRankingHistory">
+      <EntityTypeMapping TypeName="GunzDBModel.Event_MDTCharacterRankingHistory">
+        <MappingFragment StoreEntitySet="Event_MDTCharacterRankingHistory">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="TP" ColumnName="TP" />
+          <ScalarProperty Name="FinalWins" ColumnName="FinalWins" />
+          <ScalarProperty Name="Wins" ColumnName="Wins" />
+          <ScalarProperty Name="Loses" ColumnName="Loses" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Event_Word_NHN">
+      <EntityTypeMapping TypeName="GunzDBModel.Event_Word_NHN">
+        <MappingFragment StoreEntitySet="Event_Word_NHN">
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="Have_A" ColumnName="Have A" />
+          <ScalarProperty Name="Happy" ColumnName="Happy" />
+          <ScalarProperty Name="Halloween" ColumnName="Halloween" />
+          <ScalarProperty Name="From" ColumnName="From" />
+          <ScalarProperty Name="IJJI" ColumnName="IJJI" />
+          <ScalarProperty Name="AND" ColumnName="AND" />
+          <ScalarProperty Name="MAIET_" ColumnName="MAIET!" />
+          <ScalarProperty Name="Pumpkin" ColumnName="Pumpkin" />
+          <ScalarProperty Name="Ghost" ColumnName="Ghost" />
+          <ScalarProperty Name="Trick_Or" ColumnName="Trick Or" />
+          <ScalarProperty Name="Treat__" ColumnName="Treat!!" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventAccounts">
+      <EntityTypeMapping TypeName="GunzDBModel.EventAccount">
+        <MappingFragment StoreEntitySet="EventAccount">
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="XPOrder" ColumnName="XPOrder" />
+          <ScalarProperty Name="LevelOrder" ColumnName="LevelOrder" />
+          <ScalarProperty Name="PlayTimeOrder" ColumnName="PlayTimeOrder" />
+          <ScalarProperty Name="GainXP" ColumnName="GainXP" />
+          <ScalarProperty Name="GainLevel" ColumnName="GainLevel" />
+          <ScalarProperty Name="GainPlayTime" ColumnName="GainPlayTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventCharacters">
+      <EntityTypeMapping TypeName="GunzDBModel.EventCharacter">
+        <MappingFragment StoreEntitySet="EventCharacter">
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="DeleteFlag" ColumnName="DeleteFlag" />
+          <ScalarProperty Name="StartXP" ColumnName="StartXP" />
+          <ScalarProperty Name="StartLevel" ColumnName="StartLevel" />
+          <ScalarProperty Name="PlayTime" ColumnName="PlayTime" />
+          <ScalarProperty Name="LastXP" ColumnName="LastXP" />
+          <ScalarProperty Name="LastLevel" ColumnName="LastLevel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Friends">
+      <EntityTypeMapping TypeName="GunzDBModel.Friend">
+        <MappingFragment StoreEntitySet="Friend">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="FriendCID" ColumnName="FriendCID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Favorite" ColumnName="Favorite" />
+          <ScalarProperty Name="DeleteFlag" ColumnName="DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GambleItems">
+      <EntityTypeMapping TypeName="GunzDBModel.GambleItem">
+        <MappingFragment StoreEntitySet="GambleItem">
+          <ScalarProperty Name="GIID" ColumnName="GIID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="LifeTimeHour" ColumnName="LifeTimeHour" />
+          <ScalarProperty Name="IsCash" ColumnName="IsCash" />
+          <ScalarProperty Name="Opened" ColumnName="Opened" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GambleRewardItems">
+      <EntityTypeMapping TypeName="GunzDBModel.GambleRewardItem">
+        <MappingFragment StoreEntitySet="GambleRewardItem">
+          <ScalarProperty Name="GRIID" ColumnName="GRIID" />
+          <ScalarProperty Name="GIID" ColumnName="GIID" />
+          <ScalarProperty Name="ItemIDMale" ColumnName="ItemIDMale" />
+          <ScalarProperty Name="ItemIDFemale" ColumnName="ItemIDFemale" />
+          <ScalarProperty Name="RentHourPeriod" ColumnName="RentHourPeriod" />
+          <ScalarProperty Name="RatePerThousand" ColumnName="RatePerThousand" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GameTypes">
+      <EntityTypeMapping TypeName="GunzDBModel.GameType">
+        <MappingFragment StoreEntitySet="GameType">
+          <ScalarProperty Name="GameTypeID" ColumnName="GameTypeID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ignores">
+      <EntityTypeMapping TypeName="GunzDBModel.Ignore">
+        <MappingFragment StoreEntitySet="Ignore">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="IgnoreCID" ColumnName="IgnoreCID" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="Favorite" ColumnName="Favorite" />
+          <ScalarProperty Name="DeleteFlag" ColumnName="DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IPtoCountries">
+      <EntityTypeMapping TypeName="GunzDBModel.IPtoCountry">
+        <MappingFragment StoreEntitySet="IPtoCountry">
+          <ScalarProperty Name="IPFrom" ColumnName="IPFrom" />
+          <ScalarProperty Name="IPTo" ColumnName="IPTo" />
+          <ScalarProperty Name="CountryCode2" ColumnName="CountryCode2" />
+          <ScalarProperty Name="CountryCode3" ColumnName="CountryCode3" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IPtoCountry_temp">
+      <EntityTypeMapping TypeName="GunzDBModel.IPtoCountry_temp">
+        <MappingFragment StoreEntitySet="IPtoCountry_temp">
+          <ScalarProperty Name="IPFrom" ColumnName="IPFrom" />
+          <ScalarProperty Name="IPTo" ColumnName="IPTo" />
+          <ScalarProperty Name="CountryCode2" ColumnName="CountryCode2" />
+          <ScalarProperty Name="CountryCode3" ColumnName="CountryCode3" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemChangeLog_AccountItem">
+      <EntityTypeMapping TypeName="GunzDBModel.ItemChangeLog_AccountItem">
+        <MappingFragment StoreEntitySet="ItemChangeLog_AccountItem">
+          <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+          <ScalarProperty Name="ChangeType" ColumnName="ChangeType" />
+          <ScalarProperty Name="LogID" ColumnName="LogID" />
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="AIID" ColumnName="AIID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="CIID" ColumnName="CIID" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemChangeTypes">
+      <EntityTypeMapping TypeName="GunzDBModel.ItemChangeType">
+        <MappingFragment StoreEntitySet="ItemChangeType">
+          <ScalarProperty Name="ChangeType" ColumnName="ChangeType" />
+          <ScalarProperty Name="DESC" ColumnName="DESC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemSlotTypes">
+      <EntityTypeMapping TypeName="GunzDBModel.ItemSlotType">
+        <MappingFragment StoreEntitySet="ItemSlotType">
+          <ScalarProperty Name="SlotType" ColumnName="SlotType" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KillLogs">
+      <EntityTypeMapping TypeName="GunzDBModel.KillLog">
+        <MappingFragment StoreEntitySet="KillLog">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="AttackerCID" ColumnName="AttackerCID" />
+          <ScalarProperty Name="VictimCID" ColumnName="VictimCID" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Levels">
+      <EntityTypeMapping TypeName="GunzDBModel.Level">
+        <MappingFragment StoreEntitySet="Level">
+          <ScalarProperty Name="Level1" ColumnName="Level" />
+          <ScalarProperty Name="MinXP" ColumnName="MinXP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LevelUpLogs">
+      <EntityTypeMapping TypeName="GunzDBModel.LevelUpLog">
+        <MappingFragment StoreEntitySet="LevelUpLog">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="BP" ColumnName="BP" />
+          <ScalarProperty Name="KillCount" ColumnName="KillCount" />
+          <ScalarProperty Name="DeathCount" ColumnName="DeathCount" />
+          <ScalarProperty Name="PlayTime" ColumnName="PlayTime" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LocatorStatus">
+      <EntityTypeMapping TypeName="GunzDBModel.LocatorStatu">
+        <MappingFragment StoreEntitySet="LocatorStatus">
+          <ScalarProperty Name="LocatorID" ColumnName="LocatorID" />
+          <ScalarProperty Name="IP" ColumnName="IP" />
+          <ScalarProperty Name="Port" ColumnName="Port" />
+          <ScalarProperty Name="RecvCount" ColumnName="RecvCount" />
+          <ScalarProperty Name="SendCount" ColumnName="SendCount" />
+          <ScalarProperty Name="BlockCount" ColumnName="BlockCount" />
+          <ScalarProperty Name="DuplicatedCount" ColumnName="DuplicatedCount" />
+          <ScalarProperty Name="UpdateElapsedTime" ColumnName="UpdateElapsedTime" />
+          <ScalarProperty Name="LastUpdatedTime" ColumnName="LastUpdatedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logins">
+      <EntityTypeMapping TypeName="GunzDBModel.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="LastConnDate" ColumnName="LastConnDate" />
+          <ScalarProperty Name="LastIP" ColumnName="LastIP" />
+          <ScalarProperty Name="EncryptedPassword" ColumnName="EncryptedPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Maps">
+      <EntityTypeMapping TypeName="GunzDBModel.Map">
+        <MappingFragment StoreEntitySet="Map">
+          <ScalarProperty Name="MapID" ColumnName="MapID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MaxPlayer" ColumnName="MaxPlayer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MobileChats">
+      <EntityTypeMapping TypeName="GunzDBModel.MobileChat">
+        <MappingFragment StoreEntitySet="MobileChat">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+          <ScalarProperty Name="IsGroup" ColumnName="IsGroup" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MobileChatContacts">
+      <EntityTypeMapping TypeName="GunzDBModel.MobileChatContact">
+        <MappingFragment StoreEntitySet="MobileChatContact">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ChatId" ColumnName="ChatId" />
+          <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="News">
+      <EntityTypeMapping TypeName="GunzDBModel.News">
+        <MappingFragment StoreEntitySet="News">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="News1" ColumnName="News" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHNClanMarks">
+      <EntityTypeMapping TypeName="GunzDBModel.NHNClanMark">
+        <MappingFragment StoreEntitySet="NHNClanMark">
+          <ScalarProperty Name="CLMARKID" ColumnName="CLMARKID" />
+          <ScalarProperty Name="CLID" ColumnName="CLID" />
+          <ScalarProperty Name="EmblemUrl" ColumnName="EmblemUrl" />
+          <ScalarProperty Name="Approved" ColumnName="Approved" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="LastCount" ColumnName="LastCount" />
+          <ScalarProperty Name="LastCreated" ColumnName="LastCreated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHNItemOfTheDays">
+      <EntityTypeMapping TypeName="GunzDBModel.NHNItemOfTheDay">
+        <MappingFragment StoreEntitySet="NHNItemOfTheDay">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="itemids" ColumnName="itemids" />
+          <ScalarProperty Name="isset" ColumnName="isset" />
+          <ScalarProperty Name="originalprice" ColumnName="originalprice" />
+          <ScalarProperty Name="originalperiod" ColumnName="originalperiod" />
+          <ScalarProperty Name="reslevel" ColumnName="reslevel" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="period" ColumnName="period" />
+          <ScalarProperty Name="remaining" ColumnName="remaining" />
+          <ScalarProperty Name="imgurl" ColumnName="imgurl" />
+          <ScalarProperty Name="startdate" ColumnName="startdate" />
+          <ScalarProperty Name="regdate" ColumnName="regdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHNItemOfTheDayLogs">
+      <EntityTypeMapping TypeName="GunzDBModel.NHNItemOfTheDayLog">
+        <MappingFragment StoreEntitySet="NHNItemOfTheDayLog">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="RentHourPeriod" ColumnName="RentHourPeriod" />
+          <ScalarProperty Name="Cash" ColumnName="Cash" />
+          <ScalarProperty Name="SenderUserID" ColumnName="SenderUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHNPurchaseLogs">
+      <EntityTypeMapping TypeName="GunzDBModel.NHNPurchaseLog">
+        <MappingFragment StoreEntitySet="NHNPurchaseLog">
+          <ScalarProperty Name="PID" ColumnName="PID" />
+          <ScalarProperty Name="PurchasedMonth" ColumnName="PurchasedMonth" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PurchasedId" ColumnName="PurchasedId" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="sid" ColumnName="sid" />
+          <ScalarProperty Name="gift" ColumnName="gift" />
+          <ScalarProperty Name="Regdate" ColumnName="Regdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHNRareItemShops">
+      <EntityTypeMapping TypeName="GunzDBModel.NHNRareItemShop">
+        <MappingFragment StoreEntitySet="NHNRareItemShop">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="itemids" ColumnName="itemids" />
+          <ScalarProperty Name="isset" ColumnName="isset" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ResSex" ColumnName="ResSex" />
+          <ScalarProperty Name="ResLevel" ColumnName="ResLevel" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="period" ColumnName="period" />
+          <ScalarProperty Name="imgurl" ColumnName="imgurl" />
+          <ScalarProperty Name="regdate" ColumnName="regdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHNRareItemShopLogs">
+      <EntityTypeMapping TypeName="GunzDBModel.NHNRareItemShopLog">
+        <MappingFragment StoreEntitySet="NHNRareItemShopLog">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="RentHourPeriod" ColumnName="RentHourPeriod" />
+          <ScalarProperty Name="Cash" ColumnName="Cash" />
+          <ScalarProperty Name="SenderUserID" ColumnName="SenderUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paypals">
+      <EntityTypeMapping TypeName="GunzDBModel.Paypal">
+        <MappingFragment StoreEntitySet="Paypal">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="PayerId" ColumnName="PayerId" />
+          <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="PaymentOptionId" ColumnName="PaymentOptionId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="DateCompleted" ColumnName="DateCompleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaypalPaymentOptions">
+      <EntityTypeMapping TypeName="GunzDBModel.PaypalPaymentOption">
+        <MappingFragment StoreEntitySet="PaypalPaymentOptions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Coins" ColumnName="Coins" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PenaltyLogs">
+      <EntityTypeMapping TypeName="GunzDBModel.PenaltyLog">
+        <MappingFragment StoreEntitySet="PenaltyLog">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="UGradeID" ColumnName="UGradeID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PremiumGrades">
+      <EntityTypeMapping TypeName="GunzDBModel.PremiumGrade">
+        <MappingFragment StoreEntitySet="PremiumGrade">
+          <ScalarProperty Name="PGradeID" ColumnName="PGradeID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseMethods">
+      <EntityTypeMapping TypeName="GunzDBModel.PurchaseMethod">
+        <MappingFragment StoreEntitySet="PurchaseMethod">
+          <ScalarProperty Name="PurchaseMethodID" ColumnName="PurchaseMethodID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuestGameLogs">
+      <EntityTypeMapping TypeName="GunzDBModel.QuestGameLog">
+        <MappingFragment StoreEntitySet="QuestGameLog">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="GameName" ColumnName="GameName" />
+          <ScalarProperty Name="Master" ColumnName="Master" />
+          <ScalarProperty Name="Player1" ColumnName="Player1" />
+          <ScalarProperty Name="Player2" ColumnName="Player2" />
+          <ScalarProperty Name="Player3" ColumnName="Player3" />
+          <ScalarProperty Name="TotalQItemCount" ColumnName="TotalQItemCount" />
+          <ScalarProperty Name="ScenarioID" ColumnName="ScenarioID" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuestItems">
+      <EntityTypeMapping TypeName="GunzDBModel.QuestItem">
+        <MappingFragment StoreEntitySet="QuestItem">
+          <ScalarProperty Name="QIID" ColumnName="QIID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="UniqueItem" ColumnName="UniqueItem" />
+          <ScalarProperty Name="Sacrifice" ColumnName="Sacrifice" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Param" ColumnName="Param" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QUniqueItemLogs">
+      <EntityTypeMapping TypeName="GunzDBModel.QUniqueItemLog">
+        <MappingFragment StoreEntitySet="QUniqueItemLog">
+          <ScalarProperty Name="QUILID" ColumnName="QUILID" />
+          <ScalarProperty Name="QGLID" ColumnName="QGLID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="QIID" ColumnName="QIID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RentCashSetShopPrices">
+      <EntityTypeMapping TypeName="GunzDBModel.RentCashSetShopPrice">
+        <MappingFragment StoreEntitySet="RentCashSetShopPrice">
+          <ScalarProperty Name="RCSSPID" ColumnName="RCSSPID" />
+          <ScalarProperty Name="CSSID" ColumnName="CSSID" />
+          <ScalarProperty Name="RentHourPeriod" ColumnName="RentHourPeriod" />
+          <ScalarProperty Name="CashPrice" ColumnName="CashPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RentCashShopPrices">
+      <EntityTypeMapping TypeName="GunzDBModel.RentCashShopPrice">
+        <MappingFragment StoreEntitySet="RentCashShopPrice">
+          <ScalarProperty Name="RCSPID" ColumnName="RCSPID" />
+          <ScalarProperty Name="CSID" ColumnName="CSID" />
+          <ScalarProperty Name="RentHourPeriod" ColumnName="RentHourPeriod" />
+          <ScalarProperty Name="CashPrice" ColumnName="CashPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RentPeriodDays">
+      <EntityTypeMapping TypeName="GunzDBModel.RentPeriodDay">
+        <MappingFragment StoreEntitySet="RentPeriodDay">
+          <ScalarProperty Name="Day" ColumnName="Day" />
+          <ScalarProperty Name="Hour" ColumnName="Hour" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RentTypes">
+      <EntityTypeMapping TypeName="GunzDBModel.RentType">
+        <MappingFragment StoreEntitySet="RentType">
+          <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServerLogStorages">
+      <EntityTypeMapping TypeName="GunzDBModel.ServerLogStorage">
+        <MappingFragment StoreEntitySet="ServerLogStorage">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ServerID" ColumnName="ServerID" />
+          <ScalarProperty Name="PlayerCount" ColumnName="PlayerCount" />
+          <ScalarProperty Name="GameCount" ColumnName="GameCount" />
+          <ScalarProperty Name="BlockCount" ColumnName="BlockCount" />
+          <ScalarProperty Name="NonBlockCount" ColumnName="NonBlockCount" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServerStatus">
+      <EntityTypeMapping TypeName="GunzDBModel.ServerStatu">
+        <MappingFragment StoreEntitySet="ServerStatus">
+          <ScalarProperty Name="ServerID" ColumnName="ServerID" />
+          <ScalarProperty Name="CurrPlayer" ColumnName="CurrPlayer" />
+          <ScalarProperty Name="MaxPlayer" ColumnName="MaxPlayer" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="IP" ColumnName="IP" />
+          <ScalarProperty Name="Port" ColumnName="Port" />
+          <ScalarProperty Name="ServerName" ColumnName="ServerName" />
+          <ScalarProperty Name="Opened" ColumnName="Opened" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="AgentIP" ColumnName="AgentIP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServerTypes">
+      <EntityTypeMapping TypeName="GunzDBModel.ServerType">
+        <MappingFragment StoreEntitySet="ServerType">
+          <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SleepAccountNHNs">
+      <EntityTypeMapping TypeName="GunzDBModel.SleepAccountNHN">
+        <MappingFragment StoreEntitySet="SleepAccountNHN">
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="RegDt" ColumnName="RegDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SleepAccountRestoredLogNHNs">
+      <EntityTypeMapping TypeName="GunzDBModel.SleepAccountRestoredLogNHN">
+        <MappingFragment StoreEntitySet="SleepAccountRestoredLogNHN">
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="RegDt" ColumnName="RegDt" />
+          <ScalarProperty Name="RestoredDt" ColumnName="RestoredDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SleepCharacterNHNs">
+      <EntityTypeMapping TypeName="GunzDBModel.SleepCharacterNHN">
+        <MappingFragment StoreEntitySet="SleepCharacterNHN">
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RegDt" ColumnName="RegDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SleepCharacterRestoredLogNHNs">
+      <EntityTypeMapping TypeName="GunzDBModel.SleepCharacterRestoredLogNHN">
+        <MappingFragment StoreEntitySet="SleepCharacterRestoredLogNHN">
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="OrginName" ColumnName="OrginName" />
+          <ScalarProperty Name="RestoreName" ColumnName="RestoreName" />
+          <ScalarProperty Name="RegDt" ColumnName="RegDt" />
+          <ScalarProperty Name="RestoredDt" ColumnName="RestoredDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurvivalCharacterInfoes">
+      <EntityTypeMapping TypeName="GunzDBModel.SurvivalCharacterInfo">
+        <MappingFragment StoreEntitySet="SurvivalCharacterInfo">
+          <ScalarProperty Name="SID" ColumnName="SID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="RP" ColumnName="RP" />
+          <ScalarProperty Name="RP_LatestTime" ColumnName="RP_LatestTime" />
+          <ScalarProperty Name="tmpRP" ColumnName="tmpRP" />
+          <ScalarProperty Name="RankRP" ColumnName="RankRP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurvivalCharacterInfoWebs">
+      <EntityTypeMapping TypeName="GunzDBModel.SurvivalCharacterInfoWeb">
+        <MappingFragment StoreEntitySet="SurvivalCharacterInfoWeb">
+          <ScalarProperty Name="RowNum" ColumnName="RowNum" />
+          <ScalarProperty Name="SID" ColumnName="SID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurvivalGameLogs">
+      <EntityTypeMapping TypeName="GunzDBModel.SurvivalGameLog">
+        <MappingFragment StoreEntitySet="SurvivalGameLog">
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="FinishTime" ColumnName="FinishTime" />
+          <ScalarProperty Name="Master_Player" ColumnName="Master_Player" />
+          <ScalarProperty Name="GainRP1" ColumnName="GainRP1" />
+          <ScalarProperty Name="Player2" ColumnName="Player2" />
+          <ScalarProperty Name="GainRP2" ColumnName="GainRP2" />
+          <ScalarProperty Name="Player3" ColumnName="Player3" />
+          <ScalarProperty Name="GainRP3" ColumnName="GainRP3" />
+          <ScalarProperty Name="Player4" ColumnName="Player4" />
+          <ScalarProperty Name="GainRP4" ColumnName="GainRP4" />
+          <ScalarProperty Name="GameName" ColumnName="GameName" />
+          <ScalarProperty Name="SID" ColumnName="SID" />
+          <ScalarProperty Name="TotalRound" ColumnName="TotalRound" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurvivalRankings">
+      <EntityTypeMapping TypeName="GunzDBModel.SurvivalRanking">
+        <MappingFragment StoreEntitySet="SurvivalRanking">
+          <ScalarProperty Name="SID" ColumnName="SID" />
+          <ScalarProperty Name="RP" ColumnName="RP" />
+          <ScalarProperty Name="Ranking" ColumnName="Ranking" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurvivalScenarioIDs">
+      <EntityTypeMapping TypeName="GunzDBModel.SurvivalScenarioID">
+        <MappingFragment StoreEntitySet="SurvivalScenarioID">
+          <ScalarProperty Name="SID" ColumnName="SID" />
+          <ScalarProperty Name="SName" ColumnName="SName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tmp_summerwave_newreg_event">
+      <EntityTypeMapping TypeName="GunzDBModel.tmp_summerwave_newreg_event">
+        <MappingFragment StoreEntitySet="tmp_summerwave_newreg_event">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="regdate" ColumnName="regdate" />
+          <ScalarProperty Name="jobdate" ColumnName="jobdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tmp_summerwave_raffle_event">
+      <EntityTypeMapping TypeName="GunzDBModel.tmp_summerwave_raffle_event">
+        <MappingFragment StoreEntitySet="tmp_summerwave_raffle_event">
+          <ScalarProperty Name="sdate" ColumnName="sdate" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="playtime" ColumnName="playtime" />
+          <ScalarProperty Name="gifttype" ColumnName="gifttype" />
+          <ScalarProperty Name="giftdate" ColumnName="giftdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TotalRankings">
+      <EntityTypeMapping TypeName="GunzDBModel.TotalRanking">
+        <MappingFragment StoreEntitySet="TotalRanking">
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="XP" ColumnName="XP" />
+          <ScalarProperty Name="KillCount" ColumnName="KillCount" />
+          <ScalarProperty Name="DeathCount" ColumnName="DeathCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserGrades">
+      <EntityTypeMapping TypeName="GunzDBModel.UserGrade">
+        <MappingFragment StoreEntitySet="UserGrade">
+          <ScalarProperty Name="UGradeID" ColumnName="UGradeID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UVs">
+      <EntityTypeMapping TypeName="GunzDBModel.UV">
+        <MappingFragment StoreEntitySet="UV">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CashSetItemDetails">
+      <EntityTypeMapping TypeName="GunzDBModel.CashSetItemDetail">
+        <MappingFragment StoreEntitySet="CashSetItemDetail">
+          <ScalarProperty Name="CSSID" ColumnName="CSSID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Lang" ColumnName="Lang" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CashShopNewItems">
+      <EntityTypeMapping TypeName="GunzDBModel.CashShopNewItem">
+        <MappingFragment StoreEntitySet="CashShopNewItem">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="NewOrder" ColumnName="NewOrder" />
+          <ScalarProperty Name="IsSetItem" ColumnName="IsSetItem" />
+          <ScalarProperty Name="CSID" ColumnName="CSID" />
+          <ScalarProperty Name="CSSID" ColumnName="CSSID" />
+          <ScalarProperty Name="Slot" ColumnName="Slot" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ResSex" ColumnName="ResSex" />
+          <ScalarProperty Name="ResLevel" ColumnName="ResLevel" />
+          <ScalarProperty Name="CashPrice" ColumnName="CashPrice" />
+          <ScalarProperty Name="WebImgName" ColumnName="WebImgName" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CharacterBattleTimeRewardLogs">
+      <EntityTypeMapping TypeName="GunzDBModel.CharacterBattleTimeRewardLog">
+        <MappingFragment StoreEntitySet="CharacterBattleTimeRewardLog">
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="BRID" ColumnName="BRID" />
+          <ScalarProperty Name="BRTID" ColumnName="BRTID" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="BattleTime" ColumnName="BattleTime" />
+          <ScalarProperty Name="KillCount" ColumnName="KillCount" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="ItemCnt" ColumnName="ItemCnt" />
+          <ScalarProperty Name="RentHourPeriod" ColumnName="RentHourPeriod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CharacterMakingLogs">
+      <EntityTypeMapping TypeName="GunzDBModel.CharacterMakingLog">
+        <MappingFragment StoreEntitySet="CharacterMakingLog">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="CharName" ColumnName="CharName" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomIPs">
+      <EntityTypeMapping TypeName="GunzDBModel.CustomIP">
+        <MappingFragment StoreEntitySet="CustomIP">
+          <ScalarProperty Name="IPFrom" ColumnName="IPFrom" />
+          <ScalarProperty Name="IPTo" ColumnName="IPTo" />
+          <ScalarProperty Name="IsBlock" ColumnName="IsBlock" />
+          <ScalarProperty Name="CountryCode3" ColumnName="CountryCode3" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="GunzDBModel.Event">
+        <MappingFragment StoreEntitySet="Event">
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="Checked" ColumnName="Checked" />
+          <ScalarProperty Name="EventName" ColumnName="EventName" />
+          <ScalarProperty Name="SubDescription" ColumnName="SubDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Event_CharacterItem_Halloween">
+      <EntityTypeMapping TypeName="GunzDBModel.Event_CharacterItem_Halloween">
+        <MappingFragment StoreEntitySet="Event_CharacterItem_Halloween">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Trick" ColumnName="Trick" />
+          <ScalarProperty Name="Treat" ColumnName="Treat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Event_ClanPointRanking">
+      <EntityTypeMapping TypeName="GunzDBModel.Event_ClanPointRanking">
+        <MappingFragment StoreEntitySet="Event_ClanPointRanking">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="CLID" ColumnName="CLID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GameLogs">
+      <EntityTypeMapping TypeName="GunzDBModel.GameLog">
+        <MappingFragment StoreEntitySet="GameLog">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="GameName" ColumnName="GameName" />
+          <ScalarProperty Name="MasterCID" ColumnName="MasterCID" />
+          <ScalarProperty Name="Map" ColumnName="Map" />
+          <ScalarProperty Name="GameType" ColumnName="GameType" />
+          <ScalarProperty Name="Round" ColumnName="Round" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="PlayerCount" ColumnName="PlayerCount" />
+          <ScalarProperty Name="Players" ColumnName="Players" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ipto_back">
+      <EntityTypeMapping TypeName="GunzDBModel.ipto_back">
+        <MappingFragment StoreEntitySet="ipto_back">
+          <ScalarProperty Name="IPFrom" ColumnName="IPFrom" />
+          <ScalarProperty Name="IPTo" ColumnName="IPTo" />
+          <ScalarProperty Name="CountryCode2" ColumnName="CountryCode2" />
+          <ScalarProperty Name="CountryCode3" ColumnName="CountryCode3" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="GunzDBModel.Item">
+        <MappingFragment StoreEntitySet="Item">
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TotalPoint" ColumnName="TotalPoint" />
+          <ScalarProperty Name="ResSex" ColumnName="ResSex" />
+          <ScalarProperty Name="ResRace" ColumnName="ResRace" />
+          <ScalarProperty Name="ResLevel" ColumnName="ResLevel" />
+          <ScalarProperty Name="Slot" ColumnName="Slot" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="BountyPrice" ColumnName="BountyPrice" />
+          <ScalarProperty Name="Damage" ColumnName="Damage" />
+          <ScalarProperty Name="Delay" ColumnName="Delay" />
+          <ScalarProperty Name="EffectID" ColumnName="EffectID" />
+          <ScalarProperty Name="Controllability" ColumnName="Controllability" />
+          <ScalarProperty Name="Magazine" ColumnName="Magazine" />
+          <ScalarProperty Name="ReloadTime" ColumnName="ReloadTime" />
+          <ScalarProperty Name="SlugOutput" ColumnName="SlugOutput" />
+          <ScalarProperty Name="Gadget" ColumnName="Gadget" />
+          <ScalarProperty Name="HP" ColumnName="HP" />
+          <ScalarProperty Name="AP" ColumnName="AP" />
+          <ScalarProperty Name="MAXWT" ColumnName="MAXWT" />
+          <ScalarProperty Name="SF" ColumnName="SF" />
+          <ScalarProperty Name="FR" ColumnName="FR" />
+          <ScalarProperty Name="CR" ColumnName="CR" />
+          <ScalarProperty Name="PR" ColumnName="PR" />
+          <ScalarProperty Name="LR" ColumnName="LR" />
+          <ScalarProperty Name="BlendColor" ColumnName="BlendColor" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="MaxBullet" ColumnName="MaxBullet" />
+          <ScalarProperty Name="LimitSpeed" ColumnName="LimitSpeed" />
+          <ScalarProperty Name="IsCashItem" ColumnName="IsCashItem" />
+          <ScalarProperty Name="IsSpendableItem" ColumnName="IsSpendableItem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemChangeLog_CharacterItem">
+      <EntityTypeMapping TypeName="GunzDBModel.ItemChangeLog_CharacterItem">
+        <MappingFragment StoreEntitySet="ItemChangeLog_CharacterItem">
+          <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+          <ScalarProperty Name="ChangeType" ColumnName="ChangeType" />
+          <ScalarProperty Name="LogID" ColumnName="LogID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="CIID" ColumnName="CIID" />
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="AIID" ColumnName="AIID" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemDetails">
+      <EntityTypeMapping TypeName="GunzDBModel.ItemDetail">
+        <MappingFragment StoreEntitySet="ItemDetail">
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Lang" ColumnName="Lang" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemPurchaseLogByBounties">
+      <EntityTypeMapping TypeName="GunzDBModel.ItemPurchaseLogByBounty">
+        <MappingFragment StoreEntitySet="ItemPurchaseLogByBounty">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Bounty" ColumnName="Bounty" />
+          <ScalarProperty Name="CharBounty" ColumnName="CharBounty" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemPurchaseLogByCashes">
+      <EntityTypeMapping TypeName="GunzDBModel.ItemPurchaseLogByCash">
+        <MappingFragment StoreEntitySet="ItemPurchaseLogByCash">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Cash" ColumnName="Cash" />
+          <ScalarProperty Name="RentHourPeriod" ColumnName="RentHourPeriod" />
+          <ScalarProperty Name="MobileCode" ColumnName="MobileCode" />
+          <ScalarProperty Name="sid" ColumnName="sid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHNLuckyBoxCoupons">
+      <EntityTypeMapping TypeName="GunzDBModel.NHNLuckyBoxCoupon">
+        <MappingFragment StoreEntitySet="NHNLuckyBoxCoupon">
+          <ScalarProperty Name="BoxCID" ColumnName="BoxCID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="BoxCategory" ColumnName="BoxCategory" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BoxID" ColumnName="BoxID" />
+          <ScalarProperty Name="sid" ColumnName="sid" />
+          <ScalarProperty Name="Regdate" ColumnName="Regdate" />
+          <ScalarProperty Name="Opendate" ColumnName="Opendate" />
+          <ScalarProperty Name="Expiredate" ColumnName="Expiredate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHNLuckyBoxInventories">
+      <EntityTypeMapping TypeName="GunzDBModel.NHNLuckyBoxInventory">
+        <MappingFragment StoreEntitySet="NHNLuckyBoxInventory">
+          <ScalarProperty Name="BoxIID" ColumnName="BoxIID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="BoxID" ColumnName="BoxID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BoxRID" ColumnName="BoxRID" />
+          <ScalarProperty Name="RefundPrice" ColumnName="RefundPrice" />
+          <ScalarProperty Name="sid" ColumnName="sid" />
+          <ScalarProperty Name="Sender" ColumnName="Sender" />
+          <ScalarProperty Name="Regdate" ColumnName="Regdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHNLuckyBoxItems">
+      <EntityTypeMapping TypeName="GunzDBModel.NHNLuckyBoxItem">
+        <MappingFragment StoreEntitySet="NHNLuckyBoxItem">
+          <ScalarProperty Name="BoxID" ColumnName="BoxID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="webimgname" ColumnName="webimgname" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="RefundPrice" ColumnName="RefundPrice" />
+          <ScalarProperty Name="ResSex" ColumnName="ResSex" />
+          <ScalarProperty Name="ResLevel" ColumnName="ResLevel" />
+          <ScalarProperty Name="Opened" ColumnName="Opened" />
+          <ScalarProperty Name="displayorder" ColumnName="displayorder" />
+          <ScalarProperty Name="Regdate" ColumnName="Regdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHNLuckyBoxRewardItems">
+      <EntityTypeMapping TypeName="GunzDBModel.NHNLuckyBoxRewardItem">
+        <MappingFragment StoreEntitySet="NHNLuckyBoxRewardItem">
+          <ScalarProperty Name="BoxRID" ColumnName="BoxRID" />
+          <ScalarProperty Name="BoxID" ColumnName="BoxID" />
+          <ScalarProperty Name="ItemIDs" ColumnName="ItemIDs" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="RentHourPeriod" ColumnName="RentHourPeriod" />
+          <ScalarProperty Name="RatePerThousand" ColumnName="RatePerThousand" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlayerLogs">
+      <EntityTypeMapping TypeName="GunzDBModel.PlayerLog">
+        <MappingFragment StoreEntitySet="PlayerLog">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="DisTime" ColumnName="DisTime" />
+          <ScalarProperty Name="PlayTime" ColumnName="PlayTime" />
+          <ScalarProperty Name="Kills" ColumnName="Kills" />
+          <ScalarProperty Name="Deaths" ColumnName="Deaths" />
+          <ScalarProperty Name="XP" ColumnName="XP" />
+          <ScalarProperty Name="TotalXP" ColumnName="TotalXP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServerLogs">
+      <EntityTypeMapping TypeName="GunzDBModel.ServerLog">
+        <MappingFragment StoreEntitySet="ServerLog">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ServerID" ColumnName="ServerID" />
+          <ScalarProperty Name="PlayerCount" ColumnName="PlayerCount" />
+          <ScalarProperty Name="GameCount" ColumnName="GameCount" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="BlockCount" ColumnName="BlockCount" />
+          <ScalarProperty Name="NonBlockCount" ColumnName="NonBlockCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SetItemPurchaseLogByCashes">
+      <EntityTypeMapping TypeName="GunzDBModel.SetItemPurchaseLogByCash">
+        <MappingFragment StoreEntitySet="SetItemPurchaseLogByCash">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="CSSID" ColumnName="CSSID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Cash" ColumnName="Cash" />
+          <ScalarProperty Name="RentHourPeriod" ColumnName="RentHourPeriod" />
+          <ScalarProperty Name="MobileCode" ColumnName="MobileCode" />
+          <ScalarProperty Name="sid" ColumnName="sid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tmp_stampevent">
+      <EntityTypeMapping TypeName="GunzDBModel.tmp_stampevent">
+        <MappingFragment StoreEntitySet="tmp_stampevent">
+          <ScalarProperty Name="sdate" ColumnName="sdate" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PlayTime" ColumnName="PlayTime" />
+          <ScalarProperty Name="GiftDate" ColumnName="GiftDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemRotations">
+      <EntityTypeMapping TypeName="GunzDBModel.ItemRotation">
+        <MappingFragment StoreEntitySet="ItemRotation">
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
